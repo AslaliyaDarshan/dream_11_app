@@ -1,5 +1,3 @@
-import 'package:dream_11_app/src/onboarding_screen/loginScreen/changePasswordScreen.dart';
-import 'package:dream_11_app/src/onboarding_screen/loginScreen/forgotPasswordScreen.dart';
 import 'package:dream_11_app/src/onboarding_screen/loginScreen/singUpScreen.dart';
 import 'package:dream_11_app/src/onboarding_screen/loginScreen/term&conditionScreen.dart';
 import 'package:dream_11_app/src/user/aadhar_card/aadhar_card.dart';
@@ -29,65 +27,62 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
+        height: hsize*1,
+        width:  wsize*1,
         decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(AssetUtilities.onBoardingBackGroundImage),
                 fit: BoxFit.fill)),
         child: Padding(
-          padding: const EdgeInsets.only(left: 14, right: 14),
+          padding: EdgeInsets.only(left: wsize*0.03, right: wsize*0.03),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const SizedBox(
-                  height: 25,
+                 SizedBox(
+                  height: hsize*0.04,
                 ),
                 Image.asset(
                   AssetUtilities.cricketSwitchLogo,
-                  height: 160,
-                  width: 160,
+                  height:hsize*0.2,
+                  width: wsize*0.4,
                 ),
-                const Text(
+                const AutoSizeText(
                   'LOGIN',
                   style: TextStyle(fontSize: 16,fontFamily: "Imprima"),
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 0, right: 0),
-                  child: Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        loginSignUpButton(context, AssetUtilities.facebook,
-                            "Facebook", () {}),
-                         SizedBox(
-                          width: wsize*0.06,
-                        ),
-                        loginSignUpButton(
-                            context, AssetUtilities.google, "Google", () {})
-                      ],
-                    ),
-                  ),
                 ),
                  SizedBox(
                   height: hsize*0.04,
                 ),
-                const Text("Or"),
+                Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      loginSignUpButton(context, AssetUtilities.facebook,
+                          "Facebook", () {}),
+                       SizedBox(
+                        width: wsize*0.06,
+                      ),
+                      loginSignUpButton(
+                          context, AssetUtilities.google, "Google", () {})
+                    ],
+                  ),
+                ),
                  SizedBox(
                   height: hsize*0.03,
+                ),
+                const AutoSizeText("OR"),
+                 SizedBox(
+                  height: hsize*0.015,
                 ),
                 Column(
                  // mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                      Padding(
-                      padding: EdgeInsets.only(left: 15, bottom: 10),
+                      padding: EdgeInsets.only(left: wsize*0.032, bottom: hsize*0.015),
                       child: AutoSizeText(
                         "Email",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: 16,fontFamily: "Imprima"),
                       ),
                     ),
                     customTextFormField(emailController,context, 'Enter your email'),
@@ -95,10 +90,10 @@ class _LoginPageState extends State<LoginPage> {
                       height: hsize*0.02,
                     ),
                      Padding(
-                      padding: EdgeInsets.only(left: 15, bottom: 10),
+                      padding: EdgeInsets.only(left: wsize*0.032, bottom: hsize*0.015),
                       child: AutoSizeText(
                         "Password",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: 16,fontFamily: "Imprima"),
                       ),
                     ),
                     customTextFormField(
@@ -110,76 +105,71 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(right: 18),
-                          child: GestureDetector(
+                          padding:  EdgeInsets.only(right: wsize*0.03),
+                          child: InkWell(
                             onTap: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return const ForGotPasswordScreen();
-                              }));
+                             // Navigator.push(context, MaterialPageRoute(builder: (context) {return const ForGotPasswordScreen();}));
                             },
-                            child:  Text(
+                            child:  AutoSizeText(
                               Strings.forgotPasswordText,
-                              style: TextStyle(
+                              style: TextStyle(fontFamily: "Imprima",
                                   color: Color.fromRGBO(0, 0, 0, 0.6)),
                             ),
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 23,
+                     SizedBox(
+                      height: hsize*0.03,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
                           AssetUtilities.eighteenPlus,
-                          height: 18,
-                          width: 18,
+                          height: hsize*0.03,
+                          width: hsize*0.03,
                         ),
-                        const SizedBox(
-                          width: 10,
+                         SizedBox(
+                          width: wsize*0.035,
                         ),
                         Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          //mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
+                            const AutoSizeText(
                               Strings.conditionText,
-                              style: TextStyle(
+                              style: TextStyle(fontFamily: "Imprima",
                                   color: Color.fromRGBO(0, 0, 0, 0.6),
                                   fontSize: 10),
                             ),
-                            GestureDetector(
+                            InkWell(
                                 onTap: () {
                                   Get.to(TermConditionScreen());
                                 },
                                 child: Row(children: [
-                                  const Text(
+                                  const AutoSizeText(
                                     'T&C',
-                                    style: TextStyle(
+                                    style: TextStyle(fontFamily: "Imprima",
                                         color: Color.fromRGBO(255, 0, 0, 0.6),
                                         fontSize: 10),
                                   ),
-                                  const Text(
+                                  const AutoSizeText(
                                     ' &',
-                                    style: TextStyle(
+                                    style: TextStyle(fontFamily: "Imprima",
                                         color: Color.fromRGBO(0, 0, 0, 0.6),
                                         fontSize: 10),
                                   ),
                                   GestureDetector(
                                     onTap: () {
-                                      Navigator.push(context,
-                                          MaterialPageRoute(builder: (context) {
-                                        return const TermConditionScreen();
-                                      }));
+                                      Get.offAll(TermConditionScreen());
+                                      //Navigator.push(context, MaterialPageRoute(builder: (context) {return const TermConditionScreen();}));
                                     },
                                     child: Row(
                                       children: const [
-                                        Text(
+                                        AutoSizeText(
                                           ' Privacy Policy',
-                                          style: TextStyle(
+                                          style: TextStyle(fontFamily: "Imprima",
                                               color: Color.fromRGBO(
                                                   255, 0, 0, 0.6),
                                               fontSize: 10),
@@ -187,40 +177,40 @@ class _LoginPageState extends State<LoginPage> {
                                       ],
                                     ),
                                   )
-                                ]))
+                                ])),
                           ],
                         )
                       ],
                     ),
                      SizedBox(
-                      height:hsize*0.05,
+                      height:hsize*0.03,
                     ),
                     Center(
-                        child: GestureDetector(
+                        child: InkWell(
                             onTap: () {
-                              Navigator.pushAndRemoveUntil(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return const AadharCard();
-                              }), (route) => false);
+                              Get.offAll(AadharCard());
+                             // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) {return const AadharCard();}), (route) => false);
                             },
                             child: innerShadowButtonWidget("Login",context,height: 0.04,width: 0.6))),
-                    const SizedBox(
-                      height: 10,
+                     SizedBox(
+                      height: hsize*0.04,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text(
+                        const AutoSizeText(
                           "Don't have account?",
-                          style: TextStyle(fontSize: 10),
+                          style: TextStyle(fontSize: 10,fontFamily: "Imprima"),
                         ),
                         GestureDetector(
                           onTap: () {
                             Get.to(SingUpScreen());
                           },
-                          child: const Text(
+                          child: AutoSizeText(
                             'Sign Up',
                             style: TextStyle(
+                                fontFamily: "Imprima",
+                              fontWeight: FontWeight.bold,
                                 color: Color.fromRGBO(51, 0, 255, 1),
                                 fontSize: 10),
                           ),

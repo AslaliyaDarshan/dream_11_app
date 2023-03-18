@@ -1,6 +1,7 @@
 import 'package:dream_11_app/src/onboarding_screen/loginScreen/loginScreen.dart';
 import 'package:dream_11_app/utility/assets/srings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
@@ -81,7 +82,6 @@ Widget innerShadowButtonWidget(String text, BuildContext context,{ double ?heigh
               color: Color.fromRGBO(54, 130, 54, 1),
               spreadRadius: 5),
         ]),
-    // width: double.infinity,
     child: Center(
       child: Text(
         text,
@@ -110,32 +110,29 @@ Widget innerShadowButtonWidget(String text, BuildContext context,{ double ?heigh
 //       ));
 // }
 
-Widget customButton(String text, {double radius = 0}) {
+Widget customButton(String text, BuildContext context,{double?height,double?width,double radius = 0}) {
+late double hsize = MediaQuery.of(context).size.height;
+late double wsize = MediaQuery.of(context).size.width;
   return Container(
-      decoration: BoxDecoration(
-          color: const Color.fromRGBO(54, 130, 54, 1),
-          borderRadius: BorderRadius.all(Radius.circular(radius))),
-      padding: const EdgeInsets.all(10),
-      child: Container(
-        height: 26, width: 127,
-        padding: const EdgeInsets.only(right: 4, left: 4, top: 6, bottom: 6),
-        decoration: const BoxDecoration(
-            color: Color.fromRGBO(54, 130, 54, 1),
-            borderRadius: BorderRadius.all(Radius.circular(0)),
-            boxShadow: [
-              BoxShadow(
-                  color: Color.fromRGBO(54, 130, 54, 1),
-                  blurRadius: 5,
-                  spreadRadius: 5)
-            ]),
-        // width: double.infinity,
-        child: Center(
-          child: Text(
-            text,
-            style: const TextStyle(color: Colors.white,fontFamily: "Imprima"),
-          ),
-        ),
-      ));
+       height: hsize*height!,
+       width: wsize*width!,
+    padding: const EdgeInsets.only(right: 4, left: 4, top: 6, bottom: 6),
+    decoration: const BoxDecoration(
+        color: Color.fromRGBO(54, 130, 54, 1),
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+        boxShadow: [
+          BoxShadow(
+              color: Color.fromRGBO(54, 130, 54, 1),
+              spreadRadius: 5)
+        ]),
+    // width: double.infinity,
+    child: Center(
+      child: Text(
+        text,
+        style: const TextStyle(color: Colors.white,fontFamily: "Imprima"),
+      ),
+    ),
+  );
 }
 
 Widget loginSignUpButton(
@@ -148,7 +145,8 @@ Widget loginSignUpButton(
             borderRadius: BorderRadius.all(Radius.circular(30))),
         padding: const EdgeInsets.all(10),
         child: Container(
-          height: 26, width: 135,
+          height: 26,
+          width: 135,
           padding: EdgeInsets.zero,
           decoration: const BoxDecoration(
               color: Color.fromRGBO(217, 217, 217, 1),
@@ -199,6 +197,9 @@ Widget customTextFormField(TextEditingController controller,BuildContext context
       padding:  EdgeInsets.only(top: hsize*0.01),
       child: TextFormField(
         controller: controller,
+        inputFormatters: [
+          LengthLimitingTextInputFormatter(30),
+        ],
         decoration: InputDecoration(
           filled: true,
           hintText: hintText,

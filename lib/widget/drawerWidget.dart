@@ -12,6 +12,8 @@ import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class DrawerWidger extends StatefulWidget {
   const DrawerWidger({super.key});
@@ -33,161 +35,147 @@ class _DrawerWidgerState extends State<DrawerWidger> {
   ];
   @override
   Widget build(BuildContext context) {
+    late double hsize = MediaQuery.of(context).size.height;
+    late double wsize = MediaQuery.of(context).size.width;
     return Drawer(
       backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
       child: SafeArea(
         child: Column(
           children: [
-            const SizedBox(
-              height: 54,
+             SizedBox(
+              height: hsize*0.05,
             ),
             Image.asset(
               AssetUtilities.person,
-              height: 80,
-              width: 80,
+              height: hsize*0.1,
+              width: hsize*0.1,
             ),
-            const SizedBox(
-              height: 14,
+             SizedBox(
+              height: hsize*0.015,
             ),
-            const Text(
+            const AutoSizeText(
               "David Moreno",
               style: TextStyle(
                   color: Color.fromRGBO(255, 255, 255, 1), fontSize: 16),
             ),
-            const SizedBox(
-              height: 3,
+             SizedBox(
+              height: hsize*0.0035,
             ),
-            GestureDetector(
+            InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const UpdateProfileScreen();
-                }));
+                Get.to(UpdateProfileScreen());
+                //Navigator.push(context, MaterialPageRoute(builder: (context) {return const UpdateProfileScreen();}));
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
+                  const AutoSizeText(
                     "View Profile",
                     style: TextStyle(
                         color: Color.fromRGBO(255, 255, 255, 1), fontSize: 12),
                   ),
-                  GestureDetector(
-                      onTap: () {},
-                      child: const Icon(
-                        Icons.airline_stops_sharp,
-                        color: Colors.white,
-                        size: 15,
-                      )),
+                   Icon(
+                    Icons.airline_stops_sharp,
+                    color: Colors.white,
+                    size: wsize*0.04,
+                  ),
                 ],
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 17, right: 17, top: 10),
               child: Container(
-                height: 62,
+                height: hsize*0.07,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10)),
                 child: Row(
+                  mainAxisAlignment:MainAxisAlignment.spaceBetween ,
                   children: [
-                    const SizedBox(
-                      width: 15,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return AddCashScreen();
-                        }));
-                      },
-                      child: Container(
-                        height: 30,
-                        width: 88,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.black)),
-                        child: Row(
-                          children: const [
-                            Icon(Icons.wallet),
-                            Text(
-                              "Add Cash",
-                              style: TextStyle(fontSize: 14),
-                            )
-                          ],
+                    Padding(
+                      padding:  EdgeInsets.only(left: wsize*0.03),
+                      child: GestureDetector(
+                        onTap: () {
+                          Get.to(AddCashScreen());
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) {return AddCashScreen();}));
+                        },
+                        child: Container(
+                          height: hsize*0.04,
+                          width: wsize*0.26,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: Colors.black)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: const [
+                              Icon(Icons.wallet),
+                              AutoSizeText("Add Cash", style: TextStyle(fontSize: 14),),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                    const Spacer(),
-                    Expanded(
-                        child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Text(
-                          "₹500.00",
-                          style: TextStyle(fontSize: 16, color: Colors.grey),
-                        ),
-                        Text(
-                          "Total Balance",
-                          style: TextStyle(
-                              fontSize: 12, fontWeight: FontWeight.w500),
-                        ),
-                      ],
-                    )),
-                    const SizedBox(
-                      width: 5,
+                    Padding(
+                      padding:  EdgeInsets.only(right: wsize*0.03),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                      AutoSizeText(
+                        "₹500.00",
+                        style: TextStyle(fontSize: 16, color: Colors.black,fontWeight: FontWeight.bold),
+                      ),
+                      AutoSizeText(
+                        maxLines: 1,
+                        "Total Balance",
+                        minFontSize: 12,
+                        style: TextStyle(
+                            fontSize: 12, fontWeight: FontWeight.w500),
+                      ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
             ),
-            const SizedBox(height: 12),
+             SizedBox(height:hsize*0.016),
             Container(
-              height: 28,
-              width: 115,
+              height: hsize*0.034,
+              width: wsize*0.33,
               decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
+                border: Border.all(width: 2,color: Colors.white),
+                borderRadius: BorderRadius.circular(13),
               ),
               child: Center(
-                  child: Container(
-                height: 25,
-                width: 112,
-                decoration: BoxDecoration(
-                  color: const Color.fromRGBO(54, 130, 54, 1),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                  child: Container(
-                    height: 20,
-                    width: 108,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
+                  child: Center(
+                    child: Container(
+                      height: hsize*0.025,
+                      width: wsize*0.31,
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 2,color: Colors.white),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+
+                          Image.asset(
+                            AssetUtilities.pictureIcon,
+                            height: 14,
+                            width: 16,
+                          ),
+
+                          const AutoSizeText(
+                            "Withdraw Cash",
+                            style: TextStyle(fontSize: 10),
+                          )
+                        ],
+                      ),
                     ),
-                    child: Row(
-                      children: [
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Image.asset(
-                          AssetUtilities.pictureIcon,
-                          height: 14,
-                          width: 16,
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        const Text(
-                          "Withdraw Cash",
-                          style: TextStyle(fontSize: 10),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              )),
+                  )),
             ),
             const SizedBox(
               height: 12,
@@ -201,65 +189,50 @@ class _DrawerWidgerState extends State<DrawerWidger> {
                     GestureDetector(
                       onTap: () {
                         if (index == 7) {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return const MoreScreen();
-                          }));
+                          Get.to(MoreScreen());
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) {return const MoreScreen();}));
                         } else if (index == 0) {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return const MyAccountScreen();
-                          }));
+                          Get.to(MyAccountScreen());
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) {return const MyAccountScreen();}));
                         } else if (index == 1) {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return const ReferScreen();
-                          }));
+                          Get.to(ReferScreen());
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) {return const ReferScreen();}));
                         } else if (index == 5) {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return const PromoteAppScreen();
-                          }));
+                          Get.to(PromoteAppScreen());
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) {return const PromoteAppScreen();}));
                         } else if (index == 4) {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return SupportScreen();
-                          }));
+                          Get.to(SupportScreen());
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) {return SupportScreen();}));
                         } else if (index == 6) {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return const PrivacyPolicy();
-                          }));
+                          Get.to(PrivacyPolicy());
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) {return const PrivacyPolicy();}));
                         } else if (index == 2) {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return OfferScreen();
-                          }));
+                          Get.to(OfferScreen());
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) {return OfferScreen();}));
                         }
                       },
                       child: Row(
                         children: [
-                          const SizedBox(
-                            width: 20,
+                           SizedBox(
+                            width: wsize*0.06,
                           ),
                           Image.asset(
                             drawerList[index].icon,
-                            height: 20,
-                            width: 20,
+                            height: hsize*0.029,
+                            width: hsize*0.029,
                           ),
-                          const SizedBox(
-                            width: 30,
+                           SizedBox(
+                            width: wsize*0.08,
                           ),
-                          Text(
+                          AutoSizeText(
                             drawerList[index].text,
-                            style: const TextStyle(
-                                color: Colors.white, fontSize: 15),
+                            style: const TextStyle(color: Colors.white, fontSize: 18),
                           ),
                           const Spacer(),
                           index == 1
                               ? Container(
-                                  height: 15,
-                                  width: 51,
+                                  height: hsize*0.022,
+                                  width: wsize*0.15,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(5),
@@ -269,89 +242,70 @@ class _DrawerWidgerState extends State<DrawerWidger> {
                                   ),
                                 )
                               : Container(),
-                          const SizedBox(
-                            width: 12,
+                           SizedBox(
+                            width: wsize*0.035,
                           ),
                         ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 16,
+                     SizedBox(
+                      height: hsize*0.025,
                     )
                   ],
                 );
               },
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 22.0, right: 22, top: 50),
+              padding:  EdgeInsets.only(top: hsize*0.01,bottom: hsize*0.025),
               child: Container(
-                height: 42,
-                width: MediaQuery.of(context).size.width,
+                height: hsize*0.05,
+                width: MediaQuery.of(context).size.width*0.7,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Image.asset(
-                      AssetUtilities.facebook1,
-                      height: 33,
-                      width: 33,
-                    ),
-                    Image.asset(
-                      AssetUtilities.youtube,
-                      height: 33,
-                      width: 33,
-                    ),
-                    Image.asset(
-                      AssetUtilities.instgram,
-                      height: 33,
-                      width: 33,
-                    ),
-                    Image.asset(
-                      AssetUtilities.twitter,
-                      height: 33,
-                      width: 33,
-                    ),
-                    Image.asset(
-                      AssetUtilities.telegram,
-                      height: 33,
-                      width: 33,
-                    ),
+                    Sos(AssetUtilities.facebook1),
+                    Sos(AssetUtilities.youtube),
+                    Sos(AssetUtilities.instgram),
+                    Sos(AssetUtilities.twitter),
+                    Sos(AssetUtilities.telegram),
                   ],
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
             Container(
-              height: 24,
-              width: 107,
+              height: hsize*0.033,
+              width: wsize*0.3,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
                   color: const Color.fromRGBO(225, 225, 225, 1)),
               child:
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
                 Image.asset(
                   AssetUtilities.logOut,
-                  height: 20,
-                  width: 17,
+                  height: hsize*0.025,
+                  width: hsize*0.025,
                 ),
-                const SizedBox(
-                  width: 6,
-                ),
-                const Center(
-                  child: Text(
-                    "Logout",
-                    style: TextStyle(color: Colors.red),
-                  ),
+                AutoSizeText(
+                  "Logout",
+                  style: TextStyle(color: Colors.red),
                 )
               ]),
             ),
           ],
         ),
       ),
+    );
+  }
+  Widget Sos(String image1){
+    return  Image.asset(
+      image1,
+      height: MediaQuery.of(context).size.height*0.04,
+      width: MediaQuery.of(context).size.height*0.04,
     );
   }
 }

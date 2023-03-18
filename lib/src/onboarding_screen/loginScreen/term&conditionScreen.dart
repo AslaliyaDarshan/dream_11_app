@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
+import 'package:dream_11_app/src/onboarding_screen/loginScreen/loginScreen.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class TermConditionScreen extends StatefulWidget {
   const TermConditionScreen({super.key});
@@ -11,128 +14,133 @@ class TermConditionScreen extends StatefulWidget {
 }
 
 class _TermConditionScreenState extends State<TermConditionScreen> {
+  late double hsize = MediaQuery.of(context).size.height;
+  late double wsize = MediaQuery.of(context).size.width;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(children: [
         Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
+          height: hsize*1,
+          width: wsize*1,
           decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage(AssetUtilities.onBoardingBackGroundImage),
                   fit: BoxFit.fill)),
           child: Center(
             child: Container(
-              padding: const EdgeInsets.only(top: 30),
-              height: MediaQuery.of(context).size.height / 1.2,
-              width: MediaQuery.of(context).size.width / 1.2,
+              padding:  EdgeInsets.only(top: hsize*0.03),
+              height: hsize*0.8,
+              width:  wsize*0.8,
               color: Colors.white,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(left: 13),
-                    child: Text(
+                   Padding(
+                    padding: EdgeInsets.only(left: wsize*0.04),
+                    child: AutoSizeText(
                       "Term of Servise",
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(fontSize: 20,fontFamily: "Imprima",
+                      ),
                     ),
                   ),
+                  SizedBox(
+                    height: hsize*0.02,
+                  ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 180.0),
+                    padding:  EdgeInsets.only(left: wsize*0.4),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: const [
-                              Text(
-                                "Version -",
-                                style: TextStyle(
-                                    fontSize: 10,
-                                    color: Color.fromRGBO(20, 27, 73, 1)),
-                              ),
-                              Text(
-                                "2022-02",
-                                style: TextStyle(
-                                    fontSize: 10,
-                                    color: Color.fromRGBO(138, 140, 159, 1)),
-                              ),
-                            ],
-                          ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: const [
+                            AutoSizeText(
+                              "Version -",
+                              style: TextStyle(
+                                  fontFamily: "Imprima",
+                                  fontSize: 10,
+                                  color: Color.fromRGBO(20, 27, 73, 1)),
+                            ),
+                            AutoSizeText(
+                              "2022-02",
+                              style: TextStyle(
+                                  fontFamily: "Imprima",
+                                  fontSize: 10,
+                                  color: Color.fromRGBO(138, 140, 159, 1)),
+                            ),
+                          ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: const [
-                              Text(
-                                "Last Updated on",
-                                style: TextStyle(
-                                    fontSize: 10,
-                                    color: Color.fromRGBO(20, 27, 73, 1)),
-                              ),
-                              Text(
-                                "2022-02",
-                                style: TextStyle(
-                                    fontSize: 10,
-                                    color: Color.fromRGBO(138, 140, 159, 1)),
-                              ),
-                            ],
-                          ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: const [
+                            AutoSizeText(
+                              "Last Updated on",
+                              style: TextStyle(
+                                  fontFamily: "Imprima",
+                                  fontSize: 10,
+                                  color: Color.fromRGBO(20, 27, 73, 1)),
+                            ),
+                            AutoSizeText(
+                              "2022-02",
+                              style: TextStyle(
+                                  fontFamily: "Imprima",
+                                  fontSize: 10,
+                                  color: Color.fromRGBO(138, 140, 159, 1)),
+                            ),
+                          ],
                         ),
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
+                   SizedBox(
+                   height: hsize*0.03,
                   ),
                   Wrap(children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 15, right: 15),
-                      child: Text(
+                     Padding(
+                      padding: EdgeInsets.only(left: wsize*0.04, right: wsize*0.04),
+                      child: AutoSizeText(
                         "Play Games 24x7 Private Limited (hereinafter referred as “ Play Games 24x7” or “we”) offers online games including and not limited to rummy,",
-                        style: TextStyle(fontSize: 12),
+                        style: TextStyle(fontSize: 12,fontFamily: "Imprima",),
                       ),
                     ),
                   ]),
-                  const SizedBox(
-                    height: 10,
+                  SizedBox(
+                    height: hsize*0.02,
                   ),
                   Wrap(children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 15, right: 15),
-                      child: Text(
+                     Padding(
+                      padding: EdgeInsets.only(left: wsize*0.04, right: wsize*0.04),
+                      child: AutoSizeText(
                         "Play Games 24x7 Private Limited (hereinafter referred as “ Play Games 24x7” or “we”) offers online games including and not limited to rummy,",
-                        style: TextStyle(fontSize: 12),
+                        style: TextStyle(fontSize: 12,fontFamily: "Imprima",),
                       ),
                     ),
                   ]),
-                  const SizedBox(
-                    height: 10,
+                  SizedBox(
+                    height: hsize*0.02,
                   ),
                   Wrap(children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 15, right: 15),
-                      child: Text(
+                     Padding(
+                      padding: EdgeInsets.only(left: wsize*0.04, right: wsize*0.04),
+                      child: AutoSizeText(
                         "Play Games 24x7 Private Limited (hereinafter referred as “ Play Games 24x7” or “we”) offers online games including and not limited to rummy,",
-                        style: TextStyle(fontSize: 12),
+                        style: TextStyle(fontSize: 12,fontFamily: "Imprima",),
                       ),
                     ),
-                  ]),
+                   ],
+                  ),
                   Spacer(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 20, right: 10),
+                        padding: EdgeInsets.only(bottom: hsize*0.02, right: wsize*0.025),
                         child: Image.asset(
                           AssetUtilities.tcIcon,
-                          height: 12,
-                          width: 13,
+                          height: hsize*0.02,
+                          width: wsize*0.04,
                         ),
                       ),
                     ],
@@ -143,11 +151,12 @@ class _TermConditionScreenState extends State<TermConditionScreen> {
           ),
         ),
         Positioned(
-            top: 50,
-            right: 14,
+            top: hsize*0.07,
+            right: wsize*0.04,
             child: IconButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  Get.to(LoginPage());
+                  //Navigator.pop(context);
                 },
                 icon: const Icon(Icons.cancel_rounded))),
       ]),

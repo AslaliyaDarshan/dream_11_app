@@ -1,5 +1,7 @@
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 
 class AddCashScreen extends StatefulWidget {
   AddCashScreen({Key? key}) : super(key: key);
@@ -41,9 +43,7 @@ class _AddCashScreenState extends State<AddCashScreen> {
                   ),
                   Spacer(),
                   Text('₹0'),
-                  SizedBox(
-                    width: 8,
-                  )
+                  SizedBox(width: 8,),
                 ],
               ),
             ),

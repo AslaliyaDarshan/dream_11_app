@@ -40,8 +40,8 @@ class _SplashScreenState extends State<SplashScreen> {
           Center(
             child: Image.asset(
               AssetUtilities.cricketSwitchLogo,
-              height: 327,
-              width: 327,
+              height: MediaQuery.of(context).size.height*0.5,
+              width: MediaQuery.of(context).size.width*0.9,
             ),
           ),
         ],
