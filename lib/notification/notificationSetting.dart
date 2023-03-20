@@ -2,6 +2,8 @@ import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class NotificationSettingScreen extends StatefulWidget {
   const NotificationSettingScreen({super.key});
@@ -28,58 +30,64 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        title: const Text('Notification'),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          DefaultTabController(
-              length: 2,
-              child: Column(
-                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  TabBar(
-                      padding: const EdgeInsets.only(left: 30, right: 30),
-                      isScrollable: true,
-                      onTap: (int index) {
-                        setState(() {
-                          _tabController!.index = index;
-                        });
-                      },
-                      controller: _tabController,
-                      labelColor: Colors.green,
-                      unselectedLabelColor: Colors.black,
-                      labelStyle: const TextStyle(fontSize: 18),
-                      tabs: const [
-                        Tab(
-                          text: "ALL",
-                        ),
-                        Tab(
-                          text: "OFFER",
-                        ),
-                      ]),
-                  Container(
-                    height: MediaQuery.of(context).size.height - 136,
-                    decoration: const BoxDecoration(
-                        border: Border(
-                            top: BorderSide(color: Colors.grey, width: 0.5))),
-                    child: TabBarView(
-                      controller: _tabController,
-                      children: [
-                        tabNotificationWidget(),
-                        tabNotificationWidget()
-                      ],
-                    ),
-                  ),
-                ],
-              ))
-        ],
-      ),
-    );
+    late double hsize = MediaQuery.of(context).size.height;
+    late double wsize = MediaQuery.of(context).size.width;
+    return Scaffold();
+    // return DefaultTabController(
+    //   length: 2,
+    // );
+    //   Scaffold(
+    //   appBar: AppBar(
+    //     backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
+    //     title: const Text('Notification'),
+    //   ),
+    //   body: Column(
+    //     crossAxisAlignment: CrossAxisAlignment.stretch,
+    //     mainAxisAlignment: MainAxisAlignment.start,
+    //     children: [
+    //       DefaultTabController(
+    //           length: 2,
+    //           child: Column(
+    //             // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    //             children: [
+    //               TabBar(
+    //
+    //                   isScrollable: true,
+    //                   onTap: (int index) {
+    //                     setState(() {
+    //                       _tabController!.index = index;
+    //                     });
+    //                   },
+    //                   controller: _tabController,
+    //                   labelColor: Colors.green,
+    //                   unselectedLabelColor: Colors.black,
+    //                   labelStyle:  TextStyle(fontSize: 18),
+    //                   tabs: const [
+    //                     Tab(
+    //                       text: "ALL",
+    //                     ),
+    //                     Tab(
+    //                       text: "OFFER",
+    //                     ),
+    //                   ],
+    //               ),
+    //               Container(
+    //                 height: hsize*0.83,
+    //                 decoration: const BoxDecoration(
+    //                     border: Border(top: BorderSide(color: Colors.grey, width: 0.5))),
+    //                 child: TabBarView(
+    //                   controller: _tabController,
+    //                   children: [
+    //                     tabNotificationWidget(),
+    //                     tabNotificationWidget()
+    //                   ],
+    //                 ),
+    //               ),
+    //             ],
+    //           ))
+    //     ],
+    //   ),
+    // );
   }
 
   Widget tabNotificationWidget() {

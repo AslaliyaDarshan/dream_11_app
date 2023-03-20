@@ -1,4 +1,7 @@
+import 'package:dream_11_app/widget/drawerWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class UpdateProfileScreen extends StatefulWidget {
   const UpdateProfileScreen({super.key});
@@ -16,6 +19,8 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
   TextEditingController changePasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    late double hsize = MediaQuery.of(context).size.height;
+    late double wsize = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: const Color.fromRGBO(226, 226, 226, 1),
       appBar: AppBar(
@@ -25,85 +30,88 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
       body: Form(
         key: _formKey,
         child: Padding(
-          padding: const EdgeInsets.only(left: 24.0, right: 24),
+          padding:  EdgeInsets.symmetric(horizontal: wsize*0.05),
           child: SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
+              //mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 17,
+                 SizedBox(
+                  height: hsize*0.03,
                 ),
-                const Text(
+                const AutoSizeText(
                   "Name",
                   style: TextStyle(fontSize: 15),
                 ),
-                const SizedBox(
-                  height: 12,
+                SizedBox(
+                  height: hsize*0.015,
                 ),
                 customTextForm(nameController, 'Name'),
-                const SizedBox(
-                  height: 14,
+                 SizedBox(
+                  height: hsize*0.03,
                 ),
-                const Text(
+                const AutoSizeText(
                   "Team Name",
                   style: TextStyle(fontSize: 15),
                 ),
-                const SizedBox(
-                  height: 12,
+                SizedBox(
+                  height: hsize*0.015,
                 ),
                 customTextForm(teamNameController, 'Team Name'),
-                const SizedBox(
-                  height: 14,
-                ),
-                const Text(
+                 SizedBox(
+                     height: hsize*0.03
+                 ),
+                const AutoSizeText(
                   "Email",
                   style: TextStyle(fontSize: 15),
                 ),
-                const SizedBox(
-                  height: 12,
+                SizedBox(
+                  height: hsize*0.015,
                 ),
                 customTextForm(emailController, 'Email'),
-                const SizedBox(
-                  height: 14,
+                 SizedBox(
+                     height: hsize*0.03,
                 ),
-                const Text(
+                const AutoSizeText(
                   "Mobile",
                   style: TextStyle(fontSize: 15),
                 ),
-                const SizedBox(
-                  height: 12,
+                SizedBox(
+                  height: hsize*0.015,
                 ),
                 customTextForm(mobileController, 'Mobile',
                     keyBoardType: TextInputType.phone),
-                const SizedBox(
-                  height: 14,
+                 SizedBox(
+                    height: hsize*0.03
                 ),
-                const Text(
+                const AutoSizeText(
                   "Change Password",
                   style: TextStyle(fontSize: 15),
                 ),
-                const SizedBox(
-                  height: 12,
+                 SizedBox(
+                  height: hsize*0.015,
                 ),
-                customTextForm(changePasswordController, '***********',
-                    prefixText: 'Change Password'),
-                const SizedBox(
-                  height: 14,
+                customTextForm(changePasswordController, '***********', prefixText: 'Change Password'),
+                 SizedBox(
+                    height: hsize*0.03,
                 ),
-                const SizedBox(
-                  height: 100,
+                 SizedBox(
+                  height: hsize*0.03,
                 ),
-                ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromRGBO(54, 130, 54, 1)),
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                          left: MediaQuery.of(context).size.width / 2.9,
-                          right: MediaQuery.of(context).size.width / 2.9),
-                      child: const Text("Save"),
-                    ))
+                Align(
+                  alignment: Alignment.center,
+                  child: ElevatedButton(
+                      onPressed: () {
+                        //Get.to(DrawerWidger());
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color.fromRGBO(54, 130, 54, 1)),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: wsize*0.35),
+                        child: const Text("Save"),
+                      )),
+                )
               ],
             ),
           ),
@@ -119,8 +127,8 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
       keyboardType: keyBoardType,
       decoration: InputDecoration(
         suffix: Padding(
-          padding: const EdgeInsets.only(right: 8.0),
-          child: Text(
+          padding:  EdgeInsets.only(right: MediaQuery.of(context).size.width*0.02),
+          child: AutoSizeText(
             prefixText ?? '',
             style: const TextStyle(
                 color: Color.fromRGBO(
@@ -133,7 +141,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
           ),
         ),
         filled: true,
-        contentPadding: const EdgeInsets.only(left: 18, top: 9, bottom: 8),
+        contentPadding:  EdgeInsets.only(left:MediaQuery.of(context).size.width*0.03),
         fillColor: Colors.white,
         hintText: hintText,
         hintStyle: const TextStyle(

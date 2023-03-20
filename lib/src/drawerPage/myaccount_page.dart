@@ -1,9 +1,13 @@
+import 'package:dream_11_app/notification/notificationSetting.dart';
 import 'package:dream_11_app/src/drawerPage/addCashScreen.dart';
 import 'package:dream_11_app/src/drawerPage/transaction.dart';
+import 'package:dream_11_app/src/user/verification_document/verificationDocument.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class MyAccountScreen extends StatefulWidget {
   const MyAccountScreen({super.key});
@@ -22,37 +26,40 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
   ];
   @override
   Widget build(BuildContext context) {
+    late double hsize = MediaQuery.of(context).size.height;
+    late double wsize = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        title: const Text('My Account'),
+        title: const AutoSizeText('My Account',style: TextStyle(fontFamily: "Imprima"),),
         actions: [
           IconButton(
-              onPressed: () {}, icon: const Icon(Icons.notification_add_sharp))
+              onPressed: () {
+                Get.to(NotificationSettingScreen());
+              }, icon: const Icon(Icons.notification_add_sharp))
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 20.0, right: 20, top: 16),
+        padding:  EdgeInsets.only(left: wsize*0.04,right:wsize*0.04,top: 16),
         child: SingleChildScrollView(
           child: Column(
             children: [
               Image.asset(AssetUtilities.bonus),
-              const SizedBox(height: 17),
+              SizedBox(height: hsize*0.015),
               Container(
-                height: 68,
+                height: hsize*0.082,
                 width: MediaQuery.of(context).size.width,
                 decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage(AssetUtilities.bgImage))),
+                    image: DecorationImage(image: AssetImage(AssetUtilities.bgImage))),
                 child: Center(
                   child: Row(
                     children: [
-                      const SizedBox(
-                        width: 12,
+                       SizedBox(
+                        width: wsize*0.03,
                       ),
                       Container(
-                        height: 35,
-                        width: 35,
+                        height: hsize*0.09,
+                        width:wsize*0.09,
                         decoration: BoxDecoration(
                             color: const Color.fromRGBO(156, 216, 92, 1),
                             border: Border.all(
@@ -63,20 +70,21 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                           color: Color.fromRGBO(39, 44, 86, 1),
                         ),
                       ),
-                      const SizedBox(
-                        width: 9,
+                       SizedBox(
+                        width: wsize*0.02,
                       ),
                       Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
-                            Text(
+                            AutoSizeText(minFontSize:9,
                               'Total Balance',
-                              style: TextStyle(fontSize: 7),
+                              style: TextStyle(fontSize: 9,fontFamily: "Imprima"),
                             ),
-                            Text(
+                            AutoSizeText(
+                              minFontSize:9,
                               '₹500,000.000',
-                              style: TextStyle(fontSize: 7),
+                              style: TextStyle(fontSize: 9,fontFamily: "Imprima"),
                             ),
                           ],
                         ),
@@ -84,10 +92,8 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                       const Spacer(),
                       ElevatedButton(
                         onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return AddCashScreen();
-                          }));
+                          Get.to(AddCashScreen());
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) {return AddCashScreen();}));
                         },
                         style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
@@ -95,111 +101,118 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                                   color: Color.fromRGBO(39, 44, 86, 1),
                                 ),
                                 borderRadius: BorderRadius.circular(15))),
-                        child: const Text(
+                        child:  AutoSizeText(
+                          minFontSize: 10,
                           'ADD CASH',
-                          style: TextStyle(fontSize: 8),
+                          style: TextStyle(fontSize: 10,fontFamily: "Imprima"),
                         ),
                       ),
-                      const SizedBox(
-                        width: 9,
-                      ),
+                       SizedBox(width: wsize*0.02,),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(VerificationDocumentScreen());
+                        },
                         style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                                 side: const BorderSide(
                                   color: Color.fromRGBO(39, 44, 86, 1),
                                 ),
                                 borderRadius: BorderRadius.circular(15))),
-                        child: const Text(
+                        child: const AutoSizeText(
+                          minFontSize: 10,
                           'Withdraw CASH',
-                          style: TextStyle(fontSize: 8),
+                          style: TextStyle(fontSize: 10,fontFamily: "Imprima"),
                         ),
                       ),
-                      const SizedBox(
-                        width: 9,
+                       SizedBox(
+                        width: wsize*0.02,
                       ),
                     ],
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 8,
-              ),
+              SizedBox(height: hsize*0.015),
               SizedBox(
-                height: 280,
+                height:hsize*0.33,
                 width: MediaQuery.of(context).size.width,
                 child: Card(
                   elevation: 10,
                   child: Padding(
-                    padding:
-                        const EdgeInsets.only(left: 18.0, right: 18, top: 9),
+                    padding:EdgeInsets.symmetric(horizontal:wsize*0.04),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      //mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                        SizedBox(height: hsize*0.01,),
+                        const AutoSizeText(
+                          minFontSize: 10,
                           'Deposit',
-                          style: TextStyle(fontSize: 10),
+                          style: TextStyle(fontSize: 10,fontFamily: "Imprima"),
                         ),
-                        const Text(
+                        const AutoSizeText(
+                          minFontSize: 10,
                           '₹0',
-                          style: TextStyle(fontSize: 10),
+                          style: TextStyle(fontSize: 10,fontFamily: "Imprima"),
                         ),
-                        const SizedBox(
-                          height: 7,
+                         SizedBox(
+                          height: hsize*0.008,
                         ),
-                        const Divider(
-                          height: 3,
+                         Divider(
+                          height: hsize*0.002,
                           color: Colors.black,
                         ),
-                        const SizedBox(
-                          height: 9,
-                        ),
-                        const Text(
+                          SizedBox(
+                            height: hsize*0.01,
+                          ),
+                        const AutoSizeText(
+                          minFontSize: 10,
                           'Instant Cash',
-                          style: TextStyle(fontSize: 10),
+                          style: TextStyle(fontSize: 10,fontFamily: "Imprima"),
                         ),
-                        const Text(
+                        const AutoSizeText(
+                          minFontSize: 10,
                           '₹0',
-                          style: TextStyle(fontSize: 10),
+                          style: TextStyle(fontSize: 10,fontFamily: "Imprima"),
                         ),
-                        const SizedBox(
-                          height: 7,
+                         SizedBox(
+                            height: hsize*0.008,
                         ),
-                        const Divider(
-                          height: 3,
+                         Divider(
+                          height: hsize*0.002,
                           color: Colors.black,
                         ),
-                        const SizedBox(
-                          height: 9,
+                         SizedBox(
+                          height: hsize*0.01,
                         ),
-                        const Text(
+                        const AutoSizeText(
+                          minFontSize: 10,
                           'Winning',
-                          style: TextStyle(fontSize: 10),
+                          style: TextStyle(fontSize: 10,fontFamily: "Imprima"),
                         ),
-                        const Text(
+                        const AutoSizeText(
+                          minFontSize: 10,
                           '₹0',
-                          style: TextStyle(fontSize: 10),
+                          style: TextStyle(fontSize: 10,fontFamily: "Imprima"),
                         ),
-                        const SizedBox(
-                          height: 7,
+                         SizedBox(
+                          height: hsize*0.008,
                         ),
-                        const Divider(
-                          height: 3,
+                         Divider(
+                          height: hsize*0.002,
                           color: Colors.black,
                         ),
-                        const SizedBox(
-                          height: 7,
+                         SizedBox(
+                          height: hsize*0.008,
                         ),
-                        const Text(
+                        const AutoSizeText(
+                          minFontSize: 9,
                           'NO BONUS AMOUNT ONLY FOR WINNING AMOUNT WITHDRAW AND MINIMUM ACCOUNT BALANCE 300+ WINNING.',
-                          style: TextStyle(
+                          style: TextStyle(fontFamily: "Imprima",
                               fontSize: 9,
                               color: Color.fromRGBO(255, 13, 13, 1)),
                         ),
-                        const SizedBox(
-                          height: 7,
+                         SizedBox(
+                          height: hsize*0.008,
                         ),
                         Center(
                           child: ElevatedButton(
@@ -207,22 +220,25 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                                   backgroundColor:
                                       const Color.fromRGBO(54, 130, 54, 1)),
                               onPressed: () {},
-                              child: const Text(
+                              child: const AutoSizeText(
+                                minFontSize: 8,
                                 'VERIFY NOW',
-                                style: TextStyle(fontSize: 7),
+                                style: TextStyle(fontSize: 8),
                               )),
                         ),
-                        const SizedBox(height: 10),
-                        const Divider(
-                          height: 5,
+                         SizedBox(height: hsize*0.01),
+                         Divider(
+                          height: hsize*0.002,
                           color: Colors.black,
                         ),
-                        const SizedBox(height: 10),
-                        const Text(
+                         SizedBox(height: hsize*0.01),
+                        const AutoSizeText(
+                          minFontSize: 10,
                           'Bonus',
                           style: TextStyle(fontSize: 10),
                         ),
-                        const Text(
+                        const AutoSizeText(
+                          minFontSize: 10,
                           '₹0',
                           style: TextStyle(fontSize: 10),
                         ),
@@ -231,7 +247,7 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
+               SizedBox(height: hsize*0.02),
               ListView.builder(
                 itemCount: textList.length,
                 shrinkWrap: true,
@@ -243,10 +259,8 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                         child: GestureDetector(
                           onTap: () {
                             if (index == 1) {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return const TransactionScreen();
-                              }));
+                              Get.to(TransactionScreen());
+                              //Navigator.push(context, MaterialPageRoute(builder: (context) {return const TransactionScreen();}));
                             }
                           },
                           child: Card(
@@ -254,20 +268,20 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                             child: Row(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 20.0, top: 10, bottom: 9),
-                                  child: Text(
+                                  padding: EdgeInsets.only(left: wsize*0.04, top: hsize*0.013, bottom: hsize*0.013),
+                                  child: AutoSizeText(
+                                    minFontSize: 10,
                                     textList[index],
                                     style: const TextStyle(fontSize: 10),
                                   ),
                                 ),
                                 const Spacer(),
-                                const Icon(
+                                 Icon(
                                   Icons.arrow_forward_ios,
-                                  size: 12,
+                                  size:wsize*0.035,
                                 ),
-                                const SizedBox(
-                                  width: 10,
+                                 SizedBox(
+                                  width: wsize*0.02,
                                 ),
                               ],
                             ),
@@ -276,8 +290,9 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                       ),
                     ],
                   );
-                }),
-              )
+                 }
+               ),
+              ),
             ],
           ),
         ),

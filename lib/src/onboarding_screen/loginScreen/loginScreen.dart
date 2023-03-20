@@ -96,8 +96,7 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(fontSize: 16,fontFamily: "Imprima"),
                       ),
                     ),
-                    customTextFormField(
-                        passwordController, context,'Enter your password'),
+                    customTextFormField(passwordController, context,'Enter your password'),
                      SizedBox(
                       height: hsize*0.02,
                     ),

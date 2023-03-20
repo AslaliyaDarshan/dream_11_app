@@ -8,6 +8,7 @@ import 'package:dream_11_app/src/drawerPage/referPage.dart';
 import 'package:dream_11_app/src/drawerPage/supportScreen.dart';
 import 'package:dream_11_app/src/drawerPage/update_profile.dart';
 import 'package:dream_11_app/src/model/drawerModel.dart';
+import 'package:dream_11_app/src/user/verification_document/verificationDocument.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -72,7 +73,7 @@ class _DrawerWidgerState extends State<DrawerWidger> {
                   const AutoSizeText(
                     "View Profile",
                     style: TextStyle(
-                        color: Color.fromRGBO(255, 255, 255, 1), fontSize: 12),
+                        color: Color.fromRGBO(255, 255, 255, 1), fontSize: 12,fontFamily: "Imprima"),
                   ),
                    Icon(
                     Icons.airline_stops_sharp,
@@ -110,7 +111,7 @@ class _DrawerWidgerState extends State<DrawerWidger> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: const [
                               Icon(Icons.wallet),
-                              AutoSizeText("Add Cash", style: TextStyle(fontSize: 14),),
+                              AutoSizeText("Add Cash", style: TextStyle(fontSize: 14,fontFamily: "Imprima"),),
                             ],
                           ),
                         ),
@@ -124,14 +125,14 @@ class _DrawerWidgerState extends State<DrawerWidger> {
                         children: const [
                       AutoSizeText(
                         "₹500.00",
-                        style: TextStyle(fontSize: 16, color: Colors.black,fontWeight: FontWeight.bold),
+                        style: TextStyle(fontSize: 16, color: Colors.black,fontWeight: FontWeight.bold,fontFamily: "Imprima"),
                       ),
                       AutoSizeText(
                         maxLines: 1,
                         "Total Balance",
                         minFontSize: 12,
                         style: TextStyle(
-                            fontSize: 12, fontWeight: FontWeight.w500),
+                            fontSize: 12, fontWeight: FontWeight.w500,fontFamily: "Imprima"),
                       ),
                         ],
                       ),
@@ -141,41 +142,45 @@ class _DrawerWidgerState extends State<DrawerWidger> {
               ),
             ),
              SizedBox(height:hsize*0.016),
-            Container(
-              height: hsize*0.034,
-              width: wsize*0.33,
-              decoration: BoxDecoration(
-                border: Border.all(width: 2,color: Colors.white),
-                borderRadius: BorderRadius.circular(13),
+            InkWell(
+              onTap: (){
+                 Get.to(VerificationDocumentScreen());
+              },
+              child: Container(
+                height: hsize*0.034,
+                width: wsize*0.33,
+                decoration: BoxDecoration(
+                  border: Border.all(width: 2,color: Colors.white),
+                  borderRadius: BorderRadius.circular(13),
+                ),
+                child: Center(
+                    child: Center(
+                      child: Container(
+                        height: hsize*0.025,
+                        width: wsize*0.31,
+                        decoration: BoxDecoration(
+                          border: Border.all(width: 2,color: Colors.white),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Image.asset(
+                              AssetUtilities.pictureIcon,
+                              height: 14,
+                              width: 16,
+                            ),
+
+                            const AutoSizeText(
+                              "Withdraw Cash",
+                              style: TextStyle(fontSize: 10,fontFamily: "Imprima"),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )),
               ),
-              child: Center(
-                  child: Center(
-                    child: Container(
-                      height: hsize*0.025,
-                      width: wsize*0.31,
-                      decoration: BoxDecoration(
-                        border: Border.all(width: 2,color: Colors.white),
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-
-                          Image.asset(
-                            AssetUtilities.pictureIcon,
-                            height: 14,
-                            width: 16,
-                          ),
-
-                          const AutoSizeText(
-                            "Withdraw Cash",
-                            style: TextStyle(fontSize: 10),
-                          )
-                        ],
-                      ),
-                    ),
-                  )),
             ),
             const SizedBox(
               height: 12,
@@ -226,7 +231,7 @@ class _DrawerWidgerState extends State<DrawerWidger> {
                           ),
                           AutoSizeText(
                             drawerList[index].text,
-                            style: const TextStyle(color: Colors.white, fontSize: 18),
+                            style: const TextStyle(color: Colors.white, fontSize: 18,fontFamily: "Imprima"),
                           ),
                           const Spacer(),
                           index == 1
@@ -238,7 +243,7 @@ class _DrawerWidgerState extends State<DrawerWidger> {
                                     borderRadius: BorderRadius.circular(5),
                                   ),
                                   child: const Center(
-                                    child: Text("Invite"),
+                                    child: Text("Invite",style: TextStyle(fontFamily: "Imprima"),),
                                   ),
                                 )
                               : Container(),
@@ -292,9 +297,9 @@ class _DrawerWidgerState extends State<DrawerWidger> {
                 ),
                 AutoSizeText(
                   "Logout",
-                  style: TextStyle(color: Colors.red),
-                )
-              ]),
+                  style: TextStyle(color: Colors.red,fontFamily: "Imprima"),
+                ),
+              ],),
             ),
           ],
         ),

@@ -190,7 +190,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                       ],
                     ),
                      SizedBox(
-                      height:hsize*0.2,
+                      height:hsize*0.04,
                     ),
                   ],
                 ),
