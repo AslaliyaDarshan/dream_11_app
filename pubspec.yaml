@@ -43,6 +43,7 @@ dev_dependencies:
   get: ^4.6.5
   dotted_border: ^2.0.0+3
   auto_size_text: ^3.0.0
+  responsive_sizer: ^3.1.1
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

@@ -2,6 +2,8 @@ import 'package:dream_11_app/src/onboarding_screen/onboarding_screen.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+
 
 
 class SplashScreen extends StatefulWidget {
@@ -30,8 +32,8 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Stack(
         children: [
           SizedBox(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
+            height:100.h,
+            width: 100.w,
             child: Image.asset(
               AssetUtilities.onBoardingBackGroundImage,
               fit: BoxFit.cover,
@@ -40,8 +42,8 @@ class _SplashScreenState extends State<SplashScreen> {
           Center(
             child: Image.asset(
               AssetUtilities.cricketSwitchLogo,
-              height: MediaQuery.of(context).size.height*0.5,
-              width: MediaQuery.of(context).size.width*0.9,
+              height:50.h,
+              width: 90.w,
             ),
           ),
         ],

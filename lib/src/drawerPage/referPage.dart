@@ -2,6 +2,8 @@ import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class ReferScreen extends StatefulWidget {
   const ReferScreen({super.key});
@@ -13,281 +15,185 @@ class ReferScreen extends StatefulWidget {
 class _ReferScreenState extends State<ReferScreen> {
   @override
   Widget build(BuildContext context) {
+    late double hsize = MediaQuery.of(context).size.height;
+    late double wsize = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        title: const Text('My Referrals'),
+        title: const AutoSizeText(maxFontSize: 18,'My Referrals',style: TextStyle(fontFamily: "Imprima"),),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 30, right: 30),
+        padding:  EdgeInsets.symmetric(horizontal: wsize*0.07),
         child: Column(
           children: [
             Image.asset(
               AssetUtilities.referImage,
             ),
             SizedBox(
-              height: 70,
-              width: MediaQuery.of(context).size.width,
+              height: hsize*0.08,
+              width: wsize*1,
               child: Card(
                 color: const Color.fromRGBO(237, 237, 237, 1),
-                child: Row(
-                  children: [
-                    const SizedBox(
-                      width: 27,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          'Share invite code',
-                          style: TextStyle(fontSize: 16),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              'IDCAJBEBGH98',
-                              style: TextStyle(fontSize: 12),
-                            ),
-                            const SizedBox(
-                              width: 3,
-                            ),
-                            Image.asset(
-                              AssetUtilities.copy,
-                              height: 15,
-                              width: 12.75,
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                    const Spacer(),
-                    Image.asset(
-                      AssetUtilities.whatsappicon,
-                      height: 30,
-                      width: 30,
-                    ),
-                    const SizedBox(
-                      width: 9,
-                    ),
-                    Image.asset(
-                      AssetUtilities.moreicon,
-                      height: 30,
-                      width: 30,
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                  ],
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: wsize*0.04),
+                  child: Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const AutoSizeText(
+                            maxFontSize: 16,
+                            'Share invite code',
+                            style: TextStyle(fontSize: 16,fontFamily: "Imprima"),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const AutoSizeText(
+                                maxFontSize: 12,
+                                'IDCAJBEBGH98 ',
+                                style: TextStyle(fontSize: 12,fontFamily: "Imprima"),
+                              ),
+                              Image.asset(
+                                AssetUtilities.copy,
+                                height: hsize*0.02,
+                                width: wsize*0.03,
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                      const Spacer(),
+                      Image.asset(
+                        AssetUtilities.whatsappicon,
+                        height: hsize*0.036,
+                        width:  hsize*0.036,
+                      ),
+                       SizedBox(
+                        width: wsize*0.02,
+                      ),
+                      Image.asset(
+                        AssetUtilities.moreicon,
+                        height: hsize*0.036,
+                        width: hsize*0.036,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-            const SizedBox(
-              height: 8,
+            SizedBox(
+              height: hsize*0.01,
             ),
             SizedBox(
-              height: 214,
+              height: hsize*0.261,
               width: MediaQuery.of(context).size.width,
               child: Card(
                 color: const Color.fromRGBO(237, 237, 237, 1),
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 15, left: 11, right: 20),
+                  padding:  EdgeInsets.only(top: hsize*0.015,right: wsize*0.04,left: wsize*0.04),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const Text(
+                      const AutoSizeText(maxFontSize: 15,
                         'Earn upto ₹8000 for every referral',
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 15,fontFamily: "Imprima"
                         ),
                       ),
                       const Padding(
                         padding: EdgeInsets.only(left: 10, top: 4),
-                        child: Text(
+                        child: AutoSizeText(
+                          minFontSize: 11,
                           '- Get ₹100 cash bonus after your friend verify their mobile number on CrickSwitch.',
-                          style: TextStyle(fontSize: 11),
+                          style: TextStyle(fontSize: 11,fontFamily: "Imprima"),
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
+                       SizedBox(
+                        height: hsize*0.005,
                       ),
-                      const Text(
-                        'Kick off your friend’s CrickAwitch!',
+                      const AutoSizeText(
+                        maxFontSize: 15,
+                        'Kick off your friend’s CrickSwitch!',
                         style: TextStyle(
                             color: Color.fromRGBO(18, 117, 33, 1),
-                            fontSize: 15),
+                            fontSize: 15,fontFamily: "Imprima"),
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
+
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           SizedBox(
-                            height: 105,
-                            width: 120,
+                            height: hsize*0.13,
+                            width: wsize*0.35,
                             child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Container(
-                                  height: 22,
-                                  width: 120,
+                                  height: hsize*0.025,
+                                  width:  wsize*0.35,
                                   color: const Color.fromRGBO(217, 217, 217, 1),
                                   child: const Center(
-                                      child: Text(
+                                      child: AutoSizeText(
+                                        maxFontSize: 12,
                                     'Both of you get',
-                                    style: TextStyle(fontSize: 12),
-                                  )),
+                                    style: TextStyle(fontSize: 12,fontFamily: "Imprima"),
+                                    ),
+                                  ),
                                 ),
                                 Container(
-                                    height: 70,
-                                    width: 120,
+                                  padding: EdgeInsets.symmetric(horizontal: wsize*0.02),
+                                    height: hsize*0.085,
+                                    width:  wsize*0.35,
                                     color: Colors.white,
                                     child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                                       children: [
-                                        const SizedBox(
-                                          height: 2,
-                                        ),
-                                        Row(
-                                          children: const [
-                                            Text(
-                                              '₹',
-                                              style: TextStyle(fontSize: 12),
-                                            ),
-                                            Spacer(),
-                                            Text(
-                                              '100.00',
-                                              style: TextStyle(fontSize: 12),
-                                            )
-                                          ],
-                                        ),
-                                        Row(
-                                          children: const [
-                                            Text(
-                                              '₹',
-                                              style: TextStyle(fontSize: 12),
-                                            ),
-                                            Spacer(),
-                                            Text(
-                                              '200.00',
-                                              style: TextStyle(fontSize: 12),
-                                            )
-                                          ],
-                                        ),
-                                        Row(
-                                          children: const [
-                                            Text(
-                                              '₹',
-                                              style: TextStyle(fontSize: 12),
-                                            ),
-                                            Spacer(),
-                                            Text(
-                                              '3000.00',
-                                              style: TextStyle(fontSize: 12),
-                                            )
-                                          ],
-                                        ),
-                                        Row(
-                                          children: const [
-                                            Text(
-                                              '₹',
-                                              style: TextStyle(fontSize: 12),
-                                            ),
-                                            Spacer(),
-                                            Text(
-                                              '4600.00',
-                                              style: TextStyle(fontSize: 12),
-                                            )
-                                          ],
-                                        ),
+                                        Txt("100"),
+                                        Txt("200"),
+                                        Txt("3000"),
+                                        Txt("4600"),
                                       ],
-                                    )),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 20,
+                                    ),
+                                  ),
+                               ],
+                             ),
                           ),
                           SizedBox(
-                            height: 105,
-                            width: 120,
+                            height: hsize*0.13,
+                            width: wsize*0.35,
                             child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Container(
-                                  height: 22,
-                                  width: 120,
+                                  height:hsize*0.025,
+                                  width: wsize*0.35,
                                   color: const Color.fromRGBO(217, 217, 217, 1),
                                   child: const Center(
-                                      child: Text(
-                                    'If your friendinvests',
-                                    style: TextStyle(fontSize: 12),
+                                      child: AutoSizeText(
+                                        maxFontSize: 12,
+                                        'If your friend invite',
+                                    style: TextStyle(fontSize: 12,fontFamily: "Imprima"),
                                   )),
                                 ),
                                 Container(
-                                    height: 70,
-                                    width: 120,
+                                    padding: EdgeInsets.symmetric(horizontal: wsize*0.02),
+                                    height: hsize*0.085,
+                                    width:  wsize*0.35,
                                     color: Colors.white,
                                     child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                                       children: [
-                                        const SizedBox(
-                                          height: 2,
-                                        ),
-                                        Row(
-                                          children: const [
-                                            Text(
-                                              '₹',
-                                              style: TextStyle(fontSize: 12),
-                                            ),
-                                            Spacer(),
-                                            Text(
-                                              '100.00',
-                                              style: TextStyle(fontSize: 12),
-                                            )
-                                          ],
-                                        ),
-                                        Row(
-                                          children: const [
-                                            Text(
-                                              '₹',
-                                              style: TextStyle(fontSize: 12),
-                                            ),
-                                            Spacer(),
-                                            Text(
-                                              '200.00',
-                                              style: TextStyle(fontSize: 12),
-                                            )
-                                          ],
-                                        ),
-                                        Row(
-                                          children: const [
-                                            Text(
-                                              '₹',
-                                              style: TextStyle(fontSize: 12),
-                                            ),
-                                            Spacer(),
-                                            Text(
-                                              '3000.00',
-                                              style: TextStyle(fontSize: 12),
-                                            )
-                                          ],
-                                        ),
-                                        Row(
-                                          children: const [
-                                            Text(
-                                              '₹',
-                                              style: TextStyle(fontSize: 12),
-                                            ),
-                                            Spacer(),
-                                            Text(
-                                              '4600.00',
-                                              style: TextStyle(fontSize: 12),
-                                            )
-                                          ],
-                                        ),
+                                        Txt("100"),
+                                        Txt("200"),
+                                        Txt("3000"),
+                                        Txt("4600"),
                                       ],
-                                    )),
+                                    ),
+                                ),
                               ],
                             ),
                           )
@@ -298,44 +204,46 @@ class _ReferScreenState extends State<ReferScreen> {
                 ),
               ),
             ),
-            const SizedBox(height: 14),
+             SizedBox(height: hsize*0.01),
             Container(
-              height: 39,
-              width: MediaQuery.of(context).size.width,
+              height: hsize*0.035,
+              width: wsize*1,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(6),
                   border: Border.all(color: Colors.black, width: 0.5)),
               child: const Center(
-                child: Text(
+                child: AutoSizeText(
+                  maxFontSize: 12,
                   'You haven’t invited any friends yet',
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(fontSize: 12,fontFamily: "Imprima"),
                 ),
               ),
             ),
-            const SizedBox(height: 14),
+             SizedBox(height: hsize*0.011),
             Container(
-              height: 27,
-              width: MediaQuery.of(context).size.width,
+              height: hsize*0.035,
+              width: wsize*1,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(6),
                   border: Border.all(color: Colors.black, width: 0.5)),
               child: const Center(
-                child: Text(
+                child: AutoSizeText(maxFontSize: 12,
                   'INVITE PHONE CONTECTS',
                   style: TextStyle(
-                      fontSize: 12, color: Color.fromRGBO(11, 132, 11, 1)),
+                      fontSize: 12, color: Color.fromRGBO(11, 132, 11, 1),fontFamily: "Imprima"),
                 ),
               ),
             ),
-            const SizedBox(
-              height: 42,
+             SizedBox(
+              height: hsize*0.05,
             ),
             Center(
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                },
                 child: Container(
-                  height: 26,
-                  width: 143,
+                  height: hsize*0.03,
+                  width: wsize*0.35,
                   decoration: BoxDecoration(
                       color: const Color.fromRGBO(178, 233, 159, 1),
                       borderRadius: BorderRadius.circular(6)),
@@ -346,21 +254,38 @@ class _ReferScreenState extends State<ReferScreen> {
                             TextSpan(
                                 text: "PER FRIEND",
                                 style: TextStyle(
-                                    fontSize: 15,
+                                    fontSize: 15,fontFamily: "Imprima",
                                     color: Color.fromRGBO(0, 0, 0, 1)))
                           ],
-                          text: "₹551 ",
-                          style: TextStyle(
+                          text: "₹551",
+                          style: TextStyle(fontFamily: "Imprima",
                               fontSize: 15,
                               color: Color.fromRGBO(255, 0, 0, 1))),
                     ),
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
+    );
+  }
+  Widget Txt(String txt){
+    return  Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children:  [
+        AutoSizeText(
+          maxFontSize: 12,
+          '₹',
+          style: TextStyle(fontSize: 12,fontFamily: "Imprima"),
+        ),
+        AutoSizeText(
+          txt,
+          maxFontSize: 12,
+          style: TextStyle(fontSize: 12,fontFamily: "Imprima"),
+        ),
+      ],
     );
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+
 
 class OTPField extends StatefulWidget {
   final int fieldLength;
@@ -33,16 +35,16 @@ class _OTPFieldState extends State<OTPField> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: (MediaQuery.of(context).size.width / _controllers.length) - (_controllers.length * 2),
+      height: (MediaQuery.of(context).size.width / _controllers.length) - (_controllers.length * 1),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(
           _controllers.length,
           (index) => Container(
             height: (MediaQuery.of(context).size.width / _controllers.length) -
-                (_controllers.length * 4),
+                (_controllers.length * 3.5),
             width: (MediaQuery.of(context).size.width / _controllers.length) -
-                (_controllers.length * 4),
+                (_controllers.length * 3.5),
             decoration: const BoxDecoration(boxShadow: [
               BoxShadow(
                   color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -94,7 +96,7 @@ class _OTPFieldState extends State<OTPField> {
                   borderRadius: BorderRadius.circular(5),
                 ),
               ),
-              style: const TextStyle(fontSize: 20),
+              style:  TextStyle(fontSize: 18.sp),
               textAlign: TextAlign.center,
               keyboardType: TextInputType.number,
             ),

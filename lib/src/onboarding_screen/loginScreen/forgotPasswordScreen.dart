@@ -4,7 +4,7 @@ import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:dream_11_app/widget/buttonWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ForGotPasswordScreen extends StatefulWidget {
   const ForGotPasswordScreen({super.key});
@@ -16,68 +16,67 @@ class ForGotPasswordScreen extends StatefulWidget {
 class _ForGotPasswordScreenState extends State<ForGotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
-    late double hsize = MediaQuery.of(context).size.height;
-    late double wsize = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Container(
-        height: hsize*1,
-        width: wsize*1,
+        height: 100.h,
+        width: 100.w,
         decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(AssetUtilities.onBoardingBackGroundImage),
                 fit: BoxFit.fill)),
         child: Padding(
-          padding:  EdgeInsets.only(left: wsize*0.035, right: wsize*0.035),
+          padding:  EdgeInsets.symmetric(horizontal: 3.w),
           child: SingleChildScrollView(
             child: Column(
               children: [
                  SizedBox(
-                  height: hsize*0.04,
+                  height: 2.h,
                 ),
                 Image.asset(
                   AssetUtilities.cricketSwitchLogo,
-                  height:hsize*0.2,
-                  width: wsize*0.4,
+                  height:20.h,
+                  width: 20.h,
                 ),
-                const AutoSizeText(
+                 Text(
                   'Verification Code',
-                  style: TextStyle(fontSize: 16,fontFamily: "Imprima"),
+                  style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
                 ),
                  SizedBox(
-                  height: hsize*0.03,
+                  height: 2.h,
                 ),
-                const AutoSizeText(
+                 Text(
                   'WE have sent an OTP on your number and email',
                   style: TextStyle(
-                      fontSize: 16, color: Color.fromRGBO(106, 102, 102, 1),fontFamily: "Imprima"),
+                      fontSize: 16.sp, color: Color.fromRGBO(106, 102, 102, 1),fontFamily: "Imprima"),
                 ),
                  SizedBox(
-                  height: hsize*0.13,
+                  height: 10.h,
                 ),
                 OTPField(fieldLength: 6, onSubmit: ((p0) {})),
                 SizedBox(
-                  height: hsize*0.13,
+                  height: 10.h,
                 ),
                 GestureDetector(
                     onTap: () {
                       Get.to(ForgotPassword());
                       //Navigator.push(context, MaterialPageRoute(builder: (context) {return const  ForgotPassword();}));
                     },
-                    child: innerShadowButtonWidget("CONTINUE",context, radius: 10,height: hsize*0.00005 ,width: wsize*0.0015)),
+                    child: innerShadowButtonWidget("CONTINUE",context, radius: 10,height: 4.h ,width: 70.w)),
                 const SizedBox(
                   height: 20,
                 ),
-                const AutoSizeText(
+                 Text(
                   "Didn't received OTP?",
-                  style: TextStyle(fontSize: 12,fontFamily: "Imprima"),
+                  style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                 ),
-                const SizedBox(
-                  height: 5,
+                 SizedBox(
+                  height: 1.h,
                 ),
-                const AutoSizeText(
+                Text(
                   "Resend OTP?",
                   style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 14.sp,
                       decoration: TextDecoration.underline,
                       color: Colors.red),
                 ),

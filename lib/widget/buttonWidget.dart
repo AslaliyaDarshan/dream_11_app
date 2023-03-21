@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+
 
 
 Widget buttonWidget(Function() onTap, BuildContext context) {
@@ -68,11 +70,10 @@ Widget buttonWidget(Function() onTap, BuildContext context) {
 }
 
 Widget innerShadowButtonWidget(String text, BuildContext context,{ double ?height,double ?width,double radius = 0, TextStyle? textStyle ,Color? color}) {
-  late double hsize = MediaQuery.of(context).size.height;
-  late double wsize = MediaQuery.of(context).size.width;
+
   return Container(
-    height: hsize*height!,
-    width: wsize*width!,
+    height: height,
+    width: width,
     padding: const EdgeInsets.only(right: 4, left: 4, top: 6, bottom: 6),
     decoration: const BoxDecoration(
         color: Color.fromRGBO(54, 130, 54, 1),
@@ -86,7 +87,7 @@ Widget innerShadowButtonWidget(String text, BuildContext context,{ double ?heigh
       child: Text(
         text,
         style: textStyle ??
-            const TextStyle(color: Colors.white, fontFamily: "Imprima"),
+             TextStyle(color: Colors.white, fontFamily: "Imprima",fontSize: 16.sp),
       ),
     ),
   );
@@ -111,11 +112,10 @@ Widget innerShadowButtonWidget(String text, BuildContext context,{ double ?heigh
 // }
 
 Widget customButton(String text, BuildContext context,{double?height,double?width,double radius = 0}) {
-late double hsize = MediaQuery.of(context).size.height;
-late double wsize = MediaQuery.of(context).size.width;
+
   return Container(
-       height: hsize*height!,
-       width: wsize*width!,
+       height: height,
+       width: width,
     padding: const EdgeInsets.only(right: 4, left: 4, top: 6, bottom: 6),
     decoration: const BoxDecoration(
         color: Color.fromRGBO(54, 130, 54, 1),
@@ -145,8 +145,8 @@ Widget loginSignUpButton(
             borderRadius: BorderRadius.all(Radius.circular(30))),
         padding: const EdgeInsets.all(10),
         child: Container(
-          height: 26,
-          width: 135,
+          height: 3.5.h,
+          width: 35.w,
           padding: EdgeInsets.zero,
           decoration: const BoxDecoration(
               color: Color.fromRGBO(217, 217, 217, 1),
@@ -159,19 +159,17 @@ Widget loginSignUpButton(
               ]),
           // width: double.infinity,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Image.asset(
                 image,
-                height: 30,
-                width: 30,
+                height:3.5.h ,
+                width: 3.5.h,
               ),
-              const SizedBox(
-                width: 10,
-              ),
+
               Text(
                 text,
-                style: const TextStyle(fontSize: 18,fontFamily: "Imprima"),
+                style:  TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
               ),
             ],
           ),
@@ -180,10 +178,9 @@ Widget loginSignUpButton(
 }
 
 Widget customTextFormField(TextEditingController controller,BuildContext context, String hintText) {
-  late double hsize = MediaQuery.of(context).size.height;
-  late double wsize = MediaQuery.of(context).size.width;
+
   return Container(
-    height: hsize*0.06,
+    height: 5.5.h,
     decoration: BoxDecoration(
         color: const Color.fromRGBO(217, 217, 217, 1),
         borderRadius: BorderRadius.circular(23),
@@ -194,7 +191,7 @@ Widget customTextFormField(TextEditingController controller,BuildContext context
               spreadRadius: 7)
         ]),
     child: Padding(
-      padding:  EdgeInsets.only(top: hsize*0.01),
+      padding:  EdgeInsets.only(top: 2.h),
       child: TextFormField(
         controller: controller,
         inputFormatters: [
@@ -203,7 +200,7 @@ Widget customTextFormField(TextEditingController controller,BuildContext context
         decoration: InputDecoration(
           filled: true,
           hintText: hintText,
-          hintStyle: const TextStyle(color: Color.fromRGBO(0, 0, 0, 0.6)),
+          hintStyle:  TextStyle(color: Color.fromRGBO(0, 0, 0, 0.6),fontSize: 17.sp),
           fillColor: const Color.fromRGBO(217, 217, 217, 1),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(23),

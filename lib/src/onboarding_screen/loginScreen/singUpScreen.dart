@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class SingUpScreen extends StatefulWidget {
   const SingUpScreen({super.key});
@@ -24,12 +24,11 @@ class _SingUpScreenState extends State<SingUpScreen> {
   bool isSelected = false;
   @override
   Widget build(BuildContext context){
-  late double hsize = MediaQuery.of(context).size.height;
-  late double wsize = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Container(
-        height: hsize*1,
-        width:  wsize*1,
+        height: 100.h,
+        width: 100.w,
         decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(AssetUtilities.onBoardingBackGroundImage),
@@ -37,85 +36,85 @@ class _SingUpScreenState extends State<SingUpScreen> {
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           child: Padding(
-            padding:  EdgeInsets.only(left: wsize*0.03, right: wsize*0.03),
+            padding:  EdgeInsets.symmetric(horizontal: 4.w),
             child: Column(
               children: [
                  SizedBox(
-                   height: hsize*0.04,
+                   height: 1.h,
                 ),
                 Image.asset(
                   AssetUtilities.cricketSwitchLogo,
-                  height:hsize*0.2,
-                  width: wsize*0.4,
+                  height:20.h,
+                  width: 20.h,
                 ),
-                const AutoSizeText(
+                 Text(
                   'Resister',
-                  style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,fontFamily: "Imprima"),
+                  style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.bold,fontFamily: "Imprima"),
                 ),
                  SizedBox(
-                  height: hsize*0.03 ,
+                  height: 2.h ,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                      Padding(
-                      padding: EdgeInsets.only(left:wsize*0.03, bottom: hsize*0.012),
-                      child: AutoSizeText(
+                      padding: EdgeInsets.only(left:1.5.h, bottom: 1.h),
+                      child: Text(
                         "Email Address",
-                        style: TextStyle(fontSize: 16,fontFamily: "Imprima"),
+                        style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
                       ),
                     ),
                     customTextFormField(emailController,context,'Enter your email'),
                     SizedBox(
-                      height: hsize*0.02,
+                      height: 2.h,
                     ),
                      Padding(
-                      padding: EdgeInsets.only(left:wsize*0.03, bottom: hsize*0.012),
-                      child: AutoSizeText(
+                      padding: EdgeInsets.only(left:1.5.h, bottom: 1.h),
+                      child: Text(
                         "Mobile Number",
-                        style: TextStyle(fontSize: 16,fontFamily: "Imprima"),
+                        style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
                       ),
                     ),
                     customTextFormField(
                         mobileNumberController, context,'Enter your mobile number'),
                     SizedBox(
-                      height: hsize*0.02,
+                      height: 2.h,
                     ),
                      Padding(
-                      padding: EdgeInsets.only(left:wsize*0.03, bottom: hsize*0.012),
-                      child: AutoSizeText(
+                      padding: EdgeInsets.only(left:1.5.h, bottom: 1.h),
+                      child: Text(
                         "Your team name",
-                        style: TextStyle(fontSize: 16,fontFamily: "Imprima"),
+                        style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
                       ),
                     ),
                     customTextFormField(
                         teamNameController,context, 'Enter your Team Name'),
                     SizedBox(
-                      height: hsize*0.02,
+                      height: 2.h,
                     ),
                      Padding(
-                      padding: EdgeInsets.only(left:wsize*0.03, bottom: hsize*0.012),
-                      child: AutoSizeText(
+                      padding: EdgeInsets.only(left:1.5.h, bottom: 1.h),
+                      child: Text(
                         "Password",
-                        style: TextStyle(fontSize: 16,fontFamily: "Imprima"),
+                        style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
                       ),
                     ),
                     customTextFormField(
                         confirmPassController, context,'Enter your password'),
                     SizedBox(
-                      height: hsize*0.02,
+                      height: 2.h,
                     ),
                      Padding(
-                      padding: EdgeInsets.only(left:wsize*0.03, bottom: hsize*0.012),
-                      child: AutoSizeText(
+                      padding: EdgeInsets.only(left:1.5.h, bottom: 1.h),
+                      child: Text(
                         "Confirm Password",
-                        style: TextStyle(fontSize: 16,fontFamily: "Imprima"),
+                        style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
                       ),
                     ),
                     customTextFormField(emailController, context,'Confirm Password'),
                     SizedBox(
-                      height: hsize*0.03,
+                      height: 5.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -130,33 +129,32 @@ class _SingUpScreenState extends State<SingUpScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const AutoSizeText(
+                             Text(
                               maxLines: 1,
                               "I clarify that I am above 18 years by",
                               style: TextStyle(fontFamily: "Imprima",
                                   color: Color.fromRGBO(0, 0, 0, 1),
-                                  fontSize: 15),
+                                  fontSize: 16.sp),
                             ),
                             GestureDetector(
                                 onTap: () {},
                                 child: Row(children: [
-                                  const AutoSizeText(
+                                   Text(
                                     'registering, I agree to ',
                                     style: TextStyle(
                                         color: Color.fromRGBO(0, 0, 0, 1),
-                                        fontSize: 15,fontFamily: "Imprima"),
+                                        fontSize: 16.sp,fontFamily: "Imprima"),
                                   ),
                                   GestureDetector(
                                     onTap: () {
-
                                     },
-                                    child: const AutoSizeText(
+                                    child:  Text(
                                       'T&Cs .',
                                       style: TextStyle(
                                           decoration:
                                               TextDecoration.underline,
                                           color: Color.fromRGBO(0, 0, 0, 1),
-                                          fontSize: 15,fontFamily: "Imprima"),
+                                          fontSize: 16.sp,fontFamily: "Imprima"),
                                     ),
                                   ),
                                 ]))
@@ -165,7 +163,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                       ],
                     ),
                      SizedBox(
-                      height: hsize*0.03,
+                      height: 4.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -174,9 +172,9 @@ class _SingUpScreenState extends State<SingUpScreen> {
                             onTap: () {
                               Get.to(ForGotPasswordScreen());
                             },
-                            child: customButton("CREATE ACCOUNT", context,radius: 30,height:0.04,width:0.4 )),
+                            child: customButton("CREATE ACCOUNT", context,radius: 30,height:3.7.h,width:40.w )),
 
-                        const AutoSizeText(
+                        const Text(
                           "OR",
                           style: TextStyle(fontSize: 18,fontFamily: "Imprima"),
                         ),
@@ -186,11 +184,11 @@ class _SingUpScreenState extends State<SingUpScreen> {
                               Get.to(LoginPage());
                              // Navigator.push(context, MaterialPageRoute(builder: (context) {return LoginPage();}));
                             },
-                            child: customButton("Sign in", context,radius: 30,height:0.04,width:0.4)),
+                            child: customButton("Sign in", context,radius: 30,height:3.7.h,width:40.w)),
                       ],
                     ),
                      SizedBox(
-                      height:hsize*0.04,
+                      height:0.04,
                     ),
                   ],
                 ),

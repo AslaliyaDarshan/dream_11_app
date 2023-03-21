@@ -1,11 +1,12 @@
 import 'package:dream_11_app/notification/notificationSetting.dart';
+import 'package:dream_11_app/src/drawerPage/myaccount_page.dart';
 import 'package:dream_11_app/src/user/aadhar_card/aadharcard_otp.dart';
 import 'package:dream_11_app/widget/buttonWidget.dart';
 import 'package:dream_11_app/widget/drawerWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class AadharCard extends StatefulWidget {
   const AadharCard({super.key});
@@ -32,12 +33,11 @@ class _AadharCardState extends State<AadharCard> {
               _scaffoldKey.currentState!.openDrawer();
             },
             icon: const Icon(Icons.menu)),
-        title: const Text(
+        title:  Text(
           "KYC quick",
-          style: TextStyle(fontSize: 16,fontFamily: "Imprima"),
+          style: TextStyle(fontSize: 18.sp,fontFamily: "Imprima"),
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
           IconButton(
               onPressed: () {
                 Get.to(NotificationSettingScreen());
@@ -45,35 +45,37 @@ class _AadharCardState extends State<AadharCard> {
               },
               icon: const Icon(Icons.notification_add_sharp)),
           IconButton(
-              onPressed: () {}, icon: const Icon(Icons.wallet_membership)),
+              onPressed: () {
+                Get.to(MyAccountScreen());
+              }, icon: const Icon(Icons.wallet_membership)),
         ],
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10),
+          padding:  EdgeInsets.symmetric(horizontal: 3.w),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                  SizedBox(
-                   height:hsize*0.03,
+                   height:3.h,
                  ),
-                const AutoSizeText(
+               Text(
                   "Digital Onboarding",
-                  style: TextStyle(fontSize: 25,fontFamily: "Imprima"),
+                  style: TextStyle(fontSize: 22.sp,fontFamily: "Imprima"),
                 ),
                  SizedBox(
-                   height:hsize*0.025,
+                   height:3.h
                  ),
-                Wrap(children: const [
-                  AutoSizeText(
+                Wrap(children:  [
+                  Text(
                     "You are about to link DigiLocker account with Digital Onbording application of bolder Technologies Private Liomited . You will be singned up for DigiLocker account if it does not exist",
-                    style: TextStyle(fontSize: 20,fontFamily: "Imprima"),
+                    style: TextStyle(fontSize: 18.sp,fontFamily: "Imprima"),
                   ),
                 ]),
                  SizedBox(
-                  height:hsize*0.03,
+                  height:3.h,
                 ),
                 TextFormField(
                   controller: adharController,
@@ -84,7 +86,7 @@ class _AadharCardState extends State<AadharCard> {
                   style: TextStyle(fontFamily: "Imprima"),
                   decoration: InputDecoration(
                     hintText: "Enter Adhaar Number*",
-                    hintStyle: TextStyle(fontFamily: "Imprima"),
+                    hintStyle: TextStyle(fontFamily: "Imprima",fontSize: 16.sp),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: const BorderSide(
@@ -100,15 +102,15 @@ class _AadharCardState extends State<AadharCard> {
                   ),
                 ),
                  SizedBox(
-                  height: hsize*0.015,
+                  height: 3.h,
                 ),
-                const AutoSizeText("Plese enter the following text in the box below:",
-                    style: TextStyle(fontSize: 20,fontFamily: "Imprima")),
+                Text("Plese enter the following text in the box below:",
+                    style: TextStyle(fontSize: 18.sp,fontFamily: "Imprima")),
                  SizedBox(
-                  height: hsize*0.07,
+                  height: 6.h,
                 ),
                 Padding(
-                  padding:  EdgeInsets.only(left: wsize*0.01),
+                  padding:  EdgeInsets.only(left: 2.w),
                   child: GestureDetector(
                     onTap: () {
                       radioListTile = !radioListTile;
@@ -117,32 +119,32 @@ class _AadharCardState extends State<AadharCard> {
                     child: Row(
                       children: [
                         Container(
-                          height: hsize*0.03,
-                          width: hsize*0.03,
+                          height: 3.h,
+                          width: 3.h,
                           decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(100),
-                              border: Border.all(color: Colors.grey,width: 2)),
+                              borderRadius: BorderRadius.circular(100.sp),
+                              border: Border.all(color: Colors.grey,width: 6.sp)),
                           child: radioListTile
                               ? Center(
                                   child: Container(
-                                    height: 10,
-                                    width: 10,
+                                    height: 2.h,
+                                    width: 2.h,
                                     decoration: BoxDecoration(
                                         color: Colors.grey,
                                         borderRadius:
-                                            BorderRadius.circular(30)),
+                                            BorderRadius.circular(30.sp)),
                                   ),
                                 )
                               : const SizedBox.shrink(),
                         ),
                          SizedBox(
-                          width: wsize*0.03,
+                          width: 3.w
                         ),
-                        const AutoSizeText(
+                        Text(
                           "I'am not robot",
-                          style: TextStyle(fontSize: 16,fontFamily: "Imprima"),
-                        )
+                          style: TextStyle(fontSize: 15.sp,fontFamily: "Imprima"),
+                        ),
                       ],
                     ),
                   ),
@@ -151,19 +153,19 @@ class _AadharCardState extends State<AadharCard> {
                   child: Column(
                     children: [
                        SizedBox(
-                        height: hsize*0.07,
+                        height:7.h,
                       ),
                       GestureDetector(
                           onTap: () {
                             Get.to(AadharCardOtp());
                             //Navigator.push(context, MaterialPageRoute(builder: (context) {return const AadharCardOtp();}));
                           },
-                          child: innerShadowButtonWidget("Next",context,height: 0.04,width: 0.6)),
+                          child: innerShadowButtonWidget("Next",context,height: 4.h,width: 60.w)),
                        SizedBox(
                         height: hsize*0.025,
                       ),
                       GestureDetector(
-                          onTap: () {}, child: innerShadowButtonWidget("Back",context,height: 0.04,width: 0.6)),
+                          onTap: () {}, child: innerShadowButtonWidget("Back",context,height: 4.h,width:60.w)),
                     ],
                   ),
                 ),

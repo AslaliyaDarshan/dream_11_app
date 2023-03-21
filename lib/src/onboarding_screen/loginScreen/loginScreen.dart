@@ -6,7 +6,8 @@ import 'package:dream_11_app/utility/assets/srings.dart';
 import 'package:dream_11_app/widget/buttonWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+
 
 
 class LoginPage extends StatefulWidget {
@@ -22,142 +23,136 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    late double hsize = MediaQuery.of(context).size.height;
-    late double wsize = MediaQuery.of(context).size.width;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
-        height: hsize*1,
-        width:  wsize*1,
+        height:100.h,
+        width: 100.w,
         decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(AssetUtilities.onBoardingBackGroundImage),
                 fit: BoxFit.fill)),
         child: Padding(
-          padding: EdgeInsets.only(left: wsize*0.03, right: wsize*0.03),
+          padding:  EdgeInsets.symmetric(horizontal: 4.w),
           child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
             child: Column(
               children: [
                  SizedBox(
-                  height: hsize*0.04,
+                  height: 2.h,
                 ),
                 Image.asset(
                   AssetUtilities.cricketSwitchLogo,
-                  height:hsize*0.2,
-                  width: wsize*0.4,
+                  height:20.h,
+                  width: 20.h,
                 ),
-                const AutoSizeText(
+                 Text(
                   'LOGIN',
-                  style: TextStyle(fontSize: 16,fontFamily: "Imprima"),
+                  style: TextStyle(fontSize: 17.sp,fontFamily: "Imprima"),
                 ),
                  SizedBox(
-                  height: hsize*0.04,
+                  height: 2.h,
                 ),
                 Center(
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      loginSignUpButton(context, AssetUtilities.facebook,
-                          "Facebook", () {}),
-                       SizedBox(
-                        width: wsize*0.06,
-                      ),
-                      loginSignUpButton(
-                          context, AssetUtilities.google, "Google", () {})
+                      loginSignUpButton(context, AssetUtilities.facebook, "Facebook", () {}),
+                      loginSignUpButton(context, AssetUtilities.google, "Google", () {})
                     ],
                   ),
                 ),
                  SizedBox(
-                  height: hsize*0.03,
+                  height: 2.h,
                 ),
-                const AutoSizeText("OR"),
+                 Text("OR",style: TextStyle(fontSize: 16.sp),),
                  SizedBox(
-                  height: hsize*0.015,
+                  height: 1.7.h,
                 ),
                 Column(
                  // mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                      Padding(
-                      padding: EdgeInsets.only(left: wsize*0.032, bottom: hsize*0.015),
-                      child: AutoSizeText(
+                      padding: EdgeInsets.only(left:3.w, bottom: 1.h),
+                      child: Text(
                         "Email",
-                        style: TextStyle(fontSize: 16,fontFamily: "Imprima"),
+                        style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
                       ),
                     ),
                     customTextFormField(emailController,context, 'Enter your email'),
                      SizedBox(
-                      height: hsize*0.02,
+                      height: 1.5.h,
                     ),
                      Padding(
-                      padding: EdgeInsets.only(left: wsize*0.032, bottom: hsize*0.015),
-                      child: AutoSizeText(
+                      padding: EdgeInsets.only(left:3.w, bottom: 1.h),
+                      child: Text(
                         "Password",
-                        style: TextStyle(fontSize: 16,fontFamily: "Imprima"),
+                        style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
                       ),
                     ),
                     customTextFormField(passwordController, context,'Enter your password'),
                      SizedBox(
-                      height: hsize*0.02,
+                      height:2.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Padding(
-                          padding:  EdgeInsets.only(right: wsize*0.03),
+                          padding:  EdgeInsets.only(right: 1.w),
                           child: InkWell(
                             onTap: () {
                              // Navigator.push(context, MaterialPageRoute(builder: (context) {return const ForGotPasswordScreen();}));
                             },
-                            child:  AutoSizeText(
+                            child:  Text(
                               Strings.forgotPasswordText,
                               style: TextStyle(fontFamily: "Imprima",
-                                  color: Color.fromRGBO(0, 0, 0, 0.6)),
+                                  color: Color.fromRGBO(0, 0, 0, 0.6),fontSize: 16.sp),
                             ),
                           ),
                         ),
                       ],
                     ),
                      SizedBox(
-                      height: hsize*0.03,
+                      height: 2.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
                           AssetUtilities.eighteenPlus,
-                          height: hsize*0.03,
-                          width: hsize*0.03,
+                          height:2.5.h,
+                          width: 2.5.h,
                         ),
                          SizedBox(
-                          width: wsize*0.035,
+                          width: 2.w,
                         ),
                         Column(
                           //mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const AutoSizeText(
+                             Text(
                               Strings.conditionText,
                               style: TextStyle(fontFamily: "Imprima",
                                   color: Color.fromRGBO(0, 0, 0, 0.6),
-                                  fontSize: 10),
+                                  fontSize: 14.sp),
                             ),
                             InkWell(
                                 onTap: () {
                                   Get.to(TermConditionScreen());
                                 },
                                 child: Row(children: [
-                                  const AutoSizeText(
+                                   Text(
                                     'T&C',
                                     style: TextStyle(fontFamily: "Imprima",
                                         color: Color.fromRGBO(255, 0, 0, 0.6),
-                                        fontSize: 10),
+                                        fontSize: 14.sp),
                                   ),
-                                  const AutoSizeText(
+                                   Text(
                                     ' &',
                                     style: TextStyle(fontFamily: "Imprima",
                                         color: Color.fromRGBO(0, 0, 0, 0.6),
-                                        fontSize: 10),
+                                        fontSize: 14.sp),
                                   ),
                                   GestureDetector(
                                     onTap: () {
@@ -165,24 +160,26 @@ class _LoginPageState extends State<LoginPage> {
                                       //Navigator.push(context, MaterialPageRoute(builder: (context) {return const TermConditionScreen();}));
                                     },
                                     child: Row(
-                                      children: const [
-                                        AutoSizeText(
-                                          ' Privacy Policy',
+                                      children:  [
+                                        Text(
+                                          'Privacy Policy',
                                           style: TextStyle(fontFamily: "Imprima",
                                               color: Color.fromRGBO(
                                                   255, 0, 0, 0.6),
-                                              fontSize: 10),
+                                              fontSize: 14.sp),
                                         ),
                                       ],
                                     ),
                                   )
-                                ])),
+                                 ]
+                               )
+                            ),
                           ],
                         )
                       ],
                     ),
                      SizedBox(
-                      height:hsize*0.03,
+                      height:2.h,
                     ),
                     Center(
                         child: InkWell(
@@ -190,28 +187,28 @@ class _LoginPageState extends State<LoginPage> {
                               Get.offAll(AadharCard());
                              // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) {return const AadharCard();}), (route) => false);
                             },
-                            child: innerShadowButtonWidget("Login",context,height: 0.04,width: 0.6))),
+                            child: innerShadowButtonWidget("Login",context,height: 4.h,width: 60.w))),
                      SizedBox(
-                      height: hsize*0.04,
+                      height: 2.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const AutoSizeText(
+                         Text(
                           "Don't have account?",
-                          style: TextStyle(fontSize: 10,fontFamily: "Imprima"),
+                          style: TextStyle(fontSize: 15.sp,fontFamily: "Imprima"),
                         ),
                         GestureDetector(
                           onTap: () {
                             Get.to(SingUpScreen());
                           },
-                          child: AutoSizeText(
+                          child:Text(
                             'Sign Up',
                             style: TextStyle(
                                 fontFamily: "Imprima",
                               fontWeight: FontWeight.bold,
                                 color: Color.fromRGBO(51, 0, 255, 1),
-                                fontSize: 10),
+                                fontSize: 15.sp),
                           ),
                         ),
                       ],

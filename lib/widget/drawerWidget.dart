@@ -14,7 +14,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+
+
 
 class DrawerWidger extends StatefulWidget {
   const DrawerWidger({super.key});
@@ -36,31 +38,30 @@ class _DrawerWidgerState extends State<DrawerWidger> {
   ];
   @override
   Widget build(BuildContext context) {
-    late double hsize = MediaQuery.of(context).size.height;
-    late double wsize = MediaQuery.of(context).size.width;
     return Drawer(
+      width: 85.w,
       backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
       child: SafeArea(
         child: Column(
           children: [
              SizedBox(
-              height: hsize*0.05,
+              height: 6.h,
             ),
             Image.asset(
               AssetUtilities.person,
-              height: hsize*0.1,
-              width: hsize*0.1,
+              height: 10.h,
+              width: 10.h,
             ),
              SizedBox(
-              height: hsize*0.015,
+              height:1.h,
             ),
-            const AutoSizeText(
+            Text(
               "David Moreno",
               style: TextStyle(
-                  color: Color.fromRGBO(255, 255, 255, 1), fontSize: 16),
+                  color: Color.fromRGBO(255, 255, 255, 1), fontSize: 16.sp),
             ),
              SizedBox(
-              height: hsize*0.0035,
+              height:0.6.h,
             ),
             InkWell(
               onTap: () {
@@ -70,70 +71,68 @@ class _DrawerWidgerState extends State<DrawerWidger> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const AutoSizeText(
+                   Text(
                     "View Profile",
                     style: TextStyle(
-                        color: Color.fromRGBO(255, 255, 255, 1), fontSize: 12,fontFamily: "Imprima"),
+                        color: Color.fromRGBO(255, 255, 255, 1), fontSize: 14.sp,fontFamily: "Imprima"),
                   ),
                    Icon(
                     Icons.airline_stops_sharp,
                     color: Colors.white,
-                    size: wsize*0.04,
+                    size: 13.sp,
                   ),
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 17, right: 17, top: 10),
+              padding:  EdgeInsets.only(left: 4.w, right: 4.w, top: 2.h),
               child: Container(
-                height: hsize*0.07,
-                width: MediaQuery.of(context).size.width,
+                height: 7.h,
+                width: 100.w,
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(15.sp)),
                 child: Row(
                   mainAxisAlignment:MainAxisAlignment.spaceBetween ,
                   children: [
                     Padding(
-                      padding:  EdgeInsets.only(left: wsize*0.03),
+                      padding:  EdgeInsets.only(left: 3.w),
                       child: GestureDetector(
                         onTap: () {
                           Get.to(AddCashScreen());
                           //Navigator.push(context, MaterialPageRoute(builder: (context) {return AddCashScreen();}));
                         },
                         child: Container(
-                          height: hsize*0.04,
-                          width: wsize*0.26,
+                          height: 4.h,
+                          width: 25.w,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(10.sp),
                               border: Border.all(color: Colors.black)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: const [
-                              Icon(Icons.wallet),
-                              AutoSizeText("Add Cash", style: TextStyle(fontSize: 14,fontFamily: "Imprima"),),
+                            children:  [
+                              Icon(Icons.wallet,size: 19.sp),
+                              Text("Add Cash", style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),),
                             ],
                           ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding:  EdgeInsets.only(right: wsize*0.03),
+                      padding:  EdgeInsets.only(right: 3.w),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                      AutoSizeText(
+                        children:  [
+                      Text(
                         "₹500.00",
-                        style: TextStyle(fontSize: 16, color: Colors.black,fontWeight: FontWeight.bold,fontFamily: "Imprima"),
+                        style: TextStyle(fontSize: 18.sp, color: Colors.black,fontWeight: FontWeight.bold,fontFamily: "Imprima"),
                       ),
-                      AutoSizeText(
-                        maxLines: 1,
+                     Text(
                         "Total Balance",
-                        minFontSize: 12,
                         style: TextStyle(
-                            fontSize: 12, fontWeight: FontWeight.w500,fontFamily: "Imprima"),
-                      ),
+                            fontSize: 14.sp, fontWeight: FontWeight.w500,fontFamily: "Imprima"),
+                          ),
                         ],
                       ),
                     ),
@@ -141,40 +140,38 @@ class _DrawerWidgerState extends State<DrawerWidger> {
                 ),
               ),
             ),
-             SizedBox(height:hsize*0.016),
+             SizedBox(height:1.5.h),
             InkWell(
               onTap: (){
                  Get.to(VerificationDocumentScreen());
               },
               child: Container(
-                height: hsize*0.034,
-                width: wsize*0.33,
+                height: 4.h,
+                width: 33.w,
                 decoration: BoxDecoration(
-                  border: Border.all(width: 2,color: Colors.white),
-                  borderRadius: BorderRadius.circular(13),
+                  border: Border.all(width: 5.sp,color: Colors.white),
+                  borderRadius: BorderRadius.circular(15.sp),
                 ),
                 child: Center(
                     child: Center(
                       child: Container(
-                        height: hsize*0.025,
-                        width: wsize*0.31,
+                        height: 3.h,
+                        width: 31.w,
                         decoration: BoxDecoration(
-                          border: Border.all(width: 2,color: Colors.white),
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(13.sp),
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Image.asset(
                               AssetUtilities.pictureIcon,
-                              height: 14,
-                              width: 16,
+                              height: 2.5.h,
+                              width: 2.5.h,
                             ),
-
-                            const AutoSizeText(
+                             Text(
                               "Withdraw Cash",
-                              style: TextStyle(fontSize: 10,fontFamily: "Imprima"),
+                              style: TextStyle(fontSize: 13.sp,fontFamily: "Imprima"),
                             ),
                           ],
                         ),
@@ -182,8 +179,8 @@ class _DrawerWidgerState extends State<DrawerWidger> {
                     )),
               ),
             ),
-            const SizedBox(
-              height: 12,
+             SizedBox(
+              height: 2.h,
             ),
             ListView.builder(
               itemCount: drawerList.length,
@@ -214,60 +211,62 @@ class _DrawerWidgerState extends State<DrawerWidger> {
                         } else if (index == 2) {
                           Get.to(OfferScreen());
                           //Navigator.push(context, MaterialPageRoute(builder: (context) {return OfferScreen();}));
+                        } else if(index==3){
+                          Get.to(VerificationDocumentScreen());
                         }
                       },
                       child: Row(
                         children: [
                            SizedBox(
-                            width: wsize*0.06,
+                            width: 5.w,
                           ),
                           Image.asset(
                             drawerList[index].icon,
-                            height: hsize*0.029,
-                            width: hsize*0.029,
+                            height: 3.h,
+                            width: 3.h,
                           ),
                            SizedBox(
-                            width: wsize*0.08,
+                            width: 8.w
                           ),
-                          AutoSizeText(
+                         Text(
                             drawerList[index].text,
-                            style: const TextStyle(color: Colors.white, fontSize: 18,fontFamily: "Imprima"),
+                            style:  TextStyle(color: Colors.white, fontSize: 18.sp,fontFamily: "Imprima"),
                           ),
                           const Spacer(),
                           index == 1
                               ? Container(
-                                  height: hsize*0.022,
-                                  width: wsize*0.15,
+                                  height: 2.5.h,
+                                  width: 18.w,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    borderRadius: BorderRadius.circular(5),
+                                    borderRadius: BorderRadius.circular(10.sp),
                                   ),
-                                  child: const Center(
-                                    child: Text("Invite",style: TextStyle(fontFamily: "Imprima"),),
+                                  child:  Center(
+                                    child: Text("Invite",style: TextStyle(fontFamily: "Imprima",fontSize: 12.sp),),
                                   ),
                                 )
                               : Container(),
                            SizedBox(
-                            width: wsize*0.035,
+                            width: 3.w,
                           ),
                         ],
                       ),
                     ),
                      SizedBox(
-                      height: hsize*0.025,
+                      height: 2.5.h,
                     )
                   ],
                 );
               },
             ),
             Padding(
-              padding:  EdgeInsets.only(top: hsize*0.01,bottom: hsize*0.025),
+              padding:  EdgeInsets.only(bottom:3.h ),
               child: Container(
-                height: hsize*0.05,
+                height: 4.7.h,
                 width: MediaQuery.of(context).size.width*0.7,
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(10.sp)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -281,10 +280,10 @@ class _DrawerWidgerState extends State<DrawerWidger> {
               ),
             ),
             Container(
-              height: hsize*0.033,
-              width: wsize*0.3,
+              height: 3.5.h,
+              width: 30.w,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(10.sp),
                   color: const Color.fromRGBO(225, 225, 225, 1)),
               child:
                   Row(
@@ -292,12 +291,12 @@ class _DrawerWidgerState extends State<DrawerWidger> {
                       children: [
                 Image.asset(
                   AssetUtilities.logOut,
-                  height: hsize*0.025,
-                  width: hsize*0.025,
+                  height: 2.5.h,
+                  width: 2.5.h,
                 ),
-                AutoSizeText(
+                Text(
                   "Logout",
-                  style: TextStyle(color: Colors.red,fontFamily: "Imprima"),
+                  style: TextStyle(color: Colors.red,fontFamily: "Imprima",fontSize: 16.sp),
                 ),
               ],),
             ),
@@ -309,8 +308,8 @@ class _DrawerWidgerState extends State<DrawerWidger> {
   Widget Sos(String image1){
     return  Image.asset(
       image1,
-      height: MediaQuery.of(context).size.height*0.04,
-      width: MediaQuery.of(context).size.height*0.04,
+      height: 3.7.h,
+      width: 3.7.h,
     );
   }
 }

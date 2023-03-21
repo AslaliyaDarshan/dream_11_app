@@ -1,5 +1,7 @@
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class SupportScreen extends StatefulWidget {
   SupportScreen({Key? key}) : super(key: key);
@@ -11,6 +13,8 @@ class SupportScreen extends StatefulWidget {
 class _SupportScreenState extends State<SupportScreen> {
   @override
   Widget build(BuildContext context) {
+    late double hsize = MediaQuery.of(context).size.height;
+    late double wsize = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
@@ -20,7 +24,7 @@ class _SupportScreenState extends State<SupportScreen> {
         children: [
           Image.asset(AssetUtilities.support),
           const Text(
-            'Feel free to contact us at;',
+            'Feel free to contact us at:',
             style: TextStyle(fontSize: 20),
           ),
           const SizedBox(
@@ -112,7 +116,7 @@ class _SupportScreenState extends State<SupportScreen> {
                             style: TextStyle(fontSize: 15),
                           ),
                           Text(
-                            'support@CrickSwitch.in',
+                            'support@CrickSwitch.com',
                             style: TextStyle(
                                 fontSize: 15,
                                 color: Color.fromRGBO(168, 168, 168, 1)),

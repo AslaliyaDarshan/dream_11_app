@@ -4,7 +4,7 @@ import 'package:dream_11_app/src/onboarding_screen/loginScreen/loginScreen.dart'
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class TermConditionScreen extends StatefulWidget {
   const TermConditionScreen({super.key});
@@ -14,79 +14,78 @@ class TermConditionScreen extends StatefulWidget {
 }
 
 class _TermConditionScreenState extends State<TermConditionScreen> {
-  late double hsize = MediaQuery.of(context).size.height;
-  late double wsize = MediaQuery.of(context).size.width;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(children: [
         Container(
-          height: hsize*1,
-          width: wsize*1,
+          height: 100.h,
+          width: 100.w,
           decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage(AssetUtilities.onBoardingBackGroundImage),
                   fit: BoxFit.fill)),
           child: Center(
             child: Container(
-              padding:  EdgeInsets.only(top: hsize*0.03),
-              height: hsize*0.8,
-              width:  wsize*0.8,
+              padding:  EdgeInsets.only(top: 2.h),
+              height: 80.h,
+              width:  80.w,
               color: Colors.white,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                    Padding(
-                    padding: EdgeInsets.only(left: wsize*0.04),
-                    child: AutoSizeText(
+                    padding: EdgeInsets.only(left: 2.w),
+                    child: Text(
                       "Term of Servise",
-                      style: TextStyle(fontSize: 20,fontFamily: "Imprima",
+                      style: TextStyle(fontSize: 20.sp,fontFamily: "Imprima",
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: hsize*0.02,
+                    height: 1.5.h,
                   ),
                   Padding(
-                    padding:  EdgeInsets.only(left: wsize*0.4),
+                    padding:  EdgeInsets.only(right: 2.w),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: const [
-                            AutoSizeText(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children:  [
+                            Text(
                               "Version -",
                               style: TextStyle(
                                   fontFamily: "Imprima",
-                                  fontSize: 10,
+                                  fontSize: 14.sp,
                                   color: Color.fromRGBO(20, 27, 73, 1)),
                             ),
-                            AutoSizeText(
+                            Text(
                               "2022-02",
                               style: TextStyle(
                                   fontFamily: "Imprima",
-                                  fontSize: 10,
+                                  fontSize: 14.sp,
                                   color: Color.fromRGBO(138, 140, 159, 1)),
                             ),
                           ],
                         ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: const [
-                            AutoSizeText(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children:  [
+                            Text(
                               "Last Updated on",
                               style: TextStyle(
                                   fontFamily: "Imprima",
-                                  fontSize: 10,
+                                  fontSize: 14.sp,
                                   color: Color.fromRGBO(20, 27, 73, 1)),
                             ),
-                            AutoSizeText(
+                            Text(
                               "2022-02",
                               style: TextStyle(
                                   fontFamily: "Imprima",
-                                  fontSize: 10,
+                                  fontSize: 14.sp,
                                   color: Color.fromRGBO(138, 140, 159, 1)),
                             ),
                           ],
@@ -95,38 +94,38 @@ class _TermConditionScreenState extends State<TermConditionScreen> {
                     ),
                   ),
                    SizedBox(
-                   height: hsize*0.03,
+                   height: 1.5.h,
                   ),
                   Wrap(children: [
                      Padding(
-                      padding: EdgeInsets.only(left: wsize*0.04, right: wsize*0.04),
-                      child: AutoSizeText(
+                      padding: EdgeInsets.symmetric(horizontal: 1.w),
+                      child: Text(
                         "Play Games 24x7 Private Limited (hereinafter referred as “ Play Games 24x7” or “we”) offers online games including and not limited to rummy,",
-                        style: TextStyle(fontSize: 12,fontFamily: "Imprima",),
+                        style: TextStyle(fontSize: 15.sp,fontFamily: "Imprima",),
                       ),
                     ),
                   ]),
                   SizedBox(
-                    height: hsize*0.02,
+                    height: 2.h,
                   ),
                   Wrap(children: [
                      Padding(
-                      padding: EdgeInsets.only(left: wsize*0.04, right: wsize*0.04),
-                      child: AutoSizeText(
+                      padding: EdgeInsets.symmetric(horizontal: 1.w),
+                      child: Text(
                         "Play Games 24x7 Private Limited (hereinafter referred as “ Play Games 24x7” or “we”) offers online games including and not limited to rummy,",
-                        style: TextStyle(fontSize: 12,fontFamily: "Imprima",),
+                        style: TextStyle(fontSize: 15.sp,fontFamily: "Imprima",),
                       ),
                     ),
                   ]),
                   SizedBox(
-                    height: hsize*0.02,
+                    height: 2.h,
                   ),
                   Wrap(children: [
                      Padding(
-                      padding: EdgeInsets.only(left: wsize*0.04, right: wsize*0.04),
-                      child: AutoSizeText(
+                      padding: EdgeInsets.symmetric(horizontal: 1.w),
+                      child: Text(
                         "Play Games 24x7 Private Limited (hereinafter referred as “ Play Games 24x7” or “we”) offers online games including and not limited to rummy,",
-                        style: TextStyle(fontSize: 12,fontFamily: "Imprima",),
+                        style: TextStyle(fontSize: 15.sp,fontFamily: "Imprima",),
                       ),
                     ),
                    ],
@@ -136,11 +135,11 @@ class _TermConditionScreenState extends State<TermConditionScreen> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(bottom: hsize*0.02, right: wsize*0.025),
+                        padding: EdgeInsets.only(bottom: 1.5.h, right: 1.5.w),
                         child: Image.asset(
                           AssetUtilities.tcIcon,
-                          height: hsize*0.02,
-                          width: wsize*0.04,
+                          height: 2.h,
+                          width: 2.h,
                         ),
                       ),
                     ],
@@ -151,8 +150,8 @@ class _TermConditionScreenState extends State<TermConditionScreen> {
           ),
         ),
         Positioned(
-            top: hsize*0.07,
-            right: wsize*0.04,
+            top:7.h,
+            right: 2.h,
             child: IconButton(
                 onPressed: () {
                   Get.to(LoginPage());

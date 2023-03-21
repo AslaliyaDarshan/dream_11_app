@@ -7,8 +7,7 @@ import 'package:dream_11_app/utility/assets/srings.dart';
 import 'package:dream_11_app/widget/buttonWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:auto_size_text/auto_size_text.dart';
-
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -44,14 +43,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   final OnBoardingController controller = Get.put(OnBoardingController());
   @override
   Widget build(BuildContext context) {
-    double  hsize = MediaQuery.of(context).size.height;
-    double  wsize = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Stack(
         children: [
           SizedBox(
-            height: hsize*1,
-            width: wsize*1,
+            height:100.h,
+            width: 100.w,
             child: Image.asset(
               AssetUtilities.onBoardingBackGroundImage,
               fit: BoxFit.cover,
@@ -64,45 +61,45 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 Center(
                   child: Image.asset(
                     imageList[controller.index.value],
-                    height: hsize*0.4,
-                    width: wsize*1,
+                    height: 40.h,
+                    width: 100.w,
                   ),
                 ),
-                AutoSizeText(
+                Text(
                   mainTextList[controller.index.value],
                   textAlign: TextAlign.center,
-                  style:  TextStyle(fontSize: 18, fontWeight: FontWeight.w400,fontFamily:"Imprima"),
+                  style:  TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w400,fontFamily:"Imprima"),
                 ),
                 SizedBox(
                   height: controller.index.value == 1 ? 0 : 10,
                 ),
                 controller.index.value == 1
-                    ? const AutoSizeText(
+                    ?  Text(
                         Strings.secondTitleSubTitle,
                         style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w400,fontFamily:"Imprima"),
+                            fontSize: 18.sp, fontWeight: FontWeight.w400,fontFamily:"Imprima"),
                       )
                     : const SizedBox.shrink(),
                 SizedBox(
-                  height: controller.index.value == 1 ? 10 : 0,
+                  height: controller.index.value == 1 ? 2.h : 0.h,
                 ),
-                AutoSizeText(
+                Text(
                   subTextList[controller.index.value],
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 13,
+                  style:  TextStyle(
+                    fontSize: 14.sp,
                     fontFamily:"Imprima",
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                const SizedBox(height: 31),
+                 SizedBox(height: 4.h),
                 controller.index == 4
                     ? GestureDetector(
                         onTap: () {
                           Get.offAll(LoginPage());
                           //Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) {return LoginPage();}), (route) => false);
                         },
-                        child:innerShadowButtonWidget("Continue",context,width:0.6,height: 0.05))
+                        child:innerShadowButtonWidget("Continue",context,width:60.w,height:4.h))
                     : const SizedBox.shrink()
               ],
             ),

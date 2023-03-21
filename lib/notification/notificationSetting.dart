@@ -32,93 +32,95 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen>
   Widget build(BuildContext context) {
     late double hsize = MediaQuery.of(context).size.height;
     late double wsize = MediaQuery.of(context).size.width;
-    return Scaffold();
-    // return DefaultTabController(
-    //   length: 2,
-    // );
-    //   Scaffold(
-    //   appBar: AppBar(
-    //     backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-    //     title: const Text('Notification'),
-    //   ),
-    //   body: Column(
-    //     crossAxisAlignment: CrossAxisAlignment.stretch,
-    //     mainAxisAlignment: MainAxisAlignment.start,
-    //     children: [
-    //       DefaultTabController(
-    //           length: 2,
-    //           child: Column(
-    //             // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    //             children: [
-    //               TabBar(
-    //
-    //                   isScrollable: true,
-    //                   onTap: (int index) {
-    //                     setState(() {
-    //                       _tabController!.index = index;
-    //                     });
-    //                   },
-    //                   controller: _tabController,
-    //                   labelColor: Colors.green,
-    //                   unselectedLabelColor: Colors.black,
-    //                   labelStyle:  TextStyle(fontSize: 18),
-    //                   tabs: const [
-    //                     Tab(
-    //                       text: "ALL",
-    //                     ),
-    //                     Tab(
-    //                       text: "OFFER",
-    //                     ),
-    //                   ],
-    //               ),
-    //               Container(
-    //                 height: hsize*0.83,
-    //                 decoration: const BoxDecoration(
-    //                     border: Border(top: BorderSide(color: Colors.grey, width: 0.5))),
-    //                 child: TabBarView(
-    //                   controller: _tabController,
-    //                   children: [
-    //                     tabNotificationWidget(),
-    //                     tabNotificationWidget()
-    //                   ],
-    //                 ),
-    //               ),
-    //             ],
-    //           ))
-    //     ],
-    //   ),
-    // );
+
+    return DefaultTabController(
+      length: 2,
+     child:Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
+        title: const Text('Notification'),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          DefaultTabController(
+              length: 2,
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TabBar(
+                     onTap: (int index) {
+                        setState(() {
+                          _tabController!.index = index;
+                        });
+                      },
+                      controller: _tabController,
+                      labelColor: Colors.green,
+                      unselectedLabelColor: Colors.black,
+                      labelStyle:  TextStyle(fontSize: 18),
+                      tabs: const [
+                        Tab(
+                          text: "ALL",
+                        ),
+                        Tab(
+                          text: "OFFER",
+                        ),
+                      ],
+                  ),
+                  Container(
+                    height: hsize*0.83,
+                    decoration:  BoxDecoration(
+                        border: Border(top: BorderSide(color: Colors.grey, width: wsize*0.002,
+                        ))),
+                    child: TabBarView(
+                      controller: _tabController,
+                      children: [
+                        tabNotificationWidget(),
+                        tabNotificationWidget()
+                      ],
+                    ),
+                  ),
+                ],
+              )
+            )
+          ],
+        ),
+      ),
+    );
   }
 
   Widget tabNotificationWidget() {
     return Column(
       children: [
         SizedBox(
-          height: 90,
-          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height*0.11,
+          width: MediaQuery.of(context).size.width*1,
           child: Card(
             child: Row(
               children: [
                 Image.asset(
                   AssetUtilities.discount,
-                  height: 51,
-                  width: 51,
+                  height: MediaQuery.of(context).size.height*0.07,
+                  width: MediaQuery.of(context).size.width*0.13,
                 ),
-                const SizedBox(
-                  width: 9,
+                 SizedBox(
+                  width: MediaQuery.of(context).size.width*0.02,
                 ),
                 Flexible(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      const AutoSizeText(
+                        maxFontSize: 12,
                         'Discount unlocked',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 12),
                       ),
                       const Flexible(
-                        child: Text(
+                        child: AutoSizeText(
+                          maxFontSize: 12,
                           'You’ve got a 100% discount! This special offer expires soon.',
                           style: TextStyle(
                               fontWeight: FontWeight.normal, fontSize: 12),
@@ -127,7 +129,8 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen>
                       Padding(
                         padding: EdgeInsets.only(
                             left: MediaQuery.of(context).size.width / 1.6),
-                        child: const Text(
+                        child: const AutoSizeText(
+                          maxFontSize: 12,
                           '28 mins ago',
                           style: TextStyle(fontSize: 12),
                         ),
