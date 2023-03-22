@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+
 
 class ResposiblePlayScreen extends StatefulWidget {
   ResposiblePlayScreen({Key? key}) : super(key: key);
@@ -13,7 +15,7 @@ class _ResposiblePlayScreenState extends State<ResposiblePlayScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        title: const Text('Responsible Play'),
+        title: Text('Responsible Play',style: TextStyle(fontSize: 18.sp),),
       ),
     );
   }

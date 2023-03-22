@@ -2,8 +2,7 @@ import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:get/get.dart';
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class NotificationSettingScreen extends StatefulWidget {
   const NotificationSettingScreen({super.key});
@@ -30,15 +29,12 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen>
 
   @override
   Widget build(BuildContext context) {
-    late double hsize = MediaQuery.of(context).size.height;
-    late double wsize = MediaQuery.of(context).size.width;
-
     return DefaultTabController(
       length: 2,
      child:Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        title: const Text('Notification'),
+        title:  Text('Notification',style: TextStyle(fontFamily: "Imprima",fontSize: 18.sp),),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -58,7 +54,7 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen>
                       controller: _tabController,
                       labelColor: Colors.green,
                       unselectedLabelColor: Colors.black,
-                      labelStyle:  TextStyle(fontSize: 18),
+                      labelStyle:  TextStyle(fontSize: 16.sp,),
                       tabs: const [
                         Tab(
                           text: "ALL",
@@ -69,21 +65,20 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen>
                       ],
                   ),
                   Container(
-                    height: hsize*0.83,
+                    height: 14.5.h,
                     decoration:  BoxDecoration(
-                        border: Border(top: BorderSide(color: Colors.grey, width: wsize*0.002,
-                        ))),
+                        border: Border(top: BorderSide(color: Colors.grey, width: 0.3.w,))),
                     child: TabBarView(
                       controller: _tabController,
                       children: [
                         tabNotificationWidget(),
-                        tabNotificationWidget()
+                        tabNotificationWidget(),
                       ],
                     ),
                   ),
                 ],
-              )
-            )
+              ),
+            ),
           ],
         ),
       ),
@@ -93,52 +88,54 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen>
   Widget tabNotificationWidget() {
     return Column(
       children: [
+        SizedBox(height:1.h),
         SizedBox(
-          height: MediaQuery.of(context).size.height*0.11,
-          width: MediaQuery.of(context).size.width*1,
+          height: 13.h,
+          width:96.w,
           child: Card(
-            child: Row(
-              children: [
-                Image.asset(
-                  AssetUtilities.discount,
-                  height: MediaQuery.of(context).size.height*0.07,
-                  width: MediaQuery.of(context).size.width*0.13,
-                ),
-                 SizedBox(
-                  width: MediaQuery.of(context).size.width*0.02,
-                ),
-                Flexible(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const AutoSizeText(
-                        maxFontSize: 12,
-                        'Discount unlocked',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 12),
-                      ),
-                      const Flexible(
-                        child: AutoSizeText(
-                          maxFontSize: 12,
-                          'You’ve got a 100% discount! This special offer expires soon.',
-                          style: TextStyle(
-                              fontWeight: FontWeight.normal, fontSize: 12),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            left: MediaQuery.of(context).size.width / 1.6),
-                        child: const AutoSizeText(
-                          maxFontSize: 12,
-                          '28 mins ago',
-                          style: TextStyle(fontSize: 12),
-                        ),
-                      ),
-                    ],
+            child: Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 0.5.h),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    AssetUtilities.discount,
+                    height:5.h,
+                    width: 5.h,
                   ),
-                )
-              ],
+                   SizedBox(
+                    width: 3.w,
+                  ),
+                  Flexible(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                         Text(
+                          'Discount unlocked',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 14.sp),
+                        ),
+                         Flexible(
+                          child: Text(
+                            'You’ve got a 100% discount! This special offer expires soon.',
+                            style: TextStyle(
+                                fontWeight: FontWeight.normal, fontSize: 14.sp),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              left: 55.w),
+                          child: Text(
+                            '28 mins ago',
+                            style: TextStyle(fontSize: 13.sp),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),

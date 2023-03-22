@@ -1,6 +1,7 @@
 class DrawerModel {
   String icon;
   String text;
+
   DrawerModel({required this.icon, required this.text});
 }
 

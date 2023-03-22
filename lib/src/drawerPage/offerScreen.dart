@@ -1,4 +1,5 @@
-import 'package:dream_11_app/utility/assets/images.dart';
+
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:flutter/material.dart';
 
 class OfferScreen extends StatefulWidget {
@@ -14,51 +15,36 @@ class _OfferScreenState extends State<OfferScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        title: const Text('Offer'),
+        title: Text('Offer',style: TextStyle(fontSize: 18.sp),),
       ),
-      body: Stack(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Positioned(
-            top: 111,
-            right: 11,
-            left: 11,
-            child: Column(
-              children: [
-                Image.asset(
-                  'assets/images/offer2.png',
-                  height: 217,
-                ),
-                Image.asset(
-                  'assets/images/offer3.png',
-                  height: 217,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Image.asset(
-                      'assets/images/offer4.png',
-                      height: 114,
-                      width: 150,
-                    ),
-                    Image.asset(
-                      'assets/images/offer4.png',
-                      height: 114,
-                      width: 150,
-                    ),
-                  ],
-                )
-              ],
-            ),
+          Image.asset(
+            'assets/images/offer1.png',
+            height: 34.h,
+            width: 95.w,
           ),
-          Positioned(
-            top: 52,
-            left: 160,
-            child: Image.asset(
-              AssetUtilities.offer1,
-              height: 117,
-              width: 211,
-            ),
+          Image.asset(
+            'assets/images/offer3.png',
+            height: 26.h,
+            width: 95.w,
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Image.asset(
+                'assets/images/offer4.png',
+                height: 20.h,
+                width: 45.w,
+              ),
+              Image.asset(
+                'assets/images/offer4.png',
+                height: 20.h,
+                width: 45.w,
+              ),
+            ],
+          )
         ],
       ),
     );

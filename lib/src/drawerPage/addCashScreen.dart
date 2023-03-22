@@ -2,9 +2,7 @@ import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:auto_size_text/auto_size_text.dart';
-
-
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class AddCashScreen extends StatefulWidget {
   AddCashScreen({Key? key}) : super(key: key);
@@ -23,86 +21,86 @@ class _AddCashScreenState extends State<AddCashScreen> {
       backgroundColor: const Color.fromRGBO(238, 238, 238, 1),
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        title: const Text('Add Cash',style: TextStyle(fontFamily: "Imprima"),),
+        title:  Text('Add Cash',style: TextStyle(fontFamily: "Imprima",fontSize: 18.sp),),
       ),
       body: Column(
         children: [
           SizedBox(
-            height: hsize*0.055,
+            height: 5.5.h,
             child: Card(
               child: Row(
                 children: [
                   SizedBox(
-                    width: wsize*0.02,
+                    width: 2.w,
                   ),
                   Icon(
                     Icons.wallet,
                     color: Color.fromRGBO(0, 119, 47, 1),
-                    size: wsize*0.07,
+                    size: 22.sp,
                   ),
                   SizedBox(
                     width: wsize*0.04,
                   ),
                   Text(
                     "Current Balance",
-                    style: TextStyle(fontSize: 14,fontFamily: "Imprima"),
+                    style: TextStyle(fontSize: 15.sp,fontFamily: "Imprima"),
                   ),
                   Spacer(),
-                  AutoSizeText('₹0',style: TextStyle(fontFamily: "Imprima"),),
-                  SizedBox(width: wsize*0.02,),
+                  Text('₹0',style: TextStyle(fontFamily: "Imprima",fontSize: 15.sp),),
+                  SizedBox(width: 2.w,),
                 ],
               ),
             ),
           ),
           SizedBox(
-            height: hsize*0.02,
+            height:2.h,
           ),
           SizedBox(
-            height: hsize*0.09,
+            height: 9.h,
             child: Card(
               child: Row(
                 children: [
                    SizedBox(
-                    width: wsize*0.02,
+                    width:2.w,
                   ),
                   Container(
-                    height: hsize*0.06,
-                    width: wsize*0.4,
+                    height: 6.h,
+                    width: 40.w,
                     decoration: BoxDecoration(
                         color: const Color.fromRGBO(30, 188, 93, 1),
-                        borderRadius: BorderRadius.circular(9)),
+                        borderRadius: BorderRadius.circular(13.sp)),
                     child: Center(
                       child: Container(
-                        height:hsize*0.055,
-                        width: wsize*0.39,
+                        height:5.5.h,
+                        width: 39.w,
                         decoration: BoxDecoration(
                             color: const Color.fromRGBO(238, 238, 238, 1),
-                            borderRadius: BorderRadius.circular(8)),
+                            borderRadius: BorderRadius.circular(11.sp)),
                         child: Padding(
-                          padding:  EdgeInsets.only(left: wsize*0.02,right: wsize*0.02),
+                          padding: EdgeInsets.symmetric(horizontal: 2.w),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const Text(
+                               Text(
                                 'Amount to add',
                                 style: TextStyle(
                                   color: Color.fromRGBO(54, 130, 54, 1),
-                                  fontSize: 12,fontFamily: "Imprima"
+                                  fontSize: 13.sp,fontFamily: "Imprima"
                                 ),
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
-                                    height: hsize*0.03,
-                                    width: wsize*0.2,
+                                    height: 3.h,
+                                    width: 20.w,
                                     child: Center(
                                       child: TextFormField(
                                         onTap: (){
                                           txtamount.text="200";
                                         },
-                                        style: TextStyle(fontSize: 12),
+                                        style: TextStyle(fontSize: 14.sp),
                                         controller: txtamount,
                                         inputFormatters: [
                                           LengthLimitingTextInputFormatter(7),
@@ -112,8 +110,8 @@ class _AddCashScreenState extends State<AddCashScreen> {
                                           contentPadding: EdgeInsetsDirectional.only(top: 0,start: 5),
                                           prefixText: "₹ ",
                                           filled: true,
-                                          hintText: '₹ 200',
-                                          hintStyle: const TextStyle(color: Color.fromRGBO(0, 0, 0, 0.6),fontSize: 12),
+                                          hintText: ' 200',
+                                          hintStyle:  TextStyle(color: Color.fromRGBO(0, 0, 0, 0.6),fontSize: 14.sp),
                                           fillColor: const Color.fromRGBO(217, 217, 217, 1),
                                           border: OutlineInputBorder(
                                               borderRadius: BorderRadius.circular(2),
@@ -129,10 +127,15 @@ class _AddCashScreenState extends State<AddCashScreen> {
                                     ),
                                   ),
                                   //const Text('₹200',style: TextStyle(fontFamily: "Imprima"),),
-                                  Image.asset(
-                                    AssetUtilities.close,
-                                    height: hsize*0.03,
-                                    width:  wsize*0.04,
+                                  InkWell(
+                                    onTap: (){
+                                      txtamount.clear();
+                                    },
+                                    child: Image.asset(
+                                      AssetUtilities.close,
+                                      height: 3.h,
+                                      width: 4.w,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -144,30 +147,30 @@ class _AddCashScreenState extends State<AddCashScreen> {
                   ),
                   const Spacer(),
                   Container(
-                    height: hsize*0.032,
-                    width: wsize*0.16,
+                    height: 3.2.h,
+                    width: 16.w,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         border: Border.all(
                           color: Colors.black,
                         )),
-                    child: const Center(child: AutoSizeText('₹5000000',style: TextStyle(fontFamily: "Imprima"),)),
+                    child:  Center(child: Text('₹5000000',style: TextStyle(fontFamily: "Imprima",fontSize: 13.sp),)),
                   ),
                    SizedBox(
-                    width: wsize*0.02,
+                    width:2.w,
                   ),
                   Container(
-                    height: hsize*0.032,
-                    width: wsize*0.16,
+                    height:3.2.h,
+                    width: 16.w,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         border: Border.all(
                           color: Colors.black,
                         )),
-                    child: const Center(child: AutoSizeText(maxLines: 1,'₹5000000',style: TextStyle(fontFamily: "Imprima"),)),
+                    child:  Center(child: Text('₹5000000',style: TextStyle(fontFamily: "Imprima",fontSize: 13.sp),)),
                   ),
                   SizedBox(
-                    width: wsize*0.02,
+                    width: 2.w,
                   ),
                 ],
               ),
@@ -175,7 +178,7 @@ class _AddCashScreenState extends State<AddCashScreen> {
           ),
           const Spacer(),
           SizedBox(
-            height: hsize*0.09,
+            height: 9.h,
             child: Card(
               child: Center(
                 child: ElevatedButton(
@@ -185,11 +188,10 @@ class _AddCashScreenState extends State<AddCashScreen> {
 
                   },
                   child: Padding(
-                    padding: EdgeInsets.only(
-                        left: wsize*0.35,
-                        right: wsize*0.35,
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 35.w,
                     ),
-                    child: const Text('ADD ₹150',style: TextStyle(fontFamily: "Imprima"),),
+                    child: Text('ADD ₹150',style: TextStyle(fontFamily: "Imprima",fontSize: 16.sp),),
                   ),
                 ),
               ),

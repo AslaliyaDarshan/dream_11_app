@@ -1,7 +1,7 @@
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class SupportScreen extends StatefulWidget {
   SupportScreen({Key? key}) : super(key: key);
@@ -13,112 +13,112 @@ class SupportScreen extends StatefulWidget {
 class _SupportScreenState extends State<SupportScreen> {
   @override
   Widget build(BuildContext context) {
-    late double hsize = MediaQuery.of(context).size.height;
-    late double wsize = MediaQuery.of(context).size.width;
+
     return Scaffold(
+      backgroundColor: Color(0xFFE2E2E2),
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        title: const Text('Support'),
+        title:  Text('Support',style: TextStyle(fontSize: 18.sp),),
       ),
       body: Column(
         children: [
           Image.asset(AssetUtilities.support),
-          const Text(
+           Text(
             'Feel free to contact us at:',
-            style: TextStyle(fontSize: 20),
+            style: TextStyle(fontSize: 20.sp),
           ),
-          const SizedBox(
-            height: 27,
+           SizedBox(
+            height: 4.h,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 18.0, right: 18),
+            padding:  EdgeInsets.symmetric(horizontal: 4.w),
             child: SizedBox(
-              height: 73,
-              width: MediaQuery.of(context).size.width,
+              height:  9.h,
+              width: 100.w,
               child: Card(
                 child: Row(
                   children: [
-                    const SizedBox(
-                      width: 14,
+                     SizedBox(
+                      width: 4.w,
                     ),
                     CircleAvatar(
-                      radius: 25,
+                      radius: 20.sp,
                       backgroundColor: const Color.fromRGBO(255, 196, 160, 1),
                       child: Center(
                         child: Image.asset(
                           AssetUtilities.chat,
-                          height: 20,
-                          width: 20,
+                          height:3.h,
+                          width: 3.h,
                         ),
                       ),
                     ),
                     SizedBox(
-                      width: 18,
+                      width: 4.w,
                     ),
                     Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children:  [
                           Text(
                             'Chat with Us:',
-                            style: TextStyle(fontSize: 15),
+                            style: TextStyle(fontSize: 16.sp),
                           ),
                           Text(
                             'We are live and ready to help!',
                             style: TextStyle(
-                                fontSize: 15,
+                                fontSize: 15.sp,
                                 color: Color.fromRGBO(168, 168, 168, 1)),
                           ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
             ),
           ),
           SizedBox(
-            height: 27,
+            height: 3.h,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 18.0, right: 18),
+            padding:  EdgeInsets.symmetric(horizontal: 4.w),
             child: SizedBox(
-              height: 73,
+              height: 9.h,
               width: MediaQuery.of(context).size.width,
               child: Card(
                 child: Row(
                   children: [
-                    const SizedBox(
-                      width: 14,
+                     SizedBox(
+                      width: 4.w,
                     ),
                     CircleAvatar(
-                      radius: 25,
+                      radius: 20.sp,
                       backgroundColor: const Color.fromRGBO(160, 210, 255, 1),
                       child: Center(
                         child: Image.asset(
                           AssetUtilities.message,
-                          height: 20,
-                          width: 20,
+                          height: 3.h,
+                          width: 3.h,
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      width: 18,
+                     SizedBox(
+                      width: 4.w,
                     ),
                     Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           Text(
                             'Email Us:',
-                            style: TextStyle(fontSize: 15),
+                            style: TextStyle(fontSize: 16.sp),
                           ),
                           Text(
                             'support@CrickSwitch.com',
                             style: TextStyle(
-                                fontSize: 15,
+                                fontSize: 15.sp,
                                 color: Color.fromRGBO(168, 168, 168, 1)),
                           ),
                         ],
@@ -129,41 +129,28 @@ class _SupportScreenState extends State<SupportScreen> {
               ),
             ),
           ),
-          const SizedBox(
-            height: 15,
+           SizedBox(
+            height: 2.h,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Image.asset(
-                AssetUtilities.facebook1,
-                height: 53,
-                width: 53,
-              ),
-              Image.asset(
-                AssetUtilities.youtube,
-                height: 53,
-                width: 53,
-              ),
-              Image.asset(
-                AssetUtilities.instgram,
-                height: 53,
-                width: 53,
-              ),
-              Image.asset(
-                AssetUtilities.twitter,
-                height: 53,
-                width: 53,
-              ),
-              Image.asset(
-                AssetUtilities.telegram,
-                height: 53,
-                width: 53,
-              ),
+              Sos(AssetUtilities.facebook1),
+              Sos(AssetUtilities.youtube),
+              Sos(AssetUtilities.instgram),
+              Sos(AssetUtilities.twitter),
+              Sos(AssetUtilities.telegram),
             ],
           ),
         ],
       ),
+    );
+  }
+  Widget Sos(String image1){
+    return Image.asset(
+      image1,
+      height: 6.h,
+      width: 6.h,
     );
   }
 }

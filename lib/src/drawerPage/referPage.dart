@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ReferScreen extends StatefulWidget {
   const ReferScreen({super.key});
@@ -15,69 +15,65 @@ class ReferScreen extends StatefulWidget {
 class _ReferScreenState extends State<ReferScreen> {
   @override
   Widget build(BuildContext context) {
-    late double hsize = MediaQuery.of(context).size.height;
-    late double wsize = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        title: const AutoSizeText(maxFontSize: 18,'My Referrals',style: TextStyle(fontFamily: "Imprima"),),
+        title:  Text('My Referrals',style: TextStyle(fontFamily: "Imprima",fontSize: 17.sp),),
       ),
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: wsize*0.07),
+        padding:  EdgeInsets.symmetric(horizontal:4.w),
         child: Column(
           children: [
             Image.asset(
               AssetUtilities.referImage,
             ),
             SizedBox(
-              height: hsize*0.08,
-              width: wsize*1,
+              height: 8.h,
+              width: 100.w,
               child: Card(
                 color: const Color.fromRGBO(237, 237, 237, 1),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: wsize*0.04),
+                  padding: EdgeInsets.symmetric(horizontal: 3.w),
                   child: Row(
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const AutoSizeText(
-                            maxFontSize: 16,
+                           Text(
                             'Share invite code',
-                            style: TextStyle(fontSize: 16,fontFamily: "Imprima"),
+                            style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const AutoSizeText(
-                                maxFontSize: 12,
+                              Text(
                                 'IDCAJBEBGH98 ',
-                                style: TextStyle(fontSize: 12,fontFamily: "Imprima"),
+                                style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                               ),
                               Image.asset(
                                 AssetUtilities.copy,
-                                height: hsize*0.02,
-                                width: wsize*0.03,
+                                height: 2.h,
+                                width: 2.h,
                               ),
                             ],
-                          )
+                          ),
                         ],
                       ),
                       const Spacer(),
                       Image.asset(
                         AssetUtilities.whatsappicon,
-                        height: hsize*0.036,
-                        width:  hsize*0.036,
+                        height: 4.h,
+                        width:  4.h,
                       ),
                        SizedBox(
-                        width: wsize*0.02,
+                        width: 2.w,
                       ),
                       Image.asset(
                         AssetUtilities.moreicon,
-                        height: hsize*0.036,
-                        width: hsize*0.036,
+                        height: 4.h,
+                        width: 4.h,
                       ),
                     ],
                   ),
@@ -85,69 +81,65 @@ class _ReferScreenState extends State<ReferScreen> {
               ),
             ),
             SizedBox(
-              height: hsize*0.01,
+              height: 1.h,
             ),
             SizedBox(
-              height: hsize*0.261,
-              width: MediaQuery.of(context).size.width,
+              height: 25.h,
+              width: 100.w,
               child: Card(
                 color: const Color.fromRGBO(237, 237, 237, 1),
                 child: Padding(
-                  padding:  EdgeInsets.only(top: hsize*0.015,right: wsize*0.04,left: wsize*0.04),
+                  padding:  EdgeInsets.symmetric(horizontal: 4.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      const AutoSizeText(maxFontSize: 15,
+                       Text(
                         'Earn upto ₹8000 for every referral',
                         style: TextStyle(
-                          fontSize: 15,fontFamily: "Imprima"
+                          fontSize: 16.sp,fontFamily: "Imprima"
                         ),
                       ),
-                      const Padding(
+                       Padding(
                         padding: EdgeInsets.only(left: 10, top: 4),
-                        child: AutoSizeText(
-                          minFontSize: 11,
+                        child: Text(
                           '- Get ₹100 cash bonus after your friend verify their mobile number on CrickSwitch.',
-                          style: TextStyle(fontSize: 11,fontFamily: "Imprima"),
+                          style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                         ),
                       ),
-                       SizedBox(
-                        height: hsize*0.005,
-                      ),
-                      const AutoSizeText(
-                        maxFontSize: 15,
+
+
+                     Text(
                         'Kick off your friend’s CrickSwitch!',
                         style: TextStyle(
                             color: Color.fromRGBO(18, 117, 33, 1),
-                            fontSize: 15,fontFamily: "Imprima"),
+                            fontSize: 16.sp,fontFamily: "Imprima"),
                       ),
 
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           SizedBox(
-                            height: hsize*0.13,
-                            width: wsize*0.35,
+                            height: 13.h,
+                            width: 35.w,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Container(
-                                  height: hsize*0.025,
-                                  width:  wsize*0.35,
+                                  height: 2.5.h,
+                                  width:  35.w,
                                   color: const Color.fromRGBO(217, 217, 217, 1),
-                                  child: const Center(
-                                      child: AutoSizeText(
-                                        maxFontSize: 12,
+                                  child:  Center(
+                                      child: Text(
                                     'Both of you get',
-                                    style: TextStyle(fontSize: 12,fontFamily: "Imprima"),
+                                    style: TextStyle(fontSize: 13.sp,fontFamily: "Imprima"),
                                     ),
                                   ),
                                 ),
                                 Container(
-                                  padding: EdgeInsets.symmetric(horizontal: wsize*0.02),
-                                    height: hsize*0.085,
-                                    width:  wsize*0.35,
+                                  padding: EdgeInsets.symmetric(horizontal: 2.w),
+                                    height:8.5.h,
+                                    width: 35.w,
                                     color: Colors.white,
                                     child: Column(
                                           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -163,26 +155,25 @@ class _ReferScreenState extends State<ReferScreen> {
                              ),
                           ),
                           SizedBox(
-                            height: hsize*0.13,
-                            width: wsize*0.35,
+                            height: 13.h,
+                            width: 35.w,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Container(
-                                  height:hsize*0.025,
-                                  width: wsize*0.35,
+                                  height:2.5.h,
+                                  width: 35.w,
                                   color: const Color.fromRGBO(217, 217, 217, 1),
-                                  child: const Center(
-                                      child: AutoSizeText(
-                                        maxFontSize: 12,
+                                  child:  Center(
+                                      child: Text(
                                         'If your friend invite',
-                                    style: TextStyle(fontSize: 12,fontFamily: "Imprima"),
+                                    style: TextStyle(fontSize: 13.sp,fontFamily: "Imprima"),
                                   )),
                                 ),
                                 Container(
-                                    padding: EdgeInsets.symmetric(horizontal: wsize*0.02),
-                                    height: hsize*0.085,
-                                    width:  wsize*0.35,
+                                    padding: EdgeInsets.symmetric(horizontal: 2.w),
+                                    height: 8.5.h,
+                                    width:  35.w,
                                     color: Colors.white,
                                     child: Column(
                                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -204,62 +195,61 @@ class _ReferScreenState extends State<ReferScreen> {
                 ),
               ),
             ),
-             SizedBox(height: hsize*0.01),
+             SizedBox(height: 2.h,),
             Container(
-              height: hsize*0.035,
-              width: wsize*1,
+              height: 4.h,
+              width: 100.w,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6),
+                  borderRadius: BorderRadius.circular(10.sp),
                   border: Border.all(color: Colors.black, width: 0.5)),
-              child: const Center(
-                child: AutoSizeText(
-                  maxFontSize: 12,
+              child:  Center(
+                child: Text(
                   'You haven’t invited any friends yet',
-                  style: TextStyle(fontSize: 12,fontFamily: "Imprima"),
+                  style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                 ),
               ),
             ),
-             SizedBox(height: hsize*0.011),
+            SizedBox(height: 2.h),
             Container(
-              height: hsize*0.035,
-              width: wsize*1,
+              height: 4.h,
+              width: 100.w,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6),
+                  borderRadius: BorderRadius.circular(10.sp),
                   border: Border.all(color: Colors.black, width: 0.5)),
-              child: const Center(
-                child: AutoSizeText(maxFontSize: 12,
+              child:  Center(
+                child:Text(
                   'INVITE PHONE CONTECTS',
                   style: TextStyle(
-                      fontSize: 12, color: Color.fromRGBO(11, 132, 11, 1),fontFamily: "Imprima"),
+                      fontSize: 14.sp, color: Color.fromRGBO(11, 132, 11, 1),fontFamily: "Imprima"),
                 ),
               ),
             ),
              SizedBox(
-              height: hsize*0.05,
+              height: 4.h,
             ),
             Center(
               child: GestureDetector(
                 onTap: () {
                 },
                 child: Container(
-                  height: hsize*0.03,
-                  width: wsize*0.35,
+                  height: 3.h,
+                  width:35.w,
                   decoration: BoxDecoration(
                       color: const Color.fromRGBO(178, 233, 159, 1),
-                      borderRadius: BorderRadius.circular(6)),
+                      borderRadius: BorderRadius.circular(10.sp)),
                   child: Center(
                     child: RichText(
-                      text: const TextSpan(
+                      text:  TextSpan(
                           children: <TextSpan>[
                             TextSpan(
                                 text: "PER FRIEND",
                                 style: TextStyle(
-                                    fontSize: 15,fontFamily: "Imprima",
+                                    fontSize: 16.sp,fontFamily: "Imprima",
                                     color: Color.fromRGBO(0, 0, 0, 1)))
                           ],
                           text: "₹551",
                           style: TextStyle(fontFamily: "Imprima",
-                              fontSize: 15,
+                              fontSize: 16.sp,
                               color: Color.fromRGBO(255, 0, 0, 1))),
                     ),
                   ),
@@ -275,15 +265,13 @@ class _ReferScreenState extends State<ReferScreen> {
     return  Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children:  [
-        AutoSizeText(
-          maxFontSize: 12,
+        Text(
           '₹',
-          style: TextStyle(fontSize: 12,fontFamily: "Imprima"),
+          style: TextStyle(fontSize: 13.sp,fontFamily: "Imprima"),
         ),
-        AutoSizeText(
+        Text(
           txt,
-          maxFontSize: 12,
-          style: TextStyle(fontSize: 12,fontFamily: "Imprima"),
+          style: TextStyle(fontSize: 13.sp,fontFamily: "Imprima"),
         ),
       ],
     );

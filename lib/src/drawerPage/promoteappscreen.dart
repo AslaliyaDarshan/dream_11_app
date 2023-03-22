@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class PromoteAppForm extends StatefulWidget {
   const PromoteAppForm({super.key});
@@ -18,197 +19,128 @@ class _PromoteAppFormState extends State<PromoteAppForm> {
   TextEditingController selectChannelType1Controller = TextEditingController();
   TextEditingController selectChannelType2Controller = TextEditingController();
   TextEditingController selectChannelType3Controller = TextEditingController();
-  bool isPressed = false;
+  var userGroup = [];
+  int index = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(226, 226, 226, 1),
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        title: const Text('Promote App'),
+        title: Text(
+          'Promote App',
+          style: TextStyle(fontSize: 18.sp),
+        ),
       ),
       body: Form(
         key: _formKey,
         child: Padding(
-          padding: const EdgeInsets.only(left: 24.0, right: 24),
+          padding: EdgeInsets.symmetric(horizontal: 5.w),
           child: SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 17,
+                SizedBox(
+                  height: 2.h,
                 ),
-                const Text(
+                Text(
                   'Enter your basic details',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  style:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 17.sp),
                 ),
-                const SizedBox(
-                  height: 12,
+                SizedBox(
+                  height: 2.h,
                 ),
-                const Text(
+                Text(
                   "Name",
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 15.sp),
                 ),
-                const SizedBox(
-                  height: 12,
+                SizedBox(
+                  height: 1.h,
                 ),
                 customTextForm(nameController, 'Name'),
-                const SizedBox(
-                  height: 14,
+                SizedBox(
+                  height: 2.h,
                 ),
-                const Text(
+                Text(
                   "Team Name",
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 15.sp),
                 ),
-                const SizedBox(
-                  height: 12,
+                SizedBox(
+                  height: 1.h,
                 ),
                 customTextForm(teamNameController, 'Team Name'),
-                const SizedBox(
-                  height: 14,
+                SizedBox(
+                  height: 2.h,
                 ),
-                const Text(
+                Text(
                   "Email",
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 15.sp),
                 ),
-                const SizedBox(
-                  height: 12,
+                SizedBox(
+                  height: 1.h,
                 ),
                 customTextForm(emailController, 'Email'),
-                const SizedBox(
-                  height: 14,
+                SizedBox(
+                  height: 2.h,
                 ),
-                const Text(
+                Text(
                   "Mobile",
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 15.sp),
                 ),
-                const SizedBox(
-                  height: 12,
+                SizedBox(
+                  height: 1.h,
                 ),
                 customTextForm(mobileController, '+91 Mobile',
                     keyBoardType: TextInputType.phone),
-                const SizedBox(
-                  height: 14,
+                SizedBox(
+                  height: 2.h,
                 ),
-                const Text(
+                Text(
                   "City",
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 15.sp),
                 ),
-                const SizedBox(
-                  height: 12,
+                SizedBox(
+                  height: 1.h,
                 ),
                 customTextForm(
                   cityController,
                   'City',
                 ),
-                const SizedBox(
-                  height: 14,
+                SizedBox(
+                  height: 2.h,
                 ),
-                isPressed
-                    ? SizedBox(
-                        height: 300,
-                        width: MediaQuery.of(context).size.width,
-                        child: Card(
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                                left: 8.0, right: 8, top: 10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  children: [
-                                    const Text(
-                                      'Channel Details',
-                                      style: TextStyle(fontSize: 16),
-                                    ),
-                                    const Spacer(),
-                                    GestureDetector(
-                                        onTap: () {
-                                          isPressed = false;
-                                          setState(() {});
-                                        },
-                                        child: const Icon(Icons.close)),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                const Text(
-                                  'Select Channel Type',
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                const SizedBox(height: 5),
-                                customTextForm(selectChannelType1Controller,
-                                    "Select Channel Type",
-                                    textStyle: const TextStyle(
-                                        fontSize: 14, color: Colors.black),
-                                    prefixText:
-                                        const Icon(Icons.arrow_drop_down)),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                const Text(
-                                  'Select Channel Type',
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                const SizedBox(height: 5),
-                                customTextForm(
-                                  selectChannelType2Controller,
-                                  "Select Channel Type",
-                                  textStyle: const TextStyle(
-                                      fontSize: 14, color: Colors.black),
-                                ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                const Text(
-                                  'Select Channel Type',
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                const SizedBox(height: 5),
-                                customTextForm(
-                                  selectChannelType3Controller,
-                                  "Select Channel Type",
-                                  textStyle: const TextStyle(
-                                      fontSize: 14, color: Colors.black),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      )
-                    : GestureDetector(
-                        onTap: () {
-                          isPressed = true;
-                          setState(() {});
-                        },
-                        child: DottedBorder(
-                          dashPattern: const [5, 5],
-                          radius: const Radius.circular(5),
-                          child: Container(
-                            height: 39,
-                            width: MediaQuery.of(context).size.width,
-                            color: const Color.fromRGBO(217, 217, 217, 1),
-                            child: const Center(
-                              child: Text(
-                                "+ Add Channel Details",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18),
-                              ),
-                            ),
-                          ),
+                ...buildUserGroups(context),
+                GestureDetector(
+                  onTap: () {
+
+                    setState(() {
+                      index++;
+                    });
+                  },
+                  child: DottedBorder(
+                    dashPattern: const [5, 5],
+                    radius: const Radius.circular(5),
+                    child: Container(
+                      height: 4.5.h,
+                      width: 100.w,
+                      color: const Color.fromRGBO(217, 217, 217, 1),
+                      child: const Center(
+                        child: Text(
+                          "+ Add Channel Details",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18),
                         ),
                       ),
-                const SizedBox(height: 17),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 3.h),
                 ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
@@ -236,18 +168,18 @@ class _PromoteAppFormState extends State<PromoteAppForm> {
         suffix: Padding(
             padding: const EdgeInsets.only(right: 0.0), child: prefixText),
         filled: true,
-        contentPadding: const EdgeInsets.only(left: 18, top: 9, bottom: 8),
+        contentPadding: EdgeInsets.only(left: 4.w, top: 1.5.h, bottom: 1.5.h),
         fillColor: Colors.white,
         hintText: hintText,
         hintStyle: textStyle ??
-            const TextStyle(
+            TextStyle(
                 color: Color.fromRGBO(
                   129,
                   116,
                   116,
                   1,
                 ),
-                fontSize: 16),
+                fontSize: 16.sp),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
         ),
@@ -259,5 +191,83 @@ class _PromoteAppFormState extends State<PromoteAppForm> {
         ),
       ),
     );
+  }
+
+  List buildUserGroups(BuildContext context) {
+    for (var i = 0; i < index; i++) {
+      userGroup.add(SizedBox(
+        height: 37.h,
+        width: 100.w,
+        child: Card(
+          child: Padding(
+            padding: EdgeInsets.all(10.sp),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Channel Details',
+                      style: TextStyle(fontSize: 16.sp),
+                    ),
+                    const Spacer(),
+                    GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            userGroup.removeAt(index);
+                            index--;
+                          });
+                        },
+                        child: const Icon(Icons.close)),
+                  ],
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  'Select Channel Type',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 5),
+                customTextForm(
+                    selectChannelType1Controller, "Select Channel Type",
+                    textStyle:
+                        const TextStyle(fontSize: 14, color: Colors.black),
+                    prefixText: const Icon(Icons.arrow_drop_down)),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  'Channel Name',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 5),
+                customTextForm(
+                  selectChannelType2Controller,
+                  "Channel Name",
+                  textStyle: const TextStyle(fontSize: 14, color: Colors.black),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  'Channel URL',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 5),
+                customTextForm(
+                  selectChannelType3Controller,
+                  "Channel URL",
+                  textStyle: const TextStyle(fontSize: 14, color: Colors.black),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ));
+    }
+
+    return userGroup;
   }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+
 
 class FantancyPointSystem extends StatefulWidget {
   FantancyPointSystem({Key? key}) : super(key: key);
@@ -13,7 +15,7 @@ class _FantancyPointSystemState extends State<FantancyPointSystem> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        title: const Text('Fantancy Point Ssystem'),
+        title:  Text('Fantancy Point Ssystem',style: TextStyle(fontSize: 18.sp),),
       ),
     );
   }

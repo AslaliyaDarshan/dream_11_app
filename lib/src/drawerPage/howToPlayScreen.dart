@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class HowToPlaySceeen extends StatefulWidget {
   HowToPlaySceeen({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class _HowToPlaySceeenState extends State<HowToPlaySceeen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        title: const Text('How to Play'),
+        title:  Text('How to Play',style: TextStyle(fontSize: 18.sp),),
       ),
     );
   }

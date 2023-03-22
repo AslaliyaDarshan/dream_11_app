@@ -1,7 +1,7 @@
-import 'package:dream_11_app/widget/drawerWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+
 
 class UpdateProfileScreen extends StatefulWidget {
   const UpdateProfileScreen({super.key});
@@ -19,18 +19,16 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
   TextEditingController changePasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    late double hsize = MediaQuery.of(context).size.height;
-    late double wsize = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: const Color.fromRGBO(226, 226, 226, 1),
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        title: const Text('Update Profile'),
+        title:  Text('Update Profile',style: TextStyle(fontSize: 18.sp),),
       ),
       body: Form(
         key: _formKey,
         child: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: wsize*0.05),
+          padding:  EdgeInsets.symmetric(horizontal: 4.w),
           child: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             child: Column(
@@ -38,67 +36,65 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
               //mainAxisAlignment: MainAxisAlignment.start,
               children: [
                  SizedBox(
-                  height: hsize*0.03,
+                  height: 3.h,
                 ),
-                const AutoSizeText(
+                 Text(
                   "Name",
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 16.sp),
                 ),
                 SizedBox(
-                  height: hsize*0.015,
+                  height: 1.5.h,
                 ),
                 customTextForm(nameController, 'Name'),
                  SizedBox(
-                  height: hsize*0.03,
+                  height: 3.h,
                 ),
-                const AutoSizeText(
+                 Text(
                   "Team Name",
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 16.sp),
                 ),
                 SizedBox(
-                  height: hsize*0.015,
+                  height: 1.5.h,
                 ),
                 customTextForm(teamNameController, 'Team Name'),
                  SizedBox(
-                     height: hsize*0.03
+                     height: 3.h
                  ),
-                const AutoSizeText(
+                 Text(
                   "Email",
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 16.sp),
                 ),
                 SizedBox(
-                  height: hsize*0.015,
+                  height: 1.5.h,
                 ),
                 customTextForm(emailController, 'Email'),
                  SizedBox(
-                     height: hsize*0.03,
+                     height: 3.h,
                 ),
-                const AutoSizeText(
+                 Text(
                   "Mobile",
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 16.sp),
                 ),
                 SizedBox(
-                  height: hsize*0.015,
+                  height: 1.5.h,
                 ),
                 customTextForm(mobileController, 'Mobile',
                     keyBoardType: TextInputType.phone),
                  SizedBox(
-                    height: hsize*0.03
+                    height: 3.h
                 ),
-                const AutoSizeText(
+                 Text(
                   "Change Password",
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 16.sp),
                 ),
                  SizedBox(
-                  height: hsize*0.015,
+                  height: 1.5.h,
                 ),
-                customTextForm(changePasswordController, '***********', prefixText: 'Change Password'),
+                customTextForm(changePasswordController,'***********', prefixText: 'Change Password'),
                  SizedBox(
-                    height: hsize*0.03,
+                    height: 7.h,
                 ),
-                 SizedBox(
-                  height: hsize*0.03,
-                ),
+
                 Align(
                   alignment: Alignment.center,
                   child: ElevatedButton(
@@ -108,8 +104,8 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                       style: ElevatedButton.styleFrom(
                           backgroundColor: const Color.fromRGBO(54, 130, 54, 1)),
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: wsize*0.35),
-                        child: const Text("Save"),
+                        padding: EdgeInsets.symmetric(horizontal: 30.w),
+                        child:  Text("Save",style: TextStyle(fontSize: 16.sp),),
                       )),
                 )
               ],
@@ -128,30 +124,30 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
       decoration: InputDecoration(
         suffix: Padding(
           padding:  EdgeInsets.only(right: MediaQuery.of(context).size.width*0.02),
-          child: AutoSizeText(
+          child: Text(
             prefixText ?? '',
-            style: const TextStyle(
+            style:  TextStyle(
                 color: Color.fromRGBO(
                   157,
                   142,
                   142,
                   1,
                 ),
-                fontSize: 15),
+                fontSize: 16.sp),
           ),
         ),
         filled: true,
         contentPadding:  EdgeInsets.only(left:MediaQuery.of(context).size.width*0.03),
         fillColor: Colors.white,
         hintText: hintText,
-        hintStyle: const TextStyle(
+        hintStyle:  TextStyle(
             color: Color.fromRGBO(
               129,
               116,
               116,
               1,
             ),
-            fontSize: 16),
+            fontSize: 16.sp),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
         ),

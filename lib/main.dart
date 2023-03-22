@@ -1,4 +1,3 @@
-import 'package:dream_11_app/src/onboarding_screen/loginScreen/loginScreen.dart';
 import 'package:dream_11_app/src/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,7 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveSizer(
+    return  ResponsiveSizer(
       builder: (BuildContext, Orientation, ScreenType) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,

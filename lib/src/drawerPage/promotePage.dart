@@ -3,6 +3,7 @@ import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class PromoteAppScreen extends StatefulWidget {
   const PromoteAppScreen({super.key});
@@ -17,94 +18,94 @@ class _PromoteAppScreenState extends State<PromoteAppScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        title: const Text('Promote App'),
+        title:  Text('Promote App',style: TextStyle(fontSize:17.sp),),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Center(
-            child: Image.asset(
-              AssetUtilities.reffer,
-              height: 300,
-              width: 289,
+      body: Padding(
+        padding:  EdgeInsets.symmetric(horizontal: 3.w),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Image.asset(
+                AssetUtilities.reffer,
+                height: 40.h,
+                width: 85.w,
+              ),
             ),
-          ),
-          const Center(
-            child: Text(
-              'Do you Want to collaborate with us?',
-              style: TextStyle(fontSize: 20),
+             Center(
+              child: Text(
+                'Do you Want to collaborate with us?',
+                style: TextStyle(fontSize: 18.sp),
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 17,
-          ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 15.0, right: 15),
+             SizedBox(
+              height: 3.h,
+            ),
+            Center(
               child: RichText(
                 textAlign: TextAlign.center,
-                text: const TextSpan(
+                text:  TextSpan(
                     text: 'Are you a ',
-                    style: TextStyle(fontSize: 20, color: Colors.black),
+                    style: TextStyle(fontSize: 17.sp, color: Colors.black),
                     children: <TextSpan>[
                       TextSpan(
                           text: 'youtube ',
-                          style: TextStyle(color: Colors.red, fontSize: 20)),
+                          style: TextStyle(color: Colors.red, fontSize: 17.sp)),
                       TextSpan(
                           text: 'or having a ',
-                          style: TextStyle(color: Colors.black, fontSize: 20)),
+                          style: TextStyle(color: Colors.black, fontSize: 17.sp)),
                       TextSpan(
                           text: 'Telegram ',
                           style: TextStyle(
                               color: Color.fromRGBO(55, 113, 200, 1),
-                              fontSize: 20)),
+                              fontSize: 17.sp)),
                       TextSpan(
                           text: 'channel or ',
-                          style: TextStyle(color: Colors.black, fontSize: 20)),
+                          style: TextStyle(color: Colors.black, fontSize: 17.sp)),
                       TextSpan(
                           text: 'or having a ',
-                          style: TextStyle(color: Colors.black, fontSize: 20)),
+                          style: TextStyle(color: Colors.black, fontSize: 17.sp)),
                       TextSpan(
                           text: 'instagram ',
                           style: TextStyle(
                               color: Color.fromRGBO(216, 22, 161, 1),
-                              fontSize: 20)),
+                              fontSize: 17.sp)),
                       TextSpan(
                           text: 'a want to promoter?',
-                          style: TextStyle(color: Colors.black, fontSize: 20)),
+                          style: TextStyle(color: Colors.black, fontSize: 17.sp)),
                     ]),
               ),
             ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 28.0, right: 28),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const PromoteAppForm();
-                }));
-              },
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: 40,
-                decoration: BoxDecoration(
-                    border: Border.all(
-                        color: const Color.fromRGBO(27, 104, 0, 1), width: 2),
-                    color: const Color.fromRGBO(54, 130, 54, 1),
-                    borderRadius: BorderRadius.circular(10)),
-                child: const Center(
-                  child: Text(
-                    'Connect Now',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+             SizedBox(
+              height: 2.5.h,
+            ),
+            Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 3.w),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const PromoteAppForm();
+                  }));
+                },
+                child: Container(
+                  width: 100.w,
+                  height: 5.h,
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                          color: const Color.fromRGBO(27, 104, 0, 1), width: 6.sp),
+                      color: const Color.fromRGBO(54, 130, 54, 1),
+                      borderRadius: BorderRadius.circular(13.sp)),
+                  child:  Center(
+                    child: Text(
+                      'Connect Now',
+                      style: TextStyle(fontSize: 18.sp, color: Colors.white),
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

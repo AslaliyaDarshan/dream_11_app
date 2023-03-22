@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+
 
 class TermAndConditionScreen extends StatefulWidget {
   const TermAndConditionScreen({super.key});
@@ -15,7 +16,7 @@ class _TermAndConditionScreenState extends State<TermAndConditionScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        title: const Text('Term & Condition'),
+        title:Text('Term & Condition',style: TextStyle(fontSize: 18.sp),),
       ),
     );
   }

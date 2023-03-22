@@ -21,8 +21,6 @@ class _AadharCardState extends State<AadharCard> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
-    late double hsize = MediaQuery.of(context).size.height;
-    late double wsize = MediaQuery.of(context).size.width;
     return Scaffold(
       key: _scaffoldKey,
       drawer: const DrawerWidger(),
@@ -162,7 +160,7 @@ class _AadharCardState extends State<AadharCard> {
                           },
                           child: innerShadowButtonWidget("Next",context,height: 4.h,width: 60.w)),
                        SizedBox(
-                        height: hsize*0.025,
+                        height: 2.5.h
                       ),
                       GestureDetector(
                           onTap: () {}, child: innerShadowButtonWidget("Back",context,height: 4.h,width:60.w)),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+
 
 class LegalityScreen extends StatefulWidget {
   const LegalityScreen({super.key});
@@ -15,7 +16,7 @@ class _LegalityScreenState extends State<LegalityScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        title: const Text('How to Play'),
+        title:  Text('Lagslity',style: TextStyle(fontSize: 18.sp),),
       ),
     );
   }
