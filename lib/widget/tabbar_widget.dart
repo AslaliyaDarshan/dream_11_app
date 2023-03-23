@@ -5,8 +5,7 @@ import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
 
 class TabBarWidget extends StatefulWidget {
-  Function() onTap;
-  TabBarWidget({Key? key, required this.onTap}) : super(key: key);
+    const TabBarWidget({super.key}) ;
 
   @override
   State<TabBarWidget> createState() => _TabBarWidgetState();
@@ -213,7 +212,7 @@ class _TabBarWidgetState extends State<TabBarWidget> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 GestureDetector(
-                  onTap: widget.onTap,
+                  onTap: (){},
                   child: Container(
                     height: 38,
                     width: 99,
@@ -247,8 +246,7 @@ class _TabBarWidgetState extends State<TabBarWidget> {
 }
 
 class TabBarWidget2 extends StatefulWidget {
-  Function() onTap;
-  TabBarWidget2({Key? key, required this.onTap}) : super(key: key);
+ const TabBarWidget2 ({super.key});
 
   @override
   State<TabBarWidget2> createState() => _TabBarWidget2State();
@@ -482,7 +480,7 @@ class _TabBarWidget2State extends State<TabBarWidget2> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 GestureDetector(
-                  onTap: widget.onTap,
+                  onTap: (){},
                   child: Container(
                     height: 38,
                     width: 99,
@@ -516,8 +514,7 @@ class _TabBarWidget2State extends State<TabBarWidget2> {
 }
 
 class TabBarWidget3 extends StatefulWidget {
-  Function() onTap;
-  TabBarWidget3({Key? key, required this.onTap}) : super(key: key);
+  const TabBarWidget3({super.key});
 
   @override
   State<TabBarWidget3> createState() => _TabBarWidget3State();
@@ -530,7 +527,7 @@ class _TabBarWidget3State extends State<TabBarWidget3> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 13),
+            padding: const EdgeInsets.symmetric(horizontal: 0),
             child: Container(
               height: 30,
               padding: const EdgeInsets.only(left: 10),
@@ -748,7 +745,7 @@ class _TabBarWidget3State extends State<TabBarWidget3> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 GestureDetector(
-                  onTap: widget.onTap,
+                  onTap: (){},
                   child: Container(
                     height: 38,
                     width: 99,
@@ -782,8 +779,7 @@ class _TabBarWidget3State extends State<TabBarWidget3> {
 }
 
 class TabBarWidget4 extends StatefulWidget {
-  Function() onTap;
-  TabBarWidget4({Key? key, required this.onTap}) : super(key: key);
+  const TabBarWidget4({super.key}) ;
 
   @override
   State<TabBarWidget4> createState() => _TabBarWidget4State();
@@ -1009,7 +1005,7 @@ class _TabBarWidget4State extends State<TabBarWidget4> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 GestureDetector(
-                  onTap: widget.onTap,
+                  onTap: (){},
                   child: Container(
                     height: 38,
                     width: 99,
@@ -1043,8 +1039,7 @@ class _TabBarWidget4State extends State<TabBarWidget4> {
 }
 
 class TabBarWidget5 extends StatefulWidget {
-  Function() onTap;
-  TabBarWidget5({Key? key, required this.onTap}) : super(key: key);
+  const TabBarWidget5({super. key});
 
   @override
   State<TabBarWidget5> createState() => _TabBarWidget5State();
@@ -1266,7 +1261,7 @@ class _TabBarWidget5State extends State<TabBarWidget5> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 GestureDetector(
-                  onTap: widget.onTap,
+                  onTap: (){},
                   child: Container(
                     height: 38,
                     width: 99,

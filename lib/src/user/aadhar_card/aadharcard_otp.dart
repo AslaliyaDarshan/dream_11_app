@@ -1,6 +1,12 @@
+import 'package:dream_11_app/notification/notificationSetting.dart';
+import 'package:dream_11_app/src/drawerPage/myaccount_page.dart';
 import 'package:dream_11_app/src/user/aadhar_card/digitalOnboarding.dart';
 import 'package:dream_11_app/widget/buttonWidget.dart';
+import 'package:dream_11_app/widget/drawerWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class AadharCardOtp extends StatefulWidget {
   const AadharCardOtp({super.key});
@@ -12,55 +18,65 @@ class AadharCardOtp extends StatefulWidget {
 class _AadharCardOtpState extends State<AadharCardOtp> {
   TextEditingController otpController = TextEditingController();
   bool radioListTile = false;
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: const DrawerWidger(),
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
-        title: const Text(
+        leading: IconButton(onPressed: () {
+          _scaffoldKey.currentState!.openDrawer();
+        }, icon:  Icon(Icons.menu,size: 20.sp,)),
+        title:  Text(
           "KYC quick",
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: 17.sp,fontFamily: "Imprima"),
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
           IconButton(
-              onPressed: () {}, icon: const Icon(Icons.notification_add_sharp)),
+              onPressed: () {Get.to(NotificationSettingScreen());}, icon:  Icon(Icons.notification_add_sharp,size: 20.sp,)),
           IconButton(
-              onPressed: () {}, icon: const Icon(Icons.wallet_membership)),
+              onPressed: () {Get.to(MyAccountScreen());}, icon:  Icon(Icons.wallet_membership,size: 20.sp,)),
         ],
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10),
+          padding:  EdgeInsets.symmetric(horizontal:3.w),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 30,
+                 SizedBox(
+                  height: 3.h,
                 ),
-                const Text(
+                 Text(
                   "Digital Onboarding",
-                  style: TextStyle(fontSize: 25),
+                  style: TextStyle(fontSize: 22.sp,fontFamily: "Imprima"),
                 ),
-                const SizedBox(
-                  height: 20,
+                 SizedBox(
+                  height: 3.h,
                 ),
-                Wrap(children: const [
+                Wrap(children:  [
                   Text(
                     "UIDAI has send a temporary OTP to your mobile ending in*******xxxx ( valid for 10 mins)",
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 18.sp,fontFamily: "Imprima"),
                   ),
                 ]),
-                const SizedBox(
-                  height: 25,
+                 SizedBox(
+                  height: 3.h,
                 ),
                 TextFormField(
                   controller: otpController,
+                  keyboardType: TextInputType.number,
+                  inputFormatters: [
+                    LengthLimitingTextInputFormatter(6),
+                  ],
                   decoration: InputDecoration(
                     hintText: "Enter 6 digit OTP",
+                    hintStyle: TextStyle(fontSize: 17.sp,fontFamily: "Imprima"),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: const BorderSide(
@@ -75,11 +91,11 @@ class _AadharCardOtpState extends State<AadharCardOtp> {
                             color: Color.fromRGBO(144, 144, 144, 1))),
                   ),
                 ),
-                const SizedBox(
-                  height: 58,
+                 SizedBox(
+                  height: 7.h,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 10),
+                  padding:  EdgeInsets.only(left: 3.w),
                   child: GestureDetector(
                     onTap: () {
                       radioListTile = !radioListTile;
@@ -88,8 +104,8 @@ class _AadharCardOtpState extends State<AadharCardOtp> {
                     child: Row(
                       children: [
                         Container(
-                          height: 20,
-                          width: 20,
+                          height: 3.h,
+                          width: 3.h,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(100),
@@ -97,8 +113,8 @@ class _AadharCardOtpState extends State<AadharCardOtp> {
                           child: radioListTile
                               ? Center(
                                   child: Container(
-                                    height: 10,
-                                    width: 10,
+                                    height: 2.h,
+                                    width: 2.h,
                                     decoration: BoxDecoration(
                                         color: Colors.grey,
                                         borderRadius:
@@ -107,12 +123,12 @@ class _AadharCardOtpState extends State<AadharCardOtp> {
                                 )
                               : const SizedBox.shrink(),
                         ),
-                        const SizedBox(
-                          width: 10,
+                         SizedBox(
+                          width: 2.w,
                         ),
-                        const Text(
+                         Text(
                           "I'am not robot",
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: 17.sp,fontFamily: "Imprima"),
                         )
                       ],
                     ),
@@ -121,22 +137,22 @@ class _AadharCardOtpState extends State<AadharCardOtp> {
                 Center(
                   child: Column(
                     children: [
-                      const SizedBox(
-                        height: 100,
+                       SizedBox(
+                        height: 15.h,
                       ),
                       GestureDetector(
                           onTap: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                              return const AllowDennyScreen();
-                            }));
+                            Get.to(AllowDennyScreen());
+                            //Navigator.push(context, MaterialPageRoute(builder: (context) {return const AllowDennyScreen();}));
                           },
-                          child: innerShadowButtonWidget("Next",context,)),
-                      const SizedBox(
-                        height: 20,
+                          child: innerShadowButtonWidget("Next",context,width: 60.w)),
+                       SizedBox(
+                        height: 2.h,
                       ),
                       GestureDetector(
-                          onTap: () {}, child: innerShadowButtonWidget("Back",context,)),
+                          onTap: () {
+                            Get.back();
+                          }, child: innerShadowButtonWidget("Back",context,width: 60.w,)),
                     ],
                   ),
                 ),

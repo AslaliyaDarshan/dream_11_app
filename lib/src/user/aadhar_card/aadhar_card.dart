@@ -30,10 +30,10 @@ class _AadharCardState extends State<AadharCard> {
             onPressed: () {
               _scaffoldKey.currentState!.openDrawer();
             },
-            icon: const Icon(Icons.menu)),
+            icon:  Icon(Icons.menu,size: 20.sp,)),
         title:  Text(
           "KYC quick",
-          style: TextStyle(fontSize: 18.sp,fontFamily: "Imprima"),
+          style: TextStyle(fontSize: 17.sp,fontFamily: "Imprima"),
         ),
         actions: [
           IconButton(

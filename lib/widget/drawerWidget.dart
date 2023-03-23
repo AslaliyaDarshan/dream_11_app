@@ -242,7 +242,7 @@ class _DrawerWidgerState extends State<DrawerWidger> {
                                     borderRadius: BorderRadius.circular(10.sp),
                                   ),
                                   child:  Center(
-                                    child: Text("Invite",style: TextStyle(fontFamily: "Imprima",fontSize: 12.sp),),
+                                    child: Text("Invite",style: TextStyle(fontFamily: "Imprima",fontSize: 14.sp),),
                                   ),
                                 )
                               : Container(),
@@ -254,7 +254,7 @@ class _DrawerWidgerState extends State<DrawerWidger> {
                     ),
                      SizedBox(
                       height: 2.5.h,
-                    )
+                    ),
                   ],
                 );
               },

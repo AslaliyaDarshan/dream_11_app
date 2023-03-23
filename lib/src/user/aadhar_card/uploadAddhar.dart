@@ -1,7 +1,10 @@
+import 'package:dream_11_app/notification/notificationSetting.dart';
+import 'package:dream_11_app/src/drawerPage/myaccount_page.dart';
 import 'package:dream_11_app/src/user/aadhar_card/frontbackAadhar.dart';
-import 'package:dream_11_app/src/user/aadhar_card/uploadAddharScreen.dart';
 import 'package:dream_11_app/widget/buttonWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class UploadAadhar extends StatefulWidget {
   const UploadAadhar({super.key});
@@ -17,85 +20,89 @@ class _UploadAadharState extends State<UploadAadhar> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        title: const Text(
+        title:  Text(
           "KYC quick",
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: 18.sp,fontFamily: "Imprima",),
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
           IconButton(
-              onPressed: () {}, icon: const Icon(Icons.notification_add_sharp)),
+              onPressed: () {
+                Get.to(NotificationSettingScreen());
+              }, icon:  Icon(Icons.notification_add_sharp,size: 20.sp,)),
           IconButton(
-              onPressed: () {}, icon: const Icon(Icons.wallet_membership)),
+              onPressed: () {
+                Get.to(MyAccountScreen());
+              }, icon:  Icon(Icons.wallet_membership,size: 20.sp,)),
         ],
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10),
+          padding:  EdgeInsets.symmetric(horizontal: 4.w),
           child: SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 10,
+                 SizedBox(
+                  height: 4.w,
                 ),
-                const Text("Upload your Aadhaar Card"),
+                 Text("Upload your Aadhaar Card" ,style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height / 5,
+                  height: 20.h,
                 ),
                 Center(
                   child: Container(
-                    height: 180,
+                    height: 23.h,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.grey, width: 2)),
+                        borderRadius: BorderRadius.circular(15.sp),
+                        border: Border.all(color: Colors.grey, width: 5.sp)),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                 SizedBox(
+                  height: 2.h,
                 ),
-                const Center(
+                 Center(
                   child: Text(
                     "Place your Aadhaar Card inside the frame",
-                    style: TextStyle(fontSize: 13),
+                    style: TextStyle(fontSize: 15.sp),
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height / 5.5,
+                  height: 18.h,
                 ),
                 Center(
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+
+                    },
                     child: Container(
-                      height: 55,
-                      width: 55,
+                      height: 6.h,
+                      width: 6.h,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(100),
                           border: Border.all(
                               color: const Color.fromRGBO(78, 78, 78, 1),
                               width: 3)),
-                      child: const Center(
+                      child:  Center(
                         child: CircleAvatar(
-                          radius: 20,
+                          radius: 18.sp,
                           backgroundColor: Color.fromRGBO(78, 78, 78, 1),
                         ),
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 46,
+                 SizedBox(
+                  height: 6.h,
                 ),
                 Center(
                     child: GestureDetector(
                         onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: ((context) {
-                            return const UploadFrontBackAadhar();
-                          })));
+                          Get.to(UploadFrontBackAadhar());
+                          //Navigator.push(context, MaterialPageRoute(builder: ((context) {return const UploadFrontBackAadhar();})));
                         },
-                        child: innerShadowButtonWidget("Next",context, radius: 3)))
+                        child: innerShadowButtonWidget("Next",context, radius: 3.sp,width: 70.w)))
               ],
             ),
           ),

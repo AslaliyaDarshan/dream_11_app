@@ -1,6 +1,10 @@
+import 'package:dream_11_app/notification/notificationSetting.dart';
+import 'package:dream_11_app/src/drawerPage/myaccount_page.dart';
 import 'package:dream_11_app/src/user/verification_document/verificationDocument.dart';
 import 'package:dream_11_app/widget/buttonWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class UploadFrontBackAadhar extends StatefulWidget {
   const UploadFrontBackAadhar({super.key});
@@ -16,83 +20,87 @@ class _UploadFrontBackAadharState extends State<UploadFrontBackAadhar> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        title: const Text(
+        title:  Text(
           "KYC quick",
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: 18.sp,fontFamily: "Imprima",),
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
           IconButton(
-              onPressed: () {}, icon: const Icon(Icons.notification_add_sharp)),
+              onPressed: () {
+                Get.to(NotificationSettingScreen());
+              }, icon:  Icon(Icons.notification_add_sharp,size: 20.sp,)),
           IconButton(
-              onPressed: () {}, icon: const Icon(Icons.wallet_membership)),
-        ],
+              onPressed: () {
+                Get.to(MyAccountScreen());
+              }, icon:  Icon(Icons.wallet_membership,size: 20.sp,)),
+         ],
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10),
+          padding:  EdgeInsets.symmetric( horizontal: 4.w),
           child: SingleChildScrollView(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 27,
+                 SizedBox(
+                  height: 3.h,
                 ),
                 Center(
                   child: Container(
-                    height: 180,
+                    height: 22.h,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.grey, width: 2)),
+                        borderRadius: BorderRadius.circular(13.sp),
+                        border: Border.all(color: Colors.grey, width: 6.sp)),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                 SizedBox(
+                  height: 1.5.h,
                 ),
-                const Center(
+                 Center(
                     child: Text(
                   "Front Side",
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 16.sp),
                 )),
-                const SizedBox(
-                  height: 10,
+                 SizedBox(
+                  height: 1.5.h,
                 ),
                 Center(
                   child: Container(
-                    height: 180,
+                    height: 22.h,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.grey, width: 2)),
+                        borderRadius: BorderRadius.circular(13.sp),
+                        border: Border.all(color: Colors.grey, width: 6.sp)),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                 SizedBox(
+                  height: 1.5.h,
                 ),
-                const Center(
+                 Center(
                     child: Text(
                   "Back Side",
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 16.sp),
                 )),
-                const SizedBox(
-                  height: 70,
-                ),
-                Center(
-                    child: GestureDetector(
-                        onTap: () {},
-                        child: innerShadowButtonWidget("Retry",context, radius: 3))),
-                const SizedBox(
-                  height: 17,
+                 SizedBox(
+                  height: 15.h,
                 ),
                 Center(
                     child: GestureDetector(
                         onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return VerificationDocumentScreen();
-                          }));
+                          Get.back();
                         },
-                        child: innerShadowButtonWidget("Upload",context, radius: 3))),
+                        child: innerShadowButtonWidget("Retry",context, radius: 6.sp,width: 70.w))),
+                 SizedBox(
+                  height: 2.h,
+                ),
+                Center(
+                    child: GestureDetector(
+                        onTap: () {
+                          Get.to(VerificationDocumentScreen());
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) {return VerificationDocumentScreen();}));
+                        },
+                        child: innerShadowButtonWidget("Upload",context, radius: 6.sp,width: 70.w))),
+                SizedBox(height: 1.h,),
               ],
             ),
           ),

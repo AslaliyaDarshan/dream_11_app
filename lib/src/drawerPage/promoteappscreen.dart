@@ -28,9 +28,7 @@ class _PromoteAppFormState extends State<PromoteAppForm> {
       backgroundColor: const Color.fromRGBO(226, 226, 226, 1),
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        title: Text(
-          'Promote App',
-          style: TextStyle(fontSize: 18.sp),
+        title: Text('Promote App',style: TextStyle(fontSize: 18.sp),
         ),
       ),
       body: Form(
@@ -94,8 +92,7 @@ class _PromoteAppFormState extends State<PromoteAppForm> {
                 SizedBox(
                   height: 1.h,
                 ),
-                customTextForm(mobileController, '+91 Mobile',
-                    keyBoardType: TextInputType.phone),
+                customTextForm(mobileController, '+91 Mobile', keyBoardType: TextInputType.phone),
                 SizedBox(
                   height: 2.h,
                 ),
@@ -116,25 +113,24 @@ class _PromoteAppFormState extends State<PromoteAppForm> {
                 ...buildUserGroups(context),
                 GestureDetector(
                   onTap: () {
-
                     setState(() {
                       index++;
                     });
                   },
                   child: DottedBorder(
                     dashPattern: const [5, 5],
-                    radius: const Radius.circular(5),
+                    radius:  Radius.circular(20.sp),
                     child: Container(
                       height: 4.5.h,
                       width: 100.w,
                       color: const Color.fromRGBO(217, 217, 217, 1),
-                      child: const Center(
+                      child:  Center(
                         child: Text(
                           "+ Add Channel Details",
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
-                              fontSize: 18),
+                              fontSize: 18.sp),
                         ),
                       ),
                     ),
@@ -147,8 +143,9 @@ class _PromoteAppFormState extends State<PromoteAppForm> {
                         backgroundColor: const Color.fromRGBO(54, 130, 54, 1)),
                     child: Padding(
                       padding: EdgeInsets.only(
-                          left: MediaQuery.of(context).size.width / 2.9,
-                          right: MediaQuery.of(context).size.width / 2.9),
+                          left: 30.w,
+                          right:30.w
+                      ),
                       child: const Text("Save"),
                     ))
               ],
@@ -181,20 +178,20 @@ class _PromoteAppFormState extends State<PromoteAppForm> {
                 ),
                 fontSize: 16.sp),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(10.sp),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(10.sp),
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(10.sp),
         ),
       ),
     );
   }
 
   List buildUserGroups(BuildContext context) {
-    for (var i = 0; i < index; i++) {
+    for (int i = 0; i < index; i++) {
       userGroup.add(SizedBox(
         height: 37.h,
         width: 100.w,
@@ -215,51 +212,42 @@ class _PromoteAppFormState extends State<PromoteAppForm> {
                     GestureDetector(
                         onTap: () {
                           setState(() {
-                            userGroup.removeAt(index);
                             index--;
+                            //userGroup.remove(index);
                           });
                         },
                         child: const Icon(Icons.close)),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Text(
+
+                 Text(
                   'Select Channel Type',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 5),
                 customTextForm(
-                    selectChannelType1Controller, "Select Channel Type",
-                    textStyle:
-                        const TextStyle(fontSize: 14, color: Colors.black),
-                    prefixText: const Icon(Icons.arrow_drop_down)),
-                const SizedBox(
-                  height: 10,
+                    selectChannelType1Controller,"Select Channel Type",
+                    textStyle:  TextStyle(fontSize: 14.sp, color: Colors.black),
+                    prefixText: const Icon(Icons.arrow_drop_down),
                 ),
-                const Text(
+
+                 Text(
                   'Channel Name',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 5),
                 customTextForm(
                   selectChannelType2Controller,
                   "Channel Name",
-                  textStyle: const TextStyle(fontSize: 14, color: Colors.black),
+                  textStyle:  TextStyle(fontSize: 14.sp, color: Colors.black),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Text(
+
+                 Text(
                   'Channel URL',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 5),
                 customTextForm(
                   selectChannelType3Controller,
                   "Channel URL",
-                  textStyle: const TextStyle(fontSize: 14, color: Colors.black),
+                  textStyle:  TextStyle(fontSize: 14.sp, color: Colors.black),
                 ),
               ],
             ),

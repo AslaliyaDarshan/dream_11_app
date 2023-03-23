@@ -1,6 +1,9 @@
+import 'package:dream_11_app/notification/notificationSetting.dart';
+import 'package:dream_11_app/src/drawerPage/myaccount_page.dart';
 import 'package:dream_11_app/src/user/aadhar_card/uploadAddharScreen.dart';
-import 'package:dream_11_app/widget/buttonWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class SelectIdProofScreen extends StatefulWidget {
   const SelectIdProofScreen({super.key});
@@ -10,143 +13,137 @@ class SelectIdProofScreen extends StatefulWidget {
 }
 
 class _SelectIdProofScreenState extends State<SelectIdProofScreen> {
-  int grpRadioValue = 0;
+  //int grpRadioValue = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
-        title: const Text(
+        title:  Text(
           "KYC quick",
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: 17.sp,fontFamily: "Imprima"),
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
           IconButton(
-              onPressed: () {}, icon: const Icon(Icons.notification_add_sharp)),
+              onPressed: () {
+                Get.to(NotificationSettingScreen());
+              }, icon:  Icon(Icons.notification_add_sharp,size: 20.sp,)),
           IconButton(
-              onPressed: () {}, icon: const Icon(Icons.wallet_membership)),
+              onPressed: () {
+                Get.to(MyAccountScreen());
+              }, icon:  Icon(Icons.wallet_membership,size: 20.sp)),
         ],
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10),
+          padding:  EdgeInsets.symmetric(horizontal: 5.w),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height / 2,
+                  height: 50.h
                 ),
                 Center(
                   child: Container(
-                    height: 225,
-                    width: double.maxFinite,
+                    height: 28.h,
+                    width: 100.w,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(color: Colors.grey, width: 1.5)),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.all(10.0),
+                         Padding(
+                          padding: EdgeInsets.all(15.0.sp),
                           child: Text(
                             "Select ID Proof",
-                            style: TextStyle(fontSize: 16),
+                            style: TextStyle(fontSize: 17.sp,fontFamily: "Imprima"),
                           ),
                         ),
-                        const SizedBox(
-                          height: 20,
-                        ),
+
                         Padding(
-                          padding: const EdgeInsets.only(left: 18.0),
+                          padding:  EdgeInsets.only(left: 3.w),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               GestureDetector(
                                 onTap: () {
                                   changeTheme(0, context);
-                                  Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) {
-                                    return UploadAdharScreen();
-                                  }));
+                                  Get.to(UploadAdharScreen());
+                                  //Navigator.push(context, MaterialPageRoute(builder: (context) {return UploadAdharScreen();}));
                                 },
                                 child: Row(
                                   children: [
                                     Container(
-                                      height: 23,
-                                      width: 23,
+                                      height: 3.h,
+                                      width:  3.h,
                                       decoration: BoxDecoration(
                                           border: Border.all(
-                                            color: selectedIndex == 0
-                                                ? Colors.green
-                                                : Colors.grey,
-                                            width: 3,
+                                            color: selectedIndex == 0 ? Colors.green : Colors.grey,
+                                            width: 7.5.sp,
                                           ),
-                                          borderRadius:
-                                              BorderRadius.circular(50)),
+                                          borderRadius: BorderRadius.circular(50.sp)),
                                       child: Center(
                                         child: CircleAvatar(
-                                          radius: 6,
-                                          backgroundColor: selectedIndex == 0
-                                              ? Colors.green
-                                              : Colors.grey,
+                                          radius: 10.5.sp,
+                                          backgroundColor: selectedIndex == 0 ? Colors.green : Colors.grey,
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(
-                                      width: 20,
+                                     SizedBox(
+                                      width: 5.w,
                                     ),
                                     Text(
                                       'Aadhaar Card',
                                       style: TextStyle(
-                                        fontSize: 18,
-                                        color: selectedIndex == 0
-                                            ? Colors.green
-                                            : Colors.black,
+                                        fontSize: 18.sp,fontFamily: "Imprima",
+                                        color: selectedIndex == 0 ? Colors.green : Colors.black,
                                       ),
                                     )
                                   ],
                                 ),
                               ),
-                              const SizedBox(
-                                height: 15,
+                               SizedBox(
+                                height: 2.h,
                               ),
                               GestureDetector(
                                 onTap: () {
                                   changeTheme(1, context);
+                                  Get.to(UploadAdharScreen());
                                 },
                                 child: Row(
                                   children: [
                                     Container(
-                                      height: 23,
-                                      width: 23,
+                                      height:3.h,
+                                      width: 3.h,
                                       decoration: BoxDecoration(
                                           border: Border.all(
                                             color: selectedIndex == 1
                                                 ? Colors.green
                                                 : Colors.grey,
-                                            width: 3,
+                                            width: 7.5.sp,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(50)),
+                                              BorderRadius.circular(50.sp)),
                                       child: Center(
                                         child: CircleAvatar(
-                                          radius: 6,
+                                          radius: 10.5.sp,
                                           backgroundColor: selectedIndex == 1
                                               ? Colors.green
                                               : Colors.grey,
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(
-                                      width: 20,
+                                     SizedBox(
+                                      width: 5.w,
                                     ),
                                     Text(
                                       'Driving License',
                                       style: TextStyle(
-                                        fontSize: 18,
+                                        fontSize: 18.sp,fontFamily: "Imprima",
                                         color: selectedIndex == 1
                                             ? Colors.green
                                             : Colors.black,
@@ -155,43 +152,44 @@ class _SelectIdProofScreenState extends State<SelectIdProofScreen> {
                                   ],
                                 ),
                               ),
-                              const SizedBox(
-                                height: 15,
+                               SizedBox(
+                                height: 2.h,
                               ),
                               GestureDetector(
                                 onTap: () {
                                   changeTheme(2, context);
+                                  Get.to(UploadAdharScreen());
                                 },
                                 child: Row(
                                   children: [
                                     Container(
-                                      height: 23,
-                                      width: 23,
+                                      height:3.h,
+                                      width: 3.h,
                                       decoration: BoxDecoration(
                                           border: Border.all(
                                             color: selectedIndex == 2
                                                 ? Colors.green
                                                 : Colors.grey,
-                                            width: 3,
+                                            width: 7.5.sp,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(50)),
+                                              BorderRadius.circular(50.sp)),
                                       child: Center(
                                         child: CircleAvatar(
-                                          radius: 6,
+                                          radius: 10.5.sp,
                                           backgroundColor: selectedIndex == 2
                                               ? Colors.green
                                               : Colors.grey,
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(
-                                      width: 20,
+                                     SizedBox(
+                                      width: 5.w,
                                     ),
                                     Text(
                                       'Voter ID',
-                                      style: TextStyle(
-                                        fontSize: 18,
+                                      style: TextStyle(fontFamily: "Imprima",
+                                        fontSize: 18.sp,
                                         color: selectedIndex == 2
                                             ? Colors.green
                                             : Colors.black,
@@ -201,42 +199,43 @@ class _SelectIdProofScreenState extends State<SelectIdProofScreen> {
                                 ),
                               ),
                               SizedBox(
-                                height: 15,
+                                height: 2.h,
                               ),
                               GestureDetector(
                                 onTap: () {
                                   changeTheme(3, context);
+                                  Get.to(UploadAdharScreen());
                                 },
                                 child: Row(
                                   children: [
                                     Container(
-                                      height: 23,
-                                      width: 23,
+                                      height:3.h,
+                                      width: 3.h,
                                       decoration: BoxDecoration(
                                           border: Border.all(
                                             color: selectedIndex == 3
                                                 ? Colors.green
                                                 : Colors.grey,
-                                            width: 3,
+                                            width: 7.5.sp,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(50)),
+                                              BorderRadius.circular(50.sp)),
                                       child: Center(
                                         child: CircleAvatar(
-                                          radius: 6,
+                                          radius: 10.5.sp,
                                           backgroundColor: selectedIndex == 3
                                               ? Colors.green
                                               : Colors.grey,
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(
-                                      width: 20,
+                                     SizedBox(
+                                      width: 5.w,
                                     ),
                                     Text(
                                       'Passport',
-                                      style: TextStyle(
-                                        fontSize: 18,
+                                      style: TextStyle(fontFamily: "Imprima",
+                                        fontSize: 18.sp,
                                         color: selectedIndex == 3
                                             ? Colors.green
                                             : Colors.black,
@@ -247,7 +246,7 @@ class _SelectIdProofScreenState extends State<SelectIdProofScreen> {
                               ),
                             ],
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -260,7 +259,7 @@ class _SelectIdProofScreenState extends State<SelectIdProofScreen> {
     );
   }
 
-  int selectedIndex = 0;
+  int selectedIndex = 4;
   void changeTheme(index, BuildContext context) {
     selectedIndex = index;
     setState(() {});
