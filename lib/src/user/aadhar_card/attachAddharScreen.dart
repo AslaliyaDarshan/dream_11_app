@@ -28,7 +28,7 @@ class _AttachAadharScreenState extends State<AttachAadharScreen> {
         leading: IconButton(onPressed: () {
           _scaffoldKey.currentState!.openDrawer();
         }, icon: const Icon(Icons.menu)),
-        title:  Text("KYC quick", style: TextStyle(fontSize: 18.sp,fontFamily: "Imprima"),
+        title:  Text("KYC quick", style: TextStyle(fontSize: 17.sp,fontFamily: "Imprima"),
         ),
         actions: [
           IconButton(onPressed: () {

@@ -22,7 +22,7 @@ class _UploadAadharState extends State<UploadAadhar> {
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
         title:  Text(
           "KYC quick",
-          style: TextStyle(fontSize: 18.sp,fontFamily: "Imprima",),
+          style: TextStyle(fontSize: 17.sp,fontFamily: "Imprima",),
         ),
         actions: [
           IconButton(
