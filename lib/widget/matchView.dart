@@ -3,6 +3,8 @@ import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MatchView extends StatefulWidget {
   bool? isSelected;
@@ -18,39 +20,38 @@ class _MatchViewState extends State<MatchView> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return const JoinContextScreen();
-        }));
+        Get.to(JoinContextScreen());
+        //Navigator.push(context, MaterialPageRoute(builder: (context) {return const JoinContextScreen();}));
       },
       child: Container(
-        height: 130,
-        width: MediaQuery.of(context).size.width,
+        height: 16.h,
+        width: 100.w,
         decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(15.sp),
             border: Border.all(
               color: const Color.fromRGBO(39, 44, 86, 1),
-            )),
+            ),),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(
-              height: 2,
+             SizedBox(
+              height: 1.h,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 8.0, right: 8, bottom: 15),
+              padding: EdgeInsets.only(left: 3.w, right: 3.w, bottom: 1.6.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Image.asset(
                     AssetUtilities.noty,
-                    height: 17.37,
-                    width: 17.63,
+                    height: 2.h,
+                    width: 2.h,
                   ),
-                  const Text(
+                   Text(
                     'SA T20 League 2023',
-                    style: TextStyle(fontSize: 12),
+                    style: TextStyle(fontSize: 14.sp),
                   ),
                   GestureDetector(
                     onTap: () {
@@ -68,78 +69,77 @@ class _MatchViewState extends State<MatchView> {
                       widget.isSelected ?? false
                           ? AssetUtilities.selectedpin
                           : AssetUtilities.pin,
-                      height: 17.37,
-                      width: 17.63,
+                      height: 2.h,
+                      width: 2.h,
                     ),
                   ),
                 ],
               ),
             ),
-            Row(
-              children: [
-                const SizedBox(
-                  width: 31,
-                ),
-                Column(
-                  children: [
-                    Image.asset(
-                      AssetUtilities.india,
-                      height: 34,
-                      width: 34,
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    const Text(
-                      'India',
-                      style: TextStyle(fontSize: 12),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  width: 18,
-                ),
-                const Text(
-                  'IND',
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(
-                  width: 16,
-                ),
-                const Text(
-                  '1d 21th left',
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.red),
-                ),
-                const SizedBox(
-                  width: 21,
-                ),
-                const Text(
-                  'ENG',
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(
-                  width: 17,
-                ),
-                Column(
-                  children: [
-                    Image.asset(
-                      AssetUtilities.england,
-                      height: 34,
-                      width: 34,
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    const Text(
-                      'England',
-                      style: TextStyle(fontSize: 12),
-                    ),
-                  ],
-                ),
-              ],
+            Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 10.w),
+              child: Row(
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Image.asset(
+                        AssetUtilities.india,
+                        height: 4.5.h,
+                        width: 4.5.h,
+                      ),
+                       SizedBox(height: 0.5.h,),
+                       Text(
+                        'India',
+                        style: TextStyle(fontSize: 13.sp),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    width: 18,
+                  ),
+                  const Text(
+                    'IND',
+                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    width: 16,
+                  ),
+                  const Text(
+                    '1d 21th left',
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.red),
+                  ),
+                  const SizedBox(
+                    width: 21,
+                  ),
+                  const Text(
+                    'ENG',
+                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    width: 17,
+                  ),
+                  Column(
+                    children: [
+                      Image.asset(
+                        AssetUtilities.england,
+                        height: 34,
+                        width: 34,
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      const Text(
+                        'England',
+                        style: TextStyle(fontSize: 12),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
             const Spacer(),
             Container(

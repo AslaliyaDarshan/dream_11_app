@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:dream_11_app/controller/homePageController.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -34,13 +35,11 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Obx(() => Scaffold(
-        appBar: controller.selectedIndex.value == 3
-            ? null
-            : AppBar(
+        appBar: controller.selectedIndex.value == 3 ? null : AppBar(
                 leading: controller.selectedIndex.value == 2
                     ? null
                     : IconButton(
-                        icon: const Icon(Icons.menu_sharp),
+                        icon: Icon(Icons.menu_sharp,size: 20.sp,),
                         onPressed: () {},
                       ),
                 actions: [
@@ -54,9 +53,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           context: context,
-                          builder: (context) {
-                            return StatefulBuilder(
-                                builder: (context, StateSetter setState) {
+                          builder: (context){
+                            return StatefulBuilder(builder: (context, StateSetter setState) {
                               return Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
@@ -69,10 +67,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                     ),
                                     child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Row(
                                           children: [
@@ -95,8 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         const Padding(
                                           padding: EdgeInsets.only(
                                               left: 15.0, bottom: 10),
-                                          child: Text(
-                                            'Lineup Announcement (if available)',
+                                          child: Text('Lineup Announcement (if available)',
                                             style: TextStyle(
                                                 fontSize: 10,
                                                 color: Color.fromRGBO(
@@ -167,10 +162,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
                 backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
                 title: Text(
-                  controller.selectedIndex.value == 2
-                      ? 'Bonus Rewards '
-                      : "Home",
-                  style: const TextStyle(fontSize: 16),
+                  controller.selectedIndex.value == 2 ? 'Bonus Rewards ' : "Home",
+                  style:  TextStyle(fontSize: 16.sp),
                 ),
               ),
         body: Obx((() => Column(
@@ -192,8 +185,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   const Spacer(),
                 ],
                 SizedBox(
-                  height: 60,
-                  width: MediaQuery.of(context).size.width,
+                  height: 7.h,
+                  width: 100.w,
                   child: Row(
                     children: List.generate(iconList.length, (index) {
                       return Row(
@@ -203,8 +196,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               controller.selectBottomBar(index);
                             },
                             child: Container(
-                              height: 57,
-                              width: MediaQuery.of(context).size.width / 5.09,
+                              height: 7.h,
+                              width: 19.6.w,
                               color: controller.selectedIndex.value == index
                                   ? const Color.fromRGBO(54, 130, 54, 1)
                                   : const Color.fromRGBO(255, 255, 255, 1),
@@ -214,36 +207,35 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   Image.asset(
                                     iconList[index],
-                                    height: 20,
-                                    width: 18.29,
-                                    color:
-                                        controller.selectedIndex.value == index
+                                    height: 2.5.h,
+                                    width: 2.5.h,
+                                    color: controller.selectedIndex.value == index
                                             ? Colors.white
                                             : Colors.black,
                                   ),
-                                  const SizedBox(
-                                    height: 5,
+                                   SizedBox(
+                                    height: 0.5.h,
                                   ),
                                   Text(
                                     textList[index],
                                     style: TextStyle(
-                                        color: controller.selectedIndex.value ==
-                                                index
+                                        color: controller.selectedIndex.value == index
                                             ? Colors.white
                                             : Colors.black,
-                                        fontSize: 11),
-                                  )
+                                        fontSize: 13.sp),
+                                  ),
                                 ],
                               ),
                             ),
                           ),
-                          const VerticalDivider(
-                            width: 1.2,
+                           VerticalDivider(
+                            width: 0.3.w,
                             color: Colors.grey,
                           )
                         ],
                       );
-                    }),
+                      },
+                    ),
                   ),
                 ),
               ],

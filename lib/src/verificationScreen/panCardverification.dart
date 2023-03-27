@@ -4,6 +4,8 @@ import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:dream_11_app/widget/buttonWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:get/get.dart';
 
 class PasswordVerificationScreen extends StatefulWidget {
   const PasswordVerificationScreen({super.key});
@@ -25,142 +27,145 @@ class _PasswordVerificationScreenState
       backgroundColor: const Color.fromRGBO(211, 224, 196, 1),
       body: SafeArea(
         child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               IconButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    Get.back();
                   },
-                  icon: const Icon(Icons.arrow_back)),
+                  icon:  Icon(Icons.arrow_back,size: 20.sp,)),
               Center(
                 child: Image.asset(
                   AssetUtilities.identy,
-                  height: 220,
-                  width: 220,
+                  height: 22.h,
+                  width: 22.h,
                 ),
               ),
               Container(
-                width: MediaQuery.of(context).size.width,
-                decoration: const BoxDecoration(
+                height: 68.5.h,
+                width:200.w,
+                decoration:  BoxDecoration(
                     color: Color.fromRGBO(255, 255, 255, 1),
-                    borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(30))),
+                    borderRadius: BorderRadius.vertical(top: Radius.circular(20.sp))),
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 22.0, right: 22),
+                  padding: EdgeInsets.symmetric(horizontal: 4.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(
-                        height: 8,
+                       SizedBox(
+                        height: 1.5.h,
                       ),
                       Row(
                         children: [
                           CircleAvatar(
-                            radius: 20,
-                            backgroundColor:
-                                const Color.fromRGBO(156, 216, 92, 1),
+                            radius: 18.sp,
+                            backgroundColor: const Color.fromRGBO(156, 216, 92, 1),
                             child: Center(
                               child: Image.asset(
                                 AssetUtilities.pancardIcon,
-                                height: 20,
+                                height: 19.sp,
                               ),
                             ),
                           ),
-                          const SizedBox(
-                            width: 15,
+                           SizedBox(
+                            width: 4.w,
                           ),
-                          const Text(
+                           Text(
                             "Pan card verification",
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(fontSize: 18.sp,fontFamily: "Imprima"),
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 12,
+                       SizedBox(
+                        height: 1.5.h,
                       ),
-                      const Text(
+                       Text(
                         "Add your Card details",
-                        style: TextStyle(fontSize: 14),
+                        style: TextStyle(fontSize: 15.sp,fontFamily: "Imprima"),
                       ),
-                      const SizedBox(
-                        height: 10,
+                       SizedBox(
+                        height: 1.h,
                       ),
                       DottedBorder(
                         dashPattern: const [5, 5],
-                        radius: const Radius.circular(5),
+                        radius:  Radius.circular(8.sp),
                         child: Container(
-                          height: 73,
-                          width: MediaQuery.of(context).size.width,
+                          height: 9.5.h,
+                          width: 100.w,
                           color: const Color.fromRGBO(217, 217, 217, 1),
                           child: Column(
-                            children: const [
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
                               Icon(
                                 Icons.image_outlined,
                                 color: Color.fromRGBO(121, 121, 121, 1),
-                                size: 35,
+                                size: 25.sp,
                               ),
-                              SizedBox(
-                                height: 8,
-                              ),
+
                               Text(
                                 "Upload PAN Card image or PDf",
                                 style: TextStyle(
                                     color: Color.fromRGBO(121, 121, 121, 1),
-                                    fontSize: 18),
+                                    fontSize: 17.sp,fontFamily: "Imprima"),
                               ),
                             ],
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        height: 22,
+                       SizedBox(
+                        height: 2.2.h,
                       ),
                       RichText(
-                        text: const TextSpan(
+                        text:  TextSpan(
                             children: <TextSpan>[
                               TextSpan(
                                   text: "(Same as on PAN Card)",
                                   style: TextStyle(
-                                      fontSize: 15,
+                                      fontSize: 16.sp,fontFamily: "Imprima",
                                       color: Color.fromRGBO(128, 128, 128, 1)))
                             ],
                             text: "Name",
-                            style:
-                                TextStyle(fontSize: 15, color: Colors.black)),
+                            style: TextStyle(fontSize: 16.sp, color: Colors.black,fontFamily: "Imprima")),
                       ),
-                      const SizedBox(
-                        height: 10,
+                       SizedBox(
+                        height: 1.h,
                       ),
                       customeTextFormField(nameController, "Name"),
-                      const SizedBox(
-                        height: 22,
+                       SizedBox(
+                        height: 2.2.h,
                       ),
-                      const Text("Pan Number"),
-                      const SizedBox(
-                        height: 10,
+                       Text("Pan Number",style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),),
+                       SizedBox(
+                        height: 1.h,
                       ),
-                      customeTextFormField(panController, "Name"),
-                      const SizedBox(
-                        height: 10,
+                      customeTextFormField(panController, "Pan Number"),
+                       SizedBox(
+                        height: 2.2.h,
                       ),
-                      const Text("Confirm PAN Number"),
-                      const SizedBox(
-                        height: 10,
+                       Text("Confirm PAN Number",style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),),
+                       SizedBox(
+                        height:1.h,
                       ),
-                      customeTextFormField(
-                          confirmPanControler, "Confirm PAN Number"),
-                      const SizedBox(height: 36),
+                      customeTextFormField(confirmPanControler, "Confirm PAN Number"),
+                       SizedBox(height: 4.h),
                       GestureDetector(
-                        onTap: () {},
-                        child: innerShadowButtonWidget(
-                            "Sunmit for Verification",
-                            context,
-                            width: MediaQuery.of(context).size.width,
-                            radius: 5),
+                        onTap: () {
+
+
+                        },
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: innerShadowButtonWidget(
+                              "Sunmit for Verification",
+                              context,
+                              width: 85.w,
+                              radius: 0.sp),
+                        ),
                       ),
-                      const SizedBox(
-                        height: 30,
+                       SizedBox(
+                        height: 4.h,
                       ),
                     ],
                   ),
@@ -173,20 +178,20 @@ class _PasswordVerificationScreenState
     );
   }
 
-  Widget customeTextFormField(
-      TextEditingController controller, String hintText) {
-    return TextFormField(
-      controller: controller,
-      decoration: InputDecoration(
-        filled: false,
-        hintText: hintText,
-        hintStyle: const TextStyle(
-            color: Color.fromRGBO(129, 116, 116, 1), fontSize: 16),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
-        focusedBorder:
-            OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
-        enabledBorder:
-            OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
+  Widget customeTextFormField(TextEditingController controller, String hintText) {
+    return SizedBox(
+      height: 6.h,
+      child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          filled: false,
+          hintText: hintText,
+          hintStyle:  TextStyle(
+              color: Color.fromRGBO(129, 116, 116, 1), fontSize: 16.sp,fontFamily: "Imprima"),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.sp)),
+          focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(8.sp)),
+          enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(8.sp)),
+        ),
       ),
     );
   }

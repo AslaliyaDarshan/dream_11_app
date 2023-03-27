@@ -5,8 +5,9 @@ import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:dream_11_app/widget/matchView.dart';
 import 'package:dream_11_app/widget/topwidget.dart';
 import 'package:flutter/material.dart';
-// ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+
 
 class HomePage extends StatefulWidget {
   HomePageController controller;
@@ -22,51 +23,51 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Expanded(
       child: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(
-              height: 12,
+             SizedBox(
+              height: 2.h,
             ),
             TopWidget(controller: widget.controller),
-            const SizedBox(
-              height: 5,
+            SizedBox(
+              height: 0.5.h,
             ),
-            // isSelected1
-            // ?
             Stack(
               children: [
                 Image.asset(AssetUtilities.bg),
                 Column(
                   children: [
-                    const SizedBox(
+                     SizedBox(
                       height: 5,
                     ),
-                    Row(
-                      children: const [
-                        SizedBox(
-                          width: 13,
-                        ),
-                        Text(
-                          'My Matches',
-                          style: TextStyle(color: Colors.white, fontSize: 15),
-                        ),
-                        Spacer(),
-                        Text(
-                          'View All',
-                          style: TextStyle(color: Colors.white, fontSize: 15),
-                        ),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.white,
-                          size: 15,
-                        )
-                      ],
+                    Padding(
+                      padding:  EdgeInsets.symmetric(horizontal: 3.w),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children:  [
+                          Text(
+                            'My Matches',
+                            style: TextStyle(color: Colors.white, fontSize: 15),
+                          ),
+                          Spacer(),
+                          Text(
+                            'View All',
+                            style: TextStyle(color: Colors.white, fontSize: 15),
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.white,
+                            size: 15,
+                          )
+                        ],
+                      ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 8.0, right: 8),
+                      padding:  EdgeInsets.symmetric(horizontal: 3.w),
                       child: MatchView(),
                     ),
                   ],

@@ -1,7 +1,7 @@
 import 'package:dream_11_app/controller/homePageController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:responsive_sizer/responsive_sizer.dart';
 import '../utility/assets/images.dart';
 
 class TopWidget extends StatefulWidget {
@@ -38,59 +38,69 @@ class _TopWidgetState extends State<TopWidget> {
   @override
   Widget build(BuildContext context) {
     return Obx((() => Padding(
-          padding: const EdgeInsets.only(left: 5.0),
-          child: Wrap(
-            spacing: 10,
-            children: List.generate(imageList.length, (index) {
-              return GestureDetector(
-                onTap: () {
-                  widget.controller.selectTop(index);
-                },
-                child: Column(
-                  children: [
-                    Container(
-                      height: 40,
-                      width: 50,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage(
-                                  widget.controller.selectedTopIndex == index
-                                      ? AssetUtilities.back1
-                                      : AssetUtilities.back2))),
-                      child: Center(
-                          child: Image.asset(
-                        imageList[index],
-                        height: 15.5,
-                        width: 15.5,
-                      )),
-                    ),
-                    Container(
-                      height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage(
-                                  widget.controller.selectedTopIndex == index
-                                      ? AssetUtilities.back3
-                                      : AssetUtilities.back4))),
-                      child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.only(bottom: 5.0),
-                          child: Text(
-                            lst[index],
-                            style: const TextStyle(
-                                fontSize: 6,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
+          padding:  EdgeInsets.symmetric(horizontal: 3.w),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            physics: BouncingScrollPhysics(),
+            child: Row(
+              children: List.generate(imageList.length, (index) {
+                return GestureDetector(
+                  onTap: () {
+                    widget.controller.selectTop(index);
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        height:5.h,
+                        width: 5.h,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(
+                                    widget.controller.selectedTopIndex == index
+                                        ? AssetUtilities.back1
+                                        : AssetUtilities.back2))),
+                        child: Center(
+                            child: Image.asset(
+                          imageList[index],
+                          height: 2.5.h,
+                          width: 2.5.h,
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              );
-            }),
+                      Padding(
+                        padding: EdgeInsets.only(left: 1.5.w),
+                        child: Container(
+                          height: 5.h,
+                          width:  18.w,
+                           decoration: BoxDecoration(
+                              image: DecorationImage(
+                                   image: AssetImage(
+                                      widget.controller.selectedTopIndex == index
+                                          ? AssetUtilities.back3
+                                          : AssetUtilities.back4))),
+                          child: Center(
+                            child: Padding(
+                              padding:  EdgeInsets.only(bottom: 0.5.h,right: 1.w),
+                              child: Text(
+                                lst[index],
+                                style: TextStyle(
+                                    fontSize: 12.sp,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }),
+            ),
           ),
-        )));
+        )
+      ),
+    );
   }
 }

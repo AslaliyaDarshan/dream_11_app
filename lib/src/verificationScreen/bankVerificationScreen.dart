@@ -3,7 +3,8 @@
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:dream_11_app/widget/buttonWidget.dart';
 import 'package:flutter/material.dart';
-import 'package:dotted_border/dotted_border.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:get/get.dart';
 
 class bankVerificationScreen extends StatefulWidget {
   const bankVerificationScreen({super.key});
@@ -24,142 +25,187 @@ class _bankVerificationScreenState extends State<bankVerificationScreen> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(211, 224, 196, 1),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(Icons.arrow_back)),
-              Center(
-                child: Image.asset(
-                  AssetUtilities.bankImage,
-                  height: 149,
-                  width: 199,
-                ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                icon: Icon(Icons.arrow_back,size: 20.sp,)),
+            Center(
+              child: Image.asset(
+                AssetUtilities.bankImage,
+                height: 22.h,
+                width: 22.h,
               ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                decoration: const BoxDecoration(
-                    color: Color.fromRGBO(224, 224, 224, 1),
-                    borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(30))),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 22.0, right: 22),
+            ),
+            Container(
+              height: 68.h,
+              width:200.w,
+              decoration: BoxDecoration(
+                  color:  Color.fromRGBO(224, 224, 224, 1),
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(20.sp))),
+              child: Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 5.w),
+                child: SingleChildScrollView(
+                  physics: BouncingScrollPhysics(),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(
-                        height: 8,
+                       SizedBox(
+                        height: 1.5.h,
                       ),
                       Row(
                         children: [
                           CircleAvatar(
-                            radius: 20,
-                            backgroundColor:
-                                const Color.fromRGBO(246, 82, 171, 0.6),
+                            radius: 20.sp,
+                            backgroundColor: const Color.fromRGBO(246, 82, 171, 0.6),
                             child: Image.asset(
                               AssetUtilities.bankIcon,
-                              height: 22,
-                              width: 22,
+                              height: 20.h,
+                              width: 20.h,
                             ),
                           ),
-                          const SizedBox(
-                            width: 15,
+                           SizedBox(
+                            width: 4.w,
                           ),
-                          const Text(
+                           Text(
                             "Bank Verification",
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(fontSize: 18.sp),
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 12,
+                       SizedBox(
+                        height: 1.5.h,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Image.asset(
                             AssetUtilities.bankimage1,
-                            height: 100,
-                            width: 100,
+                            height: 13.h,
+                            width: 13.h,
                           ),
                           Image.asset(
                             AssetUtilities.upiImage,
-                            height: 100,
-                            width: 100,
+                            height: 13.h,
+                            width: 13.h,
                           ),
                           Image.asset(
                             AssetUtilities.pancardImage1,
-                            height: 100,
-                            width: 100,
+                            height: 13.h,
+                            width: 13.h,
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 22,
+                       SizedBox(
+                        height: 2.h,
                       ),
-                      Text("Account No"),
-                      const SizedBox(
-                        height: 10,
+                      Text("Account No",style: TextStyle(fontSize: 16.sp),),
+                       SizedBox(
+                        height: 1.h,
                       ),
-                      customeTextFormField(
-                          accountnumberController, "Enter Account No"),
-                      const SizedBox(
-                        height: 22,
+                      customeTextFormField(accountnumberController, "Enter Account No"),
+                       SizedBox(
+                        height: 2.h,
                       ),
-                      const Text("IFSC Code"),
-                      const SizedBox(
-                        height: 10,
+                       Text("IFSC Code",style: TextStyle(fontSize: 16.sp),),
+                       SizedBox(
+                        height: 1.h,
                       ),
                       customeTextFormField(ifscController, "Enter IFSC Code"),
-                      const SizedBox(
-                        height: 10,
+                       SizedBox(
+                        height: 2.h,
                       ),
-                      const Text("Retype Account Number"),
-                      const SizedBox(
-                        height: 10,
+                       Text("Retype Account Number",style: TextStyle(fontSize: 16.sp),),
+                       SizedBox(
+                        height: 1.h,
                       ),
-                      customeTextFormField(
-                          retryAccountNumberController, "Retype Account No"),
-                      const SizedBox(
-                        height: 10,
+                      customeTextFormField(retryAccountNumberController, "Retype Account No"),
+                       SizedBox(
+                        height: 2.h,
                       ),
-                      const Text("Bank Name"),
-                      const SizedBox(
-                        height: 10,
+                       Text("Bank Name",style: TextStyle(fontSize: 16.sp),),
+                       SizedBox(
+                        height: 1.h,
                       ),
-                      customeTextFormField(
-                          retryAccountNumberController, "Bank Name"),
-                      const SizedBox(
-                        height: 10,
+                      customeTextFormField(retryAccountNumberController, "Bank Name"),
+                       SizedBox(
+                        height:2.h,
                       ),
-                      const Text("Branch Name"),
-                      const SizedBox(
-                        height: 10,
+                       Text("Branch Name",style: TextStyle(fontSize: 16.sp),),
+                       SizedBox(
+                        height: 1.h,
                       ),
-                      customeTextFormField(
-                          retryAccountNumberController, "Branch Name"),
-                      const SizedBox(height: 36),
+                      customeTextFormField(retryAccountNumberController, "Branch Name"),
+                      SizedBox(
+                        height:2.h,
+                      ),
+                      Text("State",style: TextStyle(fontSize: 16.sp),),
+                      SizedBox(
+                        height: 1.h,
+                      ),
+                      customeTextFormField(retryAccountNumberController, "State"),
+                      SizedBox(height:2.h,),
+                       Align(alignment: Alignment.center,
+                           child: ElevatedButton.icon(onPressed: (){},
+                               icon: Icon(Icons.account_balance,
+                                 size: 23.sp,color: Colors.black,),
+                               label: Text("UPLOAD BANK PROOF",
+                                 style: TextStyle(fontSize: 16.sp,color: Colors.black),),
+                               style: ButtonStyle(backgroundColor:MaterialStatePropertyAll(Colors.white),
+                                   shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.sp),
+                                       side: BorderSide(color: Colors.black,width: 4.sp)))))),
+                      SizedBox(height:2.h,),
+                       Text("IMPORTANT",style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.bold,color: Color(0xFF7D7D7D)),),
+                       SizedBox(height:0.5.h),
+                       Row(
+                         crossAxisAlignment: CrossAxisAlignment.start,
+                         children: [
+                            Padding(
+                              padding:  EdgeInsets.only(left: 1.w,top: 0.5.h),
+                              child: CircleAvatar(
+                                 radius: 7.sp, backgroundColor: Color(0xFF7D7D7D)),
+                            ),
+                             SizedBox(width: 2.w,),
+                           Flexible(child: Text("Review your details before submitting your documents permanently.",style: TextStyle(fontSize: 15.sp,color: Color(0xFF7D7D7D)),)),
+                         ],
+                       ),
+                      SizedBox(height:0.5.h),
+                      Row(
+                         crossAxisAlignment: CrossAxisAlignment.start,
+                         children: [
+                            Padding(
+                              padding:  EdgeInsets.only(left: 1.w,top: 0.5.h),
+                              child: CircleAvatar(
+                                 radius: 7.sp, backgroundColor: Color(0xFF7D7D7D)),
+                            ),
+                             SizedBox(width: 2.w,),
+                           Flexible(child: Text("Password protected files wil be rejected.",style: TextStyle(fontSize: 15.sp,color: Color(0xFF7D7D7D)),)),
+                         ],
+                       ),
+                       SizedBox(height: 4.h),
                       GestureDetector(
                         onTap: () {},
-                        child: innerShadowButtonWidget(
-                            "Submit for Verification",
-                            context,
-                            width: MediaQuery.of(context).size.width,
-                            radius: 5),
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: innerShadowButtonWidget(
+                              "Submit for Verification",
+                              context,
+                              width: 85.w,
+                              radius: 5.sp),
+                        ),
                       ),
-                      const SizedBox(
-                        height: 30,
+                       SizedBox(
+                        height: 4.h,
                       ),
                     ],
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -167,18 +213,21 @@ class _bankVerificationScreenState extends State<bankVerificationScreen> {
 
   Widget customeTextFormField(
       TextEditingController controller, String hintText) {
-    return TextFormField(
-      controller: controller,
-      decoration: InputDecoration(
-        filled: false,
-        hintText: hintText,
-        hintStyle: const TextStyle(
-            color: Color.fromRGBO(129, 116, 116, 1), fontSize: 16),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
-        focusedBorder:
-            OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
-        enabledBorder:
-            OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
+    return SizedBox(
+      height: 6.h,
+      child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          filled: false,
+          hintText: hintText,
+          hintStyle: const TextStyle(
+              color: Color.fromRGBO(129, 116, 116, 1), fontSize: 16),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
+          focusedBorder:
+              OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
+          enabledBorder:
+              OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
+        ),
       ),
     );
   }

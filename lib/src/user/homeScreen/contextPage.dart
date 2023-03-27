@@ -48,9 +48,7 @@ class _ContextScreenState extends State<ContextScreen> {
                         child: Text(
                           'Upcoming',
                           style: TextStyle(
-                              color: widget.controller.selectedMatchStateIndex
-                                          .value ==
-                                      0
+                              color: widget.controller.selectedMatchStateIndex.value == 0
                                   ? const Color.fromRGBO(0, 100, 0, 1)
                                   : Colors.black,
                               fontSize: 10,
@@ -64,9 +62,7 @@ class _ContextScreenState extends State<ContextScreen> {
                         child: Text(
                           'Live',
                           style: TextStyle(
-                              color: widget.controller.selectedMatchStateIndex
-                                          .value ==
-                                      1
+                              color: widget.controller.selectedMatchStateIndex.value == 1
                                   ? const Color.fromRGBO(0, 100, 0, 1)
                                   : Colors.black,
                               fontSize: 10,

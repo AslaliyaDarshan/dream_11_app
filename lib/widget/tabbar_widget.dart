@@ -189,9 +189,6 @@ class _TabBarWidgetState extends State<TabBarWidget> {
                       SizedBox(
                         width: 2.w,
                       ),
-                      SizedBox(
-                        width: 2.w,
-                      ),
                       Flexible(
                         child: Text(
                           """Need help ? \nMail us at help@crickswitch.com , or call customer Support : +91 9986734993""",
@@ -278,7 +275,7 @@ class _TabBarWidget2State extends State<TabBarWidget2> {
                   ),
                    Text(
                     "Verify Bank/UPI and Earn Rs.100 Bonus!",
-                    style: TextStyle(fontSize: 15.sp, color: Colors.white),
+                    style: TextStyle(fontSize: 15.sp, color: Colors.white,fontFamily: "Imprima"),
                   ),
                 ],
               ),
@@ -303,7 +300,7 @@ class _TabBarWidget2State extends State<TabBarWidget2> {
                 ),
                  Text(
                   "Email :-",
-                  style: TextStyle(fontSize: 18.sp),
+                  style: TextStyle(fontSize: 18.sp,fontFamily: "Imprima"),
                 ),
                 const Spacer(),
                  CircleAvatar(
@@ -313,7 +310,8 @@ class _TabBarWidget2State extends State<TabBarWidget2> {
                    child: Icon(
                  Icons.check,
                  size: 18.sp,
-                  )),
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -323,7 +321,7 @@ class _TabBarWidget2State extends State<TabBarWidget2> {
             child: Text(
               "- Cricketswitch112@gmail.com",
               style: TextStyle(
-                  color: Color.fromRGBO(128, 128, 128, 1), fontSize: 17.sp),
+                  color: Color.fromRGBO(128, 128, 128, 1), fontSize: 17.sp,fontFamily: "Imprima"),
             ),
           ),
            SizedBox(
@@ -335,7 +333,7 @@ class _TabBarWidget2State extends State<TabBarWidget2> {
                 child: Text(
               textAlign: TextAlign.center,
               "**Please verify your mobile and email first in order to verify you Email**",
-              style: TextStyle(fontSize: 15.sp),
+              style: TextStyle(fontSize: 15.sp,fontFamily: "Imprima"),
             )),
           ),
           Image.asset(
@@ -349,7 +347,7 @@ class _TabBarWidget2State extends State<TabBarWidget2> {
               Text(
                 "+ 18 Year",
                 style: TextStyle(
-                    color: Color.fromRGBO(255, 0, 0, 1), fontSize: 19.sp),
+                    color: Color.fromRGBO(255, 0, 0, 1), fontSize: 19.sp,fontFamily: "Imprima"),
               ),
               SizedBox(
                 width: 3.h,
@@ -375,7 +373,7 @@ class _TabBarWidget2State extends State<TabBarWidget2> {
 
                    Text(
                     "Important Information",
-                    style: TextStyle(fontSize: 14.sp),
+                    style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                   ),
 
                   Row(
@@ -392,7 +390,7 @@ class _TabBarWidget2State extends State<TabBarWidget2> {
                       Flexible(
                         child: Text(
                           "Provide your own EMAIL, in case of any mismatch your verification will be rejected.",
-                          style: TextStyle(fontSize: 14.sp),
+                          style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                         ),
                       ),
                     ],
@@ -411,7 +409,7 @@ class _TabBarWidget2State extends State<TabBarWidget2> {
                       Flexible(
                         child: Text(
                           "Email verification is necessary in order to withdraw money",
-                          style: TextStyle(fontSize: 14.sp),
+                          style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                         ),
                       ),
                     ],
@@ -430,7 +428,7 @@ class _TabBarWidget2State extends State<TabBarWidget2> {
                       Flexible(
                         child: Text(
                           " Set a security pin and remember it , it will be asked during the withdrawals",
-                          style: TextStyle(fontSize: 14.sp),
+                          style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                         ),
                       ),
                     ],
@@ -450,7 +448,7 @@ class _TabBarWidget2State extends State<TabBarWidget2> {
                       Flexible(
                         child: Text(
                           """Need help ? \nMail us at help@crickswitch.com , or call customer Support : +91 9986734993""",
-                          style: TextStyle(fontSize: 14.sp),
+                          style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                         ),
                       ),
                     ],
@@ -479,7 +477,7 @@ class _TabBarWidget2State extends State<TabBarWidget2> {
                         children:  [
                           Text(
                             "Next",
-                            style: TextStyle(fontSize: 18.sp),
+                            style: TextStyle(fontSize: 18.sp,fontFamily: "Imprima"),
                           ),
                           Icon(Icons.arrow_forward,size: 20.sp)
                         ],
@@ -509,7 +507,9 @@ class _TabBarWidget3State extends State<TabBarWidget3> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+          SizedBox(height: 1.5.h,),
           Padding(
             padding:  EdgeInsets.symmetric(horizontal: 3.w),
             child: Container(
@@ -530,7 +530,7 @@ class _TabBarWidget3State extends State<TabBarWidget3> {
                   ),
                    Text(
                     "Verify Bank/UPI and Earn Rs.100 Bonus!",
-                    style: TextStyle(fontSize: 15.sp, color: Colors.white),
+                    style: TextStyle(fontSize: 15.sp, color: Colors.white,fontFamily: "Imprima"),
                   ),
                 ],
               ),
@@ -556,7 +556,7 @@ class _TabBarWidget3State extends State<TabBarWidget3> {
                 ),
                  Text(
                   "Pan Card :- ******",
-                  style: TextStyle(fontSize: 18.sp),
+                  style: TextStyle(fontSize: 18.sp,fontFamily: "Imprima"),
                 ),
                 const Spacer(),
                 ElevatedButton(
@@ -570,7 +570,7 @@ class _TabBarWidget3State extends State<TabBarWidget3> {
                     },
                     child:  Padding(
                       padding: EdgeInsets.all(13.sp),
-                      child: Text("Verify",style: TextStyle(fontSize: 15.sp),),
+                      child: Text("Verify",style: TextStyle(fontSize: 15.sp,fontFamily: "Imprima"),),
                     ),
                 ),
               ],
@@ -579,13 +579,13 @@ class _TabBarWidget3State extends State<TabBarWidget3> {
            SizedBox(
             height: 1.h,
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 20.0, right: 20),
+           Padding(
+            padding: EdgeInsets.symmetric(horizontal: 3.w),
             child: Center(
                 child: Text(
               textAlign: TextAlign.center,
               "**Please verify your mobile and email first in order to verify you PAN**",
-              style: TextStyle(fontSize: 13),
+              style: TextStyle(fontSize: 15.sp,fontFamily: "Imprima"),
             )),
           ),
 
@@ -601,7 +601,7 @@ class _TabBarWidget3State extends State<TabBarWidget3> {
               Text(
                 "+ 18 Year",
                 style: TextStyle(
-                    color: Color.fromRGBO(255, 0, 0, 1), fontSize: 20),
+                    color: Color.fromRGBO(255, 0, 0, 1), fontSize: 19.sp,fontFamily: "Imprima"),
               ),
               SizedBox(
                 width: 3.w,
@@ -627,7 +627,7 @@ class _TabBarWidget3State extends State<TabBarWidget3> {
 
                   Text(
                     "Important Information",
-                    style: TextStyle(fontSize: 14.sp),
+                    style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                   ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -643,7 +643,7 @@ class _TabBarWidget3State extends State<TabBarWidget3> {
                       Flexible(
                         child: Text(
                           "Provide your own PAN, in case of any mismatch your verification will be rejected.",
-                          style: TextStyle(fontSize: 14.sp),
+                          style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                         ),
                       ),
                     ],
@@ -663,7 +663,7 @@ class _TabBarWidget3State extends State<TabBarWidget3> {
                       Flexible(
                         child: Text(
                           "Set a security pin and remember it , it will be asked during the withdrawals",
-                          style: TextStyle(fontSize: 14.sp),
+                          style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                         ),
                       ),
                     ],
@@ -683,7 +683,7 @@ class _TabBarWidget3State extends State<TabBarWidget3> {
                       Flexible(
                         child: Text(
                           "PAN verification is necessary in order to withdraw money",
-                          style: TextStyle(fontSize: 14.sp),
+                          style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                         ),
                       ),
                     ],
@@ -703,7 +703,7 @@ class _TabBarWidget3State extends State<TabBarWidget3> {
                       Flexible(
                         child: Text(
                           """Need help ? \nMail us at help@crickswitch.com , or call customer Support : +91 9986734993""",
-                          style: TextStyle(fontSize: 14.sp),
+                          style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                         ),
                       ),
                     ],
@@ -712,7 +712,7 @@ class _TabBarWidget3State extends State<TabBarWidget3> {
               ),
             ),
           ),
-           SizedBox(height: 1.5.h),
+           SizedBox(height:2.h),
           Padding(
             padding:  EdgeInsets.only(right: 4.w),
             child: Row(
@@ -732,7 +732,7 @@ class _TabBarWidget3State extends State<TabBarWidget3> {
                         children:  [
                           Text(
                             "Next",
-                            style: TextStyle(fontSize: 18.sp),
+                            style: TextStyle(fontSize: 18.sp,fontFamily: "Imprima"),
                           ),
                           Icon(Icons.arrow_forward,size: 20.sp,)
                         ],
@@ -762,48 +762,52 @@ class _TabBarWidget4State extends State<TabBarWidget4> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          SizedBox(height:1.5.h),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 13),
+            padding: EdgeInsets.symmetric(horizontal: 3.w),
             child: Container(
-              height: 30,
-              padding: const EdgeInsets.only(left: 10),
+              height: 4.h,
+              padding:  EdgeInsets.symmetric(horizontal: 2.w),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(10.sp),
                   color: const Color.fromRGBO(0, 100, 0, 1)),
               child: Row(
                 children: [
                   Image.asset(
                     AssetUtilities.percentageIcon,
-                    height: 24,
-                    width: 24,
+                    height: 3.2.h,
+                    width: 3.2.h,
                   ),
-                  const SizedBox(
-                    width: 7,
+                   SizedBox(
+                    width: 2.w,
                   ),
-                  const Text(
+                   Text(
                     "Verify Bank/UPI and Earn Rs.100 Bonus!",
-                    style: TextStyle(fontSize: 13, color: Colors.white),
+                    style: TextStyle(fontSize: 15.sp, color: Colors.white,fontFamily: "Imprima"),
                   ),
                 ],
               ),
             ),
           ),
-          const SizedBox(height: 10),
+           SizedBox(height: 1.h),
           Padding(
-            padding: const EdgeInsets.only(left: 14.0),
+            padding:  EdgeInsets.symmetric(horizontal: 3.w),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.asset(AssetUtilities.aadharIcon, height: 33),
-                const SizedBox(
-                  width: 14,
+                Image.asset(
+                  AssetUtilities.aadharIcon,
+                  height: 3.8.h,
+                  width: 3.8.h,
                 ),
-                const Text(
+                 SizedBox(
+                  width: 3.w,
+                ),
+                 Text(
                   "Address Proof:- *****",
-                  style: TextStyle(fontSize: 20),
-                ),
-                const SizedBox(
-                  width: 4,
+                  style: TextStyle(fontSize: 18.sp,fontFamily: "Imprima"),
                 ),
                 const Spacer(),
                 ElevatedButton(
@@ -812,156 +816,140 @@ class _TabBarWidget4State extends State<TabBarWidget4> {
                             borderRadius: BorderRadius.circular(8)),
                         backgroundColor: const Color.fromRGBO(0, 100, 0, 1)),
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const AadhaarVerificationScreen();
-                      }));
+                      Get.to(AadhaarVerificationScreen());
+                      //Navigator.push(context, MaterialPageRoute(builder: (context) {return const AadhaarVerificationScreen();}));
                     },
-                    child: const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text("Verify"),
+                    child: Padding(
+                      padding:  EdgeInsets.all(13.sp),
+                      child: Text("Verify",style: TextStyle(fontSize: 15.sp,fontFamily: "Imprima"),),
                     )),
-                const SizedBox(
-                  width: 10,
-                ),
+
               ],
             ),
           ),
-          const SizedBox(
-            height: 10,
+           SizedBox(
+            height: 1.h,
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 20.0, right: 20),
+           Padding(
+            padding: EdgeInsets.symmetric(horizontal: 3.w),
             child: Center(
                 child: Text(
               textAlign: TextAlign.center,
               "**Please verify your mobile and email first in order to verify you PAN**",
-              style: TextStyle(fontSize: 13),
+              style: TextStyle(fontSize: 15.sp,fontFamily: "Imprima"),
             )),
           ),
-          const SizedBox(
-            height: 10,
-          ),
+
           Image.asset(
             AssetUtilities.aadhaarImage,
-            height: 194,
-            width: 300,
-          ),
-          const SizedBox(
-            height: 10,
+            height: 30.h,
+            width: 90.w,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: const [
+            children:  [
               Text(
                 "+ 18 Year",
                 style: TextStyle(
-                    color: Color.fromRGBO(255, 0, 0, 1), fontSize: 20),
+                    color: Color.fromRGBO(255, 0, 0, 1), fontSize: 19.sp,fontFamily: "Imprima"),
               ),
               SizedBox(
-                width: 15,
+                width: 3.w,
               ),
             ],
           ),
           Container(
-            height: 215,
-            width: MediaQuery.of(context).size.width,
-            margin: const EdgeInsets.only(left: 24, right: 24),
+            height:  24.h,
+            width:   100.w,
+            margin:  EdgeInsets.symmetric(horizontal: 5.w),
             decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(offset: Offset(4, 4),color: Color(0xFFD2D2D2),blurRadius: 1),
+                ],
                 color: const Color.fromRGBO(205, 219, 121, 1),
-                borderRadius: BorderRadius.circular(5)),
+                borderRadius: BorderRadius.circular(8.sp)),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding:  EdgeInsets.symmetric(horizontal: 2.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const Text(
+                   Text(
                     "Important Information",
-                    style: TextStyle(fontSize: 12),
-                  ),
-                  const SizedBox(
-                    height: 10,
+                    style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                   ),
                   Row(
-                    children: const [
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children:  [
                       Padding(
-                        padding: EdgeInsets.only(left: 10),
+                        padding: EdgeInsets.only(left: 3.w,top: 0.5.h),
                         child: CircleAvatar(
-                            radius: 2, backgroundColor: Colors.black),
+                            radius: 7.sp, backgroundColor: Colors.black),
                       ),
                       SizedBox(
-                        width: 5,
+                        width: 2.w,
                       ),
                       Flexible(
                         child: Text(
                           "Provide your own Address, in case of any mismatch your verification will be rejected.",
-                          style: TextStyle(fontSize: 12),
+                          style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 13,
-                  ),
                   Row(
-                    children: const [
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children:  [
                       Padding(
-                        padding: EdgeInsets.only(left: 10),
+                        padding: EdgeInsets.only(left: 3.w,top: 0.5.h),
                         child: CircleAvatar(
-                            radius: 2, backgroundColor: Colors.black),
+                            radius: 7.sp, backgroundColor: Colors.black),
                       ),
                       SizedBox(
-                        width: 5,
+                        width: 2.w,
                       ),
                       Flexible(
                         child: Text(
                           "Address verification is necessary in order to withdraw money",
-                          style: TextStyle(fontSize: 12),
+                          style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 13,
-                  ),
+
                   Row(
-                    children: const [
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children:  [
                       Padding(
-                        padding: EdgeInsets.only(left: 10),
+                        padding: EdgeInsets.only(left: 3.w,top: 0.5.h),
                         child: CircleAvatar(
-                            radius: 2, backgroundColor: Colors.black),
+                            radius: 7.sp, backgroundColor: Colors.black),
                       ),
                       SizedBox(
-                        width: 5,
+                        width:2.w,
                       ),
                       Flexible(
                         child: Text(
                           "Set a security pin and remember it , it will be asked during the withdrawals",
-                          style: TextStyle(fontSize: 12),
+                          style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 13,
-                  ),
                   Row(
-                    children: const [
+                    children:  [
                       Padding(
-                        padding: EdgeInsets.only(left: 10),
+                        padding: EdgeInsets.only(left: 3.w,top: 0.5.h),
                         child: CircleAvatar(
-                            radius: 2, backgroundColor: Colors.black),
+                            radius: 7.sp, backgroundColor: Colors.black),
                       ),
                       SizedBox(
-                        width: 5,
+                        width: 2.w,
                       ),
                       Flexible(
                         child: Text(
                           """Need help ? \nMail us at help@crickswitch.com , or call customer Support : +91 9986734993""",
-                          style: TextStyle(fontSize: 12),
+                          style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                         ),
                       ),
                     ],
@@ -970,9 +958,9 @@ class _TabBarWidget4State extends State<TabBarWidget4> {
               ),
             ),
           ),
-          const SizedBox(height: 10),
+           SizedBox(height: 2.h),
           Padding(
-            padding: const EdgeInsets.only(right: 20),
+            padding:  EdgeInsets.only(right: 4.w),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -980,20 +968,20 @@ class _TabBarWidget4State extends State<TabBarWidget4> {
                   onTap:
                     widget.onTap,
                   child: Container(
-                    height: 38,
-                    width: 99,
+                    height: 4.5.h,
+                    width: 25.w,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(8.sp),
                         border: Border.all(color: Colors.grey)),
                     child: Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children:  [
                           Text(
                             "Next",
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(fontSize: 18.sp,fontFamily: "Imprima"),
                           ),
-                          Icon(Icons.arrow_forward)
+                          Icon(Icons.arrow_forward,size: 20.sp,)
                         ],
                       ),
                     ),
@@ -1001,9 +989,6 @@ class _TabBarWidget4State extends State<TabBarWidget4> {
                 ),
               ],
             ),
-          ),
-          const SizedBox(
-            height: 20,
           ),
         ],
       ),
@@ -1023,203 +1008,190 @@ class _TabBarWidget5State extends State<TabBarWidget5> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      physics: BouncingScrollPhysics(),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+          SizedBox(height:1.5.h),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 13),
+            padding:  EdgeInsets.symmetric(horizontal: 3.w),
             child: Container(
-              height: 30,
-              padding: const EdgeInsets.only(left: 10),
+              height: 4.h,
+              padding:  EdgeInsets.symmetric(horizontal:2.w),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(10.sp),
                   color: const Color.fromRGBO(0, 100, 0, 1)),
               child: Row(
                 children: [
                   Image.asset(
                     AssetUtilities.percentageIcon,
-                    height: 24,
-                    width: 24,
+                    height: 3.2.h,
+                    width: 3.2.h,
                   ),
-                  const SizedBox(
-                    width: 7,
+                   SizedBox(
+                    width: 2.w,
                   ),
-                  const Text(
+                   Text(
                     "Verify Bank/UPI and Earn Rs.100 Bonus!",
-                    style: TextStyle(fontSize: 13, color: Colors.white),
+                    style: TextStyle(fontSize: 15.sp, color: Colors.white,fontFamily: "Imprima"),
                   ),
                 ],
               ),
             ),
           ),
-          const SizedBox(height: 10),
+           SizedBox(height: 1.h),
           Padding(
-            padding: const EdgeInsets.only(left: 14.0),
+            padding:  EdgeInsets.symmetric(horizontal: 3.w),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CircleAvatar(
-                  radius: 20,
+                  radius: 17.sp,
                   backgroundColor: const Color.fromRGBO(246, 82, 171, 0.6),
                   child: Image.asset(
                     AssetUtilities.bankIcon,
-                    height: 22,
-                    width: 22,
+                    height: 3.1.h,
+                    width: 3.1.h,
                   ),
                 ),
-                const SizedBox(
-                  width: 14,
+                 SizedBox(
+                  width: 3.w,
                 ),
-                const Text(
+                 Text(
                   "Bank:- ****",
-                  style: TextStyle(
-                      fontSize: 20, color: Color.fromRGBO(0, 0, 0, 0.18)),
-                ),
-                const SizedBox(
-                  width: 4,
+                  style: TextStyle(fontSize: 18.sp, color: Color.fromRGBO(0, 0, 0, 0.18),fontFamily: "Imprima"),
                 ),
                 const Spacer(),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8)),
+                            borderRadius: BorderRadius.circular(10.sp)),
                         backgroundColor: const Color.fromRGBO(0, 100, 0, 0.44)),
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const bankVerificationScreen();
-                      }));
+                      Get.to(bankVerificationScreen());
+                      //Navigator.push(context, MaterialPageRoute(builder: (context) {return const bankVerificationScreen();}));
                     },
-                    child: const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text("Verify"),
-                    )),
-                const SizedBox(
-                  width: 10,
+                    child:  Padding(
+                      padding: EdgeInsets.all(13.sp),
+                      child: Text("Verify",style: TextStyle(fontSize: 15.sp,fontFamily: "Imprima")),
+                    ),
                 ),
               ],
             ),
           ),
-          const SizedBox(
-            height: 10,
+           SizedBox(
+            height: 1.h,
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 20.0, right: 20),
+           Padding(
+            padding: EdgeInsets.symmetric(horizontal: 3.w),
             child: Center(
                 child: Text(
               textAlign: TextAlign.center,
               "**Please verify your mobile and email first in order to verify you PAN**",
-              style: TextStyle(fontSize: 13),
+              style: TextStyle(fontSize: 15.sp,fontFamily: "Imprima"),
             )),
-          ),
-          const SizedBox(
-            height: 10,
           ),
           Image.asset(
             AssetUtilities.bankImage,
-            height: 245,
-            width: 327,
-          ),
-          const SizedBox(
-            height: 10,
+            height:33.h,
+            width: 90.w,
           ),
           Container(
-            height: 225,
-            width: MediaQuery.of(context).size.width,
-            margin: const EdgeInsets.only(left: 24, right: 24),
+            height: 24.h,
+            width: 100.w,
+            margin:  EdgeInsets.symmetric(horizontal: 5.w),
             decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(offset: Offset(4, 4),color: Color(0xFFD2D2D2),blurRadius: 1),
+                ],
                 color: const Color.fromRGBO(205, 219, 121, 1),
-                borderRadius: BorderRadius.circular(5)),
+                borderRadius: BorderRadius.circular(8.sp)),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding:  EdgeInsets.symmetric(horizontal: 2.w),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const Text(
+                   Text(
                     "Important Information",
-                    style: TextStyle(fontSize: 12),
+                    style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+
                   Row(
-                    children: const [
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children:  [
                       Padding(
-                        padding: EdgeInsets.only(left: 10),
+                        padding: EdgeInsets.only(left: 3.w,top: 0.5.h),
                         child: CircleAvatar(
-                            radius: 2, backgroundColor: Colors.black),
+                            radius: 7.sp, backgroundColor: Colors.black),
                       ),
                       SizedBox(
-                        width: 5,
+                        width: 2.w,
                       ),
                       Flexible(
                         child: Text(
                           "Bank verification usually takes less than 1 hour , in case of manual verification it can take up to 72hours.",
-                          style: TextStyle(fontSize: 12),
+                          style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 13,
-                  ),
+
                   Row(
-                    children: const [
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children:  [
                       Padding(
-                        padding: EdgeInsets.only(left: 10),
+                        padding: EdgeInsets.only(left: 3.w,top: 0.5.h),
                         child: CircleAvatar(
-                            radius: 2, backgroundColor: Colors.black),
+                            radius: 7.sp, backgroundColor: Colors.black),
                       ),
                       SizedBox(
-                        width: 5,
+                        width: 2.w,
                       ),
                       Flexible(
                         child: Text(
                           "You can verify any one or both among bank and UPI to withdraw money.",
-                          style: TextStyle(fontSize: 12),
+                          style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 13,
-                  ),
+
                   Row(
-                    children: const [
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children:  [
                       Padding(
-                        padding: EdgeInsets.only(left: 10),
+                        padding: EdgeInsets.only(left: 3.w,top: 0.5.h),
                         child: CircleAvatar(
-                            radius: 2, backgroundColor: Colors.black),
+                            radius: 7.sp, backgroundColor: Colors.black),
                       ),
                       SizedBox(
-                        width: 5,
+                        width: 2.w,
                       ),
                       Flexible(
                         child: Text(
                           "in case of any query contect our customer support team.",
-                          style: TextStyle(fontSize: 12),
+                          style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 13,
-                  ),
+
                   Row(
-                    children: const [
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children:  [
                       Padding(
-                        padding: EdgeInsets.only(left: 10),
+                        padding: EdgeInsets.only(left: 3.w,top: 0.5.h),
                         child: CircleAvatar(
-                            radius: 2, backgroundColor: Colors.black),
+                            radius: 7.sp, backgroundColor: Colors.black),
                       ),
                       SizedBox(
-                        width: 5,
+                        width: 2.w,
                       ),
                       Flexible(
                         child: Text(
                           """Need help ? \nMail us at help@crickswitch.com , or call customer Support : +91 9986734993""",
-                          style: TextStyle(fontSize: 12),
+                          style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                         ),
                       ),
                     ],
@@ -1228,9 +1200,9 @@ class _TabBarWidget5State extends State<TabBarWidget5> {
               ),
             ),
           ),
-          const SizedBox(height: 10),
+           SizedBox(height: 2.h),
           Padding(
-            padding: const EdgeInsets.only(right: 20),
+            padding:  EdgeInsets.only(right: 4.w),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -1238,20 +1210,20 @@ class _TabBarWidget5State extends State<TabBarWidget5> {
                   onTap:
                     widget.onTap,
                   child: Container(
-                    height: 38,
-                    width: 99,
+                    height: 4.5.h,
+                    width: 25.w,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(8.sp),
                         border: Border.all(color: Colors.grey)),
                     child: Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children:  [
                           Text(
                             "Next",
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(fontSize: 18.sp,fontFamily: "Imprima"),
                           ),
-                          Icon(Icons.arrow_forward)
+                          Icon(Icons.arrow_forward,size:20.sp),
                         ],
                       ),
                     ),
@@ -1259,9 +1231,6 @@ class _TabBarWidget5State extends State<TabBarWidget5> {
                 ),
               ],
             ),
-          ),
-          const SizedBox(
-            height: 20,
           ),
         ],
       ),
