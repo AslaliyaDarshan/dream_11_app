@@ -1,3 +1,4 @@
+import 'package:dream_11_app/src/onboarding_screen/loginScreen/forgotpassword.dart';
 import 'package:dream_11_app/src/onboarding_screen/loginScreen/singUpScreen.dart';
 import 'package:dream_11_app/src/onboarding_screen/loginScreen/term&conditionScreen.dart';
 import 'package:dream_11_app/src/user/aadhar_card/aadhar_card.dart';
@@ -102,9 +103,10 @@ class _LoginPageState extends State<LoginPage> {
                           padding:  EdgeInsets.only(right: 1.w),
                           child: InkWell(
                             onTap: () {
+                              Get.to(ForgotPassword());
                              // Navigator.push(context, MaterialPageRoute(builder: (context) {return const ForGotPasswordScreen();}));
                             },
-                            child:  Text(
+                            child: Text(
                               Strings.forgotPasswordText,
                               style: TextStyle(fontFamily: "Imprima",
                                   color: Color.fromRGBO(0, 0, 0, 0.6),fontSize: 16.sp),
@@ -170,9 +172,9 @@ class _LoginPageState extends State<LoginPage> {
                                         ),
                                       ],
                                     ),
-                                  )
+                                  ),
                                  ]
-                               )
+                               ),
                             ),
                           ],
                         )

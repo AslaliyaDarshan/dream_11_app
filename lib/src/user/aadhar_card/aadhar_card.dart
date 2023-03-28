@@ -23,7 +23,7 @@ class _AadharCardState extends State<AadharCard> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      drawer: const DrawerWidger(),
+        drawer: const DrawerWidger(),
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
         leading: IconButton(

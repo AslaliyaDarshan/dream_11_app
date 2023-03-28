@@ -1,4 +1,5 @@
 import 'package:dream_11_app/src/splashScreen.dart';
+import 'package:dream_11_app/src/user/homeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
           ),
           //home: LoginPage(),
           home: const SplashScreen(),
+          //SplashScreen(),
         );
       },
     );

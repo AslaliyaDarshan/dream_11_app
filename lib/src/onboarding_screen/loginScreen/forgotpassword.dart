@@ -2,6 +2,8 @@ import 'package:dream_11_app/src/onboarding_screen/loginScreen/changePasswordScr
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:dream_11_app/widget/buttonWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({Key? key}) : super(key: key);
@@ -18,102 +20,95 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
+        height: 100.h,
+        width: 100.w,
         decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(AssetUtilities.onBoardingBackGroundImage),
                 fit: BoxFit.fill)),
         child: Padding(
-          padding: const EdgeInsets.only(left: 14, right: 14),
+          padding:  EdgeInsets.symmetric(horizontal: 3.w),
           child: SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
             child: Column(
               children: [
-                const SizedBox(
-                  height: 25,
+                 SizedBox(
+                  height: 2.h,
                 ),
                 Image.asset(
                   AssetUtilities.cricketSwitchLogo,
-                  height: 160,
-                  width: 160,
+                  height: 20.h,
+                  width: 20.h,
                 ),
-                const Text(
+                 Text(
                   'Forgot Password',
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
                 ),
-                const SizedBox(
-                  height: 25,
+                 SizedBox(
+                  height: 4.h,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 25, bottom: 10),
+                      padding:  EdgeInsets.only(left: 4.w, bottom: 1.h),
                       child: Row(
-                        children: const [
+                        children:  [
                           Text(
                             "Email",
-                            style: TextStyle(fontSize: 16),
+                            style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
                           ),
                           Text(
                             "  OR",
-                            style: TextStyle(fontSize: 16, color: Colors.red),
+                            style: TextStyle(fontSize: 16.sp, color: Colors.red,fontFamily: "Imprima"),
                           ),
                           Text(
                             "  phone",
-                            style: TextStyle(fontSize: 16),
+                            style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
                           ),
                         ],
                       ),
                     ),
-                    customTextFormField(
-                      emailController,
-                      context,'Enter your email OR Phone Number',
-                    ),
-                    const SizedBox(
-                      height: 5,
+                    customTextFormField(emailController, context,'Enter your email OR Phone Number',),
+                     SizedBox(
+                      height: 1.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(right: 18),
+                          padding: EdgeInsets.only(right: 3.w),
                           child: GestureDetector(
-                            child: const Text(
+                            child:  Text(
                               "Verify Email OR Phone",
-                              style: TextStyle(),
+                              style: TextStyle(fontFamily: "Imprima",fontSize: 16.sp),
                             ),
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 10,
+                     SizedBox(
+                      height: 1.h,
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 25, bottom: 10),
+                     Padding(
+                      padding: EdgeInsets.only(left: 4.w, bottom: 1.h),
                       child: Text(
                         "Enter your OTP",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
                       ),
                     ),
                     customTextFormField(otpController, context,'Enter your OTP hear'),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    const SizedBox(
-                      height: 35,
-                    ),
+                     SizedBox(
+                      height: 8.h,
+                     ),
                     Center(
                         child: GestureDetector(
                             onTap: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return const ChangePasswordScreen();
-                              }));
+                              Get.to(ChangePasswordScreen());
+                              //Navigator.push(context, MaterialPageRoute(builder: (context) {return const ChangePasswordScreen();}));
                             },
-                            child: innerShadowButtonWidget("Send",context, radius: 0))),
+                            child: innerShadowButtonWidget("Send",context, radius: 0,width: 80.w))),
                   ],
                 ),
               ],

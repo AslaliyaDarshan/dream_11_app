@@ -6,6 +6,7 @@ import 'package:dream_11_app/widget/matchView.dart';
 import 'package:dream_11_app/widget/topwidget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 
@@ -51,72 +52,70 @@ class _HomePageState extends State<HomePage> {
                         children:  [
                           Text(
                             'My Matches',
-                            style: TextStyle(color: Colors.white, fontSize: 15),
+                            style: TextStyle(color: Colors.white, fontSize: 15.sp),
                           ),
                           Spacer(),
                           Text(
                             'View All',
-                            style: TextStyle(color: Colors.white, fontSize: 15),
+                            style: TextStyle(color: Colors.white, fontSize: 15.sp),
                           ),
                           Icon(
                             Icons.arrow_forward_ios,
                             color: Colors.white,
-                            size: 15,
+                            size: 16.sp,
                           )
                         ],
                       ),
                     ),
                     Padding(
                       padding:  EdgeInsets.symmetric(horizontal: 3.w),
-                      child: MatchView(),
+                      child: MyMatches_view(),
                     ),
                   ],
                 )
               ],
             ),
-            // : SizedBox.shrink(),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 8.0, right: 9),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      AssetUtilities.ads1,
-                      height: 70,
-                      width: 276,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Image.asset(
-                      AssetUtilities.ads2,
-                      height: 52,
-                    )
-                  ],
-                ),
+            SizedBox(height: 0.50.h),
+            CarouselSlider(
+              items: [
+                Container(height:7.h,width: 80.w,child: ClipRRect(borderRadius: BorderRadius.circular(15.sp),child: Image.asset(AssetUtilities.ads1,fit: BoxFit.fill,))),
+                Container(height:7.h,width: 80.w,child: ClipRRect(borderRadius: BorderRadius.circular(15.sp),child: Image.asset(AssetUtilities.ads2,fit: BoxFit.fill,))),
+              ],
+              options:  CarouselOptions(
+                height:7.5.h,
+                autoPlay: true,
+                viewportFraction: 0.8,
+                enlargeCenterPage: true,
+                autoPlayInterval: Duration(seconds: 3),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 20.0),
-              child: Text('Upcoming Matches'),
+             Padding(
+              padding: EdgeInsets.only(left: 3.w,bottom: 0.5.h,top: 0.5.h),
+              child: Text('Upcoming Matches',style: TextStyle(fontSize: 15.sp),),
             ),
-            ListView.builder(
+            ListView(
                 shrinkWrap: true,
-                itemCount: 5,
                 physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      Padding(
-                          padding:
-                              EdgeInsets.only(left: 20.0, right: 13, top: 10),
-                          child: MatchView(
-                            isSelected: isSelected1,
-                          )),
-                    ],
-                  );
-                }),
+                children: [
+                  Padding(padding: EdgeInsets.symmetric(horizontal: 3.w),child: megacontest_view(),),
+                  SizedBox(height: 1.h,),
+                  Padding(padding: EdgeInsets.symmetric(horizontal: 3.w),child: MatchView(
+                    isSelected: isSelected1,
+                  ),),
+                  SizedBox(height: 1.h,),
+                  Padding(padding: EdgeInsets.symmetric(horizontal: 3.w),child: MatchView(
+                    isSelected: isSelected1,
+                  ),),
+                  SizedBox(height: 1.h,),
+                  Padding(padding: EdgeInsets.symmetric(horizontal: 3.w),child: MatchView(
+                    isSelected: isSelected1,
+                  ),),
+                  SizedBox(height: 1.h,),
+                  Padding(padding: EdgeInsets.symmetric(horizontal: 3.w),child: MatchView(
+                    isSelected: isSelected1,
+                  ),),
+                ],
+            ),
           ],
         ),
       ),

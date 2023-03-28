@@ -4,18 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class ChangePasswordScreen extends StatefulWidget {
-  const ChangePasswordScreen({Key? key}) : super(key: key);
+class ChangeoldPasswordScreen extends StatefulWidget {
+  const ChangeoldPasswordScreen({Key? key}) : super(key: key);
 
   @override
-  State<ChangePasswordScreen> createState() => _ChangePasswordScreenState();
+  State<ChangeoldPasswordScreen> createState() => _ChangeoldPasswordScreenState();
 }
 
-class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
-    TextEditingController oldPasswordController = TextEditingController();
-    TextEditingController newPasswordController = TextEditingController();
-    TextEditingController confirmPasswordController = TextEditingController();
-
+class _ChangeoldPasswordScreenState extends State<ChangeoldPasswordScreen> {
+  TextEditingController oldPasswordController = TextEditingController();
+  TextEditingController newPasswordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +31,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             physics: BouncingScrollPhysics(),
             child: Column(
               children: [
-                 SizedBox(
+                SizedBox(
                   height: 2.h,
                 ),
                 Image.asset(
@@ -40,11 +39,11 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   height: 20.h,
                   width: 20.h,
                 ),
-                 Text(
+                Text(
                   'Change Password',
                   style: TextStyle(fontSize: 16.sp),
                 ),
-                 SizedBox(
+                SizedBox(
                   height: 2.h,
                 ),
                 Column(
@@ -52,21 +51,6 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding:  EdgeInsets.only(left:4.w, bottom: 1.h),
-                      child: Row(
-                        children:  [
-                          Text(
-                            "Old Password",
-                            style: TextStyle(fontSize: 16.sp),
-                          ),
-                        ],
-                      ),
-                    ),
-                    customTextFormField(oldPasswordController, context,'Enter your old Password',),
-                     SizedBox(
-                      height: 1.5.h,
-                    ),
-                     Padding(
                       padding: EdgeInsets.only(left: 4.w, bottom: 1.h),
                       child: Text(
                         "New Password",
@@ -74,24 +58,24 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       ),
                     ),
                     customTextFormField(newPasswordController,context, 'Enter your new Password'),
-                     SizedBox(
+                    SizedBox(
                       height: 1.5.h,
                     ),
-                     Padding(
+                    Padding(
                       padding: EdgeInsets.only(left: 4.w, bottom: 1.h),
                       child: Text("Confirm Password",
                         style: TextStyle(fontSize: 16.sp),
                       ),
                     ),
                     customTextFormField(newPasswordController,context, 'Enter your confirm Password'),
-                     SizedBox(
+                    SizedBox(
                       height: 5.h,
                     ),
-                     Text(
+                    Text(
                         "Your password should be a minimum of a characters with at least 1 number or special Character.",
                         style: TextStyle(fontSize: 14.5.sp),
                         textAlign: TextAlign.center),
-                     SizedBox(
+                    SizedBox(
                       height: 15.h,
                     ),
                     Center(child: GestureDetector(onTap: (){

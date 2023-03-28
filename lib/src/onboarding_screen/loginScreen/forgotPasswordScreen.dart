@@ -63,8 +63,8 @@ class _ForGotPasswordScreenState extends State<ForGotPasswordScreen> {
                       //Navigator.push(context, MaterialPageRoute(builder: (context) {return const  ForgotPassword();}));
                     },
                     child: innerShadowButtonWidget("CONTINUE",context, radius: 10,height: 4.h ,width: 70.w)),
-                const SizedBox(
-                  height: 20,
+                 SizedBox(
+                  height: 2.h,
                 ),
                  Text(
                   "Didn't received OTP?",

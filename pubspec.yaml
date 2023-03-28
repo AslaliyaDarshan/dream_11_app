@@ -40,10 +40,11 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
   get: ^4.6.5
   dotted_border: ^2.0.0+3
-  auto_size_text: ^3.0.0
   responsive_sizer: ^3.1.1
+  carousel_slider: ^4.2.1
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

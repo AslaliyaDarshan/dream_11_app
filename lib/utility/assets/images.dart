@@ -100,6 +100,8 @@ class AssetUtilities {
 
   static const String more7 = '${_baseUrl}more7.png';
 
+  static const String more8 = '${_baseUrl}more8.png';
+
   static const String bonus = '${_baseUrl}bonus.png';
 
   static const String bgImage = '${_baseUrl}bgimage.png';
@@ -176,9 +178,9 @@ class AssetUtilities {
 
   static const String top9 = '${_baseUrl}top9.png';
 
-  static const String ads1 = '${_baseUrl}ads1.jpg';
+  static const String ads1 = '${_baseUrl}ads1.png';
 
-  static const String ads2 = '${_baseUrl}ads2.jpg';
+  static const String ads2 = '${_baseUrl}ads2.png';
 
   static const String noty = '${_baseUrl}noti.png';
 
@@ -187,6 +189,8 @@ class AssetUtilities {
   static const String india = '${_baseUrl}india.jpg';
 
   static const String england = '${_baseUrl}england.png';
+
+  static const String tshirtno = '${_baseUrl}tshirtno.png';
 
   static const String tshirt = '${_baseUrl}tshirt.png';
 
@@ -263,6 +267,8 @@ class AssetUtilities {
   static const String award3 = '${_baseUrl}award3.png';
 
   static const String gift = '${_baseUrl}gift.png';
+
+  static const String leaderboard = '${_baseUrl}leaderboard.png';
 
   static const String youtube1 = '${_baseUrl}youtube1.png';
 

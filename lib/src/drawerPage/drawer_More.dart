@@ -8,6 +8,7 @@ import 'package:dream_11_app/src/drawerPage/offerScreen.dart';
 import 'package:dream_11_app/src/drawerPage/responsiblePlayScreen.dart';
 import 'package:dream_11_app/src/drawerPage/termandpermission.dart';
 import 'package:dream_11_app/src/model/drawerModel.dart';
+import 'package:dream_11_app/src/onboarding_screen/loginScreen/changePasswordScreen.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -29,6 +30,7 @@ class _MoreScreenState extends State<MoreScreen> {
     MoreWidgetModel(icon: AssetUtilities.more5, text: "Lagality",),
     MoreWidgetModel(icon: AssetUtilities.more6, text: "Offers",),
     MoreWidgetModel(icon: AssetUtilities.more7, text: "About Us",),
+    MoreWidgetModel(icon: AssetUtilities.more8, text: "Change Password",),
   ];
   @override
   Widget build(BuildContext context) {
@@ -87,6 +89,9 @@ class _MoreScreenState extends State<MoreScreen> {
                           }else if (index == 6) {
                             Get.to(AboutUsScreen());
                             //Navigator.push(context, MaterialPageRoute(builder: (context) {return const PrivacyPolicy();}));
+                          } else if (index == 7) {
+                            Get.to(ChangePasswordScreen());
+                            //Navigator.push(context, MaterialPageRoute(builder: (context) {return const PrivacyPolicy();}));
                           }
                         },
                         child: Row(
@@ -106,11 +111,11 @@ class _MoreScreenState extends State<MoreScreen> {
                              SizedBox(
                               width: 4.w,
                             ),
-                            Center(
-                                child: Text(
+                            Center(child: Text(
                               more[index].text,
                               style:  TextStyle(fontSize: 18.sp),
-                            )),
+                             ),
+                            ),
                             const Spacer(),
                              Icon(Icons.arrow_forward_ios,size: 20.sp,)
                           ],

@@ -3,24 +3,22 @@ import 'package:dream_11_app/utility/assets/srings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 
 
 Widget buttonWidget(Function() onTap, BuildContext context) {
-  late double hsize = MediaQuery.of(context).size.height;
-  late double wsize = MediaQuery.of(context).size.width;
+
   return Stack(
     children: [
       Positioned(
-          bottom: hsize*0.09,
-          left: wsize*0.04,
+          bottom:9.h,
+          left: 4.w,
           child: GestureDetector(
             onTap: onTap,
             child: Container(
-              height: hsize*0.03,
-              width: wsize*0.2,
+              height: 3.h,
+              width: 20.w,
               decoration: BoxDecoration(
                 color: const Color.fromRGBO(217, 217, 217, 1),
                 boxShadow: [
@@ -28,27 +26,25 @@ Widget buttonWidget(Function() onTap, BuildContext context) {
                     color: Colors.grey.shade500,
                     blurRadius: 15.0, // soften the shadow
                     spreadRadius: 5.0, //extend the shadow
-                    offset: const Offset(
-                      10,
-                      5.0
+                    offset: const Offset(10, 5.0
                     ),
                   ),
                 ],
               ),
-              child: const Center(child: AutoSizeText(Strings.next,style: TextStyle(fontFamily:"Imprima",fontSize: 14)),),
+              child:  Center(child: Text(Strings.next,style: TextStyle(fontFamily:"Imprima",fontSize: 15.sp)),),
             ),
           )),
       Positioned(
-          bottom: hsize*0.04,
-          left: wsize*0.04,
+          bottom: 4.h,
+          left: 4.w,
           child: GestureDetector(
             onTap: () {
               Get.offAll(LoginPage());
               //Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) {return LoginPage();}), (route) => false);
             },
             child: Container(
-              height: hsize*0.03,
-              width: wsize*0.2,
+              height: 3.h,
+              width: 20.w,
               decoration: BoxDecoration(
                 color: const Color.fromRGBO(217, 217, 217, 1),
                 boxShadow: [
@@ -56,13 +52,12 @@ Widget buttonWidget(Function() onTap, BuildContext context) {
                     color: Colors.grey.shade500,
                     blurRadius: 15.0, // soften the shadow
                     spreadRadius: 5.0, //extend the shadow
-                    offset: const Offset(10, // Move to right 5  horizontally
-                      5.0, // Move to bottom 5 Vertically
+                    offset: const Offset(10,5.0, // Move to bottom 5 Vertically
                     ),
                   ),
                 ],
               ),
-              child:  Center(child: AutoSizeText(Strings.skip,style: TextStyle(fontSize: 14,fontFamily:"Imprima"),)),
+              child:  Center(child: Text(Strings.skip,style: TextStyle(fontSize: 15.sp,fontFamily:"Imprima"),)),
             ),
           ),),
     ],
@@ -75,9 +70,9 @@ Widget innerShadowButtonWidget(String text, BuildContext context,{ double ?heigh
     height: height,
     width: width,
     padding: const EdgeInsets.only(right: 4, left: 4, top: 6, bottom: 6),
-    decoration: const BoxDecoration(
+    decoration:  BoxDecoration(
         color: Color.fromRGBO(54, 130, 54, 1),
-        borderRadius: BorderRadius.all(Radius.circular(20)),
+        borderRadius: BorderRadius.all(Radius.circular(20.sp)),
         boxShadow: [
           BoxShadow(
               color: Color.fromRGBO(54, 130, 54, 1),
@@ -86,8 +81,7 @@ Widget innerShadowButtonWidget(String text, BuildContext context,{ double ?heigh
     child: Center(
       child: Text(
         text,
-        style: textStyle ??
-             TextStyle(color: Colors.white, fontFamily: "Imprima",fontSize: 16.sp),
+        style: textStyle ?? TextStyle(color: Colors.white, fontFamily: "Imprima",fontSize: 16.sp),
       ),
     ),
   );
@@ -183,7 +177,7 @@ Widget customTextFormField(TextEditingController controller,BuildContext context
     height: 5.5.h,
     decoration: BoxDecoration(
         color: const Color.fromRGBO(217, 217, 217, 1),
-        borderRadius: BorderRadius.circular(23),
+        borderRadius: BorderRadius.circular(23.sp),
         boxShadow: const [
           BoxShadow(
               color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -200,16 +194,16 @@ Widget customTextFormField(TextEditingController controller,BuildContext context
         decoration: InputDecoration(
           filled: true,
           hintText: hintText,
-          hintStyle:  TextStyle(color: Color.fromRGBO(0, 0, 0, 0.6),fontSize: 17.sp),
+          hintStyle:  TextStyle(color: Color.fromRGBO(0, 0, 0, 0.6),fontSize: 17.sp,fontFamily: "Imprima"),
           fillColor: const Color.fromRGBO(217, 217, 217, 1),
           border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(23),
+              borderRadius: BorderRadius.circular(23.sp),
               borderSide: BorderSide.none),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(23),
+              borderRadius: BorderRadius.circular(23.sp),
               borderSide: BorderSide.none),
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(23),
+              borderRadius: BorderRadius.circular(23.sp),
               borderSide: BorderSide.none),
         ),
       ),

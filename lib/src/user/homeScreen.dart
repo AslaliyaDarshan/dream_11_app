@@ -5,6 +5,7 @@ import 'package:dream_11_app/src/user/homeScreen/contextPage.dart';
 import 'package:dream_11_app/src/user/homeScreen/homepage.dart';
 import 'package:dream_11_app/src/user/homeScreen/rewardScreen.dart';
 import 'package:dream_11_app/src/user/homeScreen/winnerScreen.dart';
+import 'package:dream_11_app/widget/drawerWidget.dart';
 import 'package:get/get.dart';
 import 'package:dream_11_app/controller/homePageController.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
@@ -29,136 +30,29 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List textList = ['Home', 'My Context', 'Rewards', 'Winners', 'More'];
   final HomePageController controller = Get.put(HomePageController());
-  bool isSwitchActive1 = false;
-  bool isSwitchActive2 = false;
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Obx(() => Scaffold(
-        appBar: controller.selectedIndex.value == 3 ? null : AppBar(
+      key: _scaffoldKey,
+      drawer: const DrawerWidger(),
+      appBar: controller.selectedIndex.value == 3 ? null : AppBar(
                 leading: controller.selectedIndex.value == 2
                     ? null
                     : IconButton(
                         icon: Icon(Icons.menu_sharp,size: 20.sp,),
-                        onPressed: () {},
+                        onPressed: () {
+                          _scaffoldKey.currentState!.openDrawer();
+                        },
                       ),
                 actions: [
                   IconButton(
-                      onPressed: () {
-                        showModalBottomSheet(
-                          isDismissible: false,
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(15.0),
-                            ),
-                          ),
-                          context: context,
-                          builder: (context){
-                            return StatefulBuilder(builder: (context, StateSetter setState) {
-                              return Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Container(
-                                    width: double.maxFinite,
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey.shade400,
-                                      borderRadius: const BorderRadius.vertical(
-                                        top: Radius.circular(15.0),
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            IconButton(
-                                                onPressed: () {
-                                                  Navigator.pop(context);
-                                                },
-                                                icon: const Icon(Icons.close)),
-                                            const Spacer(),
-                                            const Text(
-                                              'Set Reminders',
-                                              style: TextStyle(fontSize: 12),
-                                            ),
-                                            const Spacer()
-                                          ],
-                                        ),
-                                        const SizedBox(
-                                          height: 5,
-                                        ),
-                                        const Padding(
-                                          padding: EdgeInsets.only(
-                                              left: 15.0, bottom: 10),
-                                          child: Text('Lineup Announcement (if available)',
-                                            style: TextStyle(
-                                                fontSize: 10,
-                                                color: Color.fromRGBO(
-                                                    104, 104, 104, 1)),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 16.0, top: 10, bottom: 0),
-                                    child: Row(
-                                      children: [
-                                        const Text(
-                                          'Match - UAE-WU19 VS BA-WU19',
-                                          style: TextStyle(fontSize: 12),
-                                        ),
-                                        const Spacer(),
-                                        Switch(
-                                            inactiveThumbColor:
-                                                const Color.fromRGBO(
-                                                    134, 128, 128, 1),
-                                            value: isSwitchActive1,
-                                            onChanged: ((value) {
-                                              isSwitchActive1 = value;
-                                              setState(() {});
-                                            }))
-                                      ],
-                                    ),
-                                  ),
-                                  const Divider(
-                                    color: Colors.grey,
-                                    thickness: 2,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 16.0, top: 0, bottom: 0),
-                                    child: Row(
-                                      children: [
-                                        const Text(
-                                          'Tour - ICC Women’s U19 T20 World Cap',
-                                          style: TextStyle(fontSize: 12),
-                                        ),
-                                        const Spacer(),
-                                        Switch(
-                                            inactiveThumbColor:
-                                                const Color.fromRGBO(
-                                                    134, 128, 128, 1),
-                                            value: isSwitchActive2,
-                                            onChanged: ((value) {
-                                              isSwitchActive2 = value;
-                                              setState(() {});
-                                            }))
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              );
-                            });
-                          },
-                        );
-                      },
-                      icon: const Icon(Icons.notification_add_sharp)),
+                      onPressed: () {},
+                      icon:  Icon(Icons.notification_add_sharp,size: 20.sp,)),
                   IconButton(
                       onPressed: () {},
-                      icon: const Icon(Icons.account_balance_wallet_sharp)),
+                      icon:  Icon(Icons.account_balance_wallet_sharp,size: 20.sp,)),
                 ],
                 backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
                 title: Text(
@@ -231,14 +125,18 @@ class _HomeScreenState extends State<HomeScreen> {
                            VerticalDivider(
                             width: 0.3.w,
                             color: Colors.grey,
-                          )
-                        ],
-                      );
+                            ),
+                          ],
+                        );
                       },
                     ),
                   ),
                 ),
               ],
-            )))));
+            )
+          ),
+        ),
+      ),
+    );
   }
 }
