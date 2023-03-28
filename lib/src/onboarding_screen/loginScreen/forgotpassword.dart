@@ -1,4 +1,5 @@
 import 'package:dream_11_app/src/onboarding_screen/loginScreen/changePasswordScreen.dart';
+import 'package:dream_11_app/src/onboarding_screen/loginScreen/changeoldpasswordscreen.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:dream_11_app/widget/buttonWidget.dart';
 import 'package:flutter/material.dart';
@@ -105,7 +106,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     Center(
                         child: GestureDetector(
                             onTap: () {
-                              Get.to(ChangePasswordScreen());
+                              Get.to(ChangeoldPasswordScreen());
                               //Navigator.push(context, MaterialPageRoute(builder: (context) {return const ChangePasswordScreen();}));
                             },
                             child: innerShadowButtonWidget("Send",context, radius: 0,width: 80.w))),

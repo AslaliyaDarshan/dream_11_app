@@ -1,3 +1,4 @@
+import 'package:dream_11_app/src/onboarding_screen/loginScreen/loginScreen.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:dream_11_app/widget/buttonWidget.dart';
 import 'package:flutter/material.dart';
@@ -76,10 +77,10 @@ class _ChangeoldPasswordScreenState extends State<ChangeoldPasswordScreen> {
                         style: TextStyle(fontSize: 14.5.sp),
                         textAlign: TextAlign.center),
                     SizedBox(
-                      height: 15.h,
+                      height: 10.h,
                     ),
                     Center(child: GestureDetector(onTap: (){
-                      Get.back();
+                      Get.to(LoginPage());
                     },child: innerShadowButtonWidget("Send",context, radius: 20.sp,width: 80.w))),
                   ],
                 ),
