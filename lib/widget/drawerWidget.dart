@@ -1,5 +1,5 @@
+import 'package:dream_11_app/controller/homePageController.dart';
 import 'package:dream_11_app/src/drawerPage/addCashScreen.dart';
-import 'package:dream_11_app/src/drawerPage/drawer_More.dart';
 import 'package:dream_11_app/src/drawerPage/myaccount_page.dart';
 import 'package:dream_11_app/src/drawerPage/offerScreen.dart';
 import 'package:dream_11_app/src/drawerPage/privacyScreen.dart';
@@ -15,8 +15,6 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
-
 
 class DrawerWidger extends StatefulWidget {
   const DrawerWidger({super.key});
@@ -36,6 +34,7 @@ class _DrawerWidgerState extends State<DrawerWidger> {
     DrawerModel(icon: AssetUtilities.drawer7, text: "Privacy Policy"),
     DrawerModel(icon: AssetUtilities.drawer8, text: "More"),
   ];
+  final HomePageController controller = Get.put(HomePageController());
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -191,7 +190,9 @@ class _DrawerWidgerState extends State<DrawerWidger> {
                     GestureDetector(
                       onTap: () {
                         if (index == 7) {
-                          Get.to(MoreScreen());
+                          controller.selectedIndex.value = 4;
+                          Get.back();
+                         // Get.to(MoreScreen());
                           //Navigator.push(context, MaterialPageRoute(builder: (context) {return const MoreScreen();}));
                         } else if (index == 0) {
                           Get.to(MyAccountScreen());

@@ -1,3 +1,4 @@
+import 'package:dream_11_app/src/onboarding_screen/Kycquick_screen.dart';
 import 'package:dream_11_app/src/onboarding_screen/loginScreen/forgotpassword.dart';
 import 'package:dream_11_app/src/onboarding_screen/loginScreen/otpField.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
@@ -59,7 +60,7 @@ class _ForGotPasswordScreenState extends State<ForGotPasswordScreen> {
                 ),
                 GestureDetector(
                     onTap: () {
-                      Get.to(ForgotPassword());
+                      Get.to(KycQuick_Screen());
                       //Navigator.push(context, MaterialPageRoute(builder: (context) {return const  ForgotPassword();}));
                     },
                     child: innerShadowButtonWidget("CONTINUE",context, radius: 10,height: 4.h ,width: 70.w)),

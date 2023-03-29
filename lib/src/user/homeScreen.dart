@@ -1,6 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'dart:ui';
+import 'package:dream_11_app/src/drawerPage/drawer_More.dart';
 import 'package:dream_11_app/src/user/homeScreen/contextPage.dart';
 import 'package:dream_11_app/src/user/homeScreen/homepage.dart';
 import 'package:dream_11_app/src/user/homeScreen/rewardScreen.dart';
@@ -76,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   const WinnerScreen(),
                 ],
                 if (controller.selectedIndex.value == 4) ...[
-                  const Spacer(),
+                  const MoreScreen(),
                 ],
                 SizedBox(
                   height: 7.h,

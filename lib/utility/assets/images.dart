@@ -272,6 +272,8 @@ class AssetUtilities {
 
   static const String youtube1 = '${_baseUrl}youtube1.png';
 
+  static const String verified = '${_baseUrl}Verified.png';
+
   static const String arrow = '${_baseUrl}arrow.png';
 
   static const String coin1 = '${_baseUrl}coin1.png';

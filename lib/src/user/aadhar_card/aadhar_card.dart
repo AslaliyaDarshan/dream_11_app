@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class AadharCard extends StatefulWidget {
-  const AadharCard({super.key});
+  const  AadharCard({super.key});
 
   @override
   State<AadharCard> createState() => _AadharCardState();

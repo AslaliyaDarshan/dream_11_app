@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.green,
           ),
           //home: LoginPage(),
-          home: const SplashScreen(),
+          home: const HomeScreen(),
           //SplashScreen(),
         );
       },

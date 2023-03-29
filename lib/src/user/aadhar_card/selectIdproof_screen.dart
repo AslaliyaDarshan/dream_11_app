@@ -32,7 +32,7 @@ class _SelectIdProofScreenState extends State<SelectIdProofScreen> {
               onPressed: () {
                 Get.to(MyAccountScreen());
               }, icon:  Icon(Icons.wallet_membership,size: 20.sp)),
-        ],
+         ],
       ),
       body: SafeArea(
         child: Padding(
@@ -240,7 +240,7 @@ class _SelectIdProofScreenState extends State<SelectIdProofScreen> {
                                             ? Colors.green
                                             : Colors.black,
                                       ),
-                                    )
+                                    ),
                                   ],
                                 ),
                               ),

@@ -2,6 +2,7 @@ import 'package:dream_11_app/src/onboarding_screen/loginScreen/forgotpassword.da
 import 'package:dream_11_app/src/onboarding_screen/loginScreen/singUpScreen.dart';
 import 'package:dream_11_app/src/onboarding_screen/loginScreen/term&conditionScreen.dart';
 import 'package:dream_11_app/src/user/aadhar_card/aadhar_card.dart';
+import 'package:dream_11_app/src/user/homeScreen.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:dream_11_app/utility/assets/srings.dart';
 import 'package:dream_11_app/widget/buttonWidget.dart';
@@ -186,7 +187,7 @@ class _LoginPageState extends State<LoginPage> {
                     Center(
                         child: InkWell(
                             onTap: () {
-                              Get.offAll(AadharCard());
+                              Get.offAll(HomeScreen());
                              // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) {return const AadharCard();}), (route) => false);
                             },
                             child: innerShadowButtonWidget("Login",context,height: 4.h,width: 60.w))),

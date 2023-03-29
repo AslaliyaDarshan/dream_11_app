@@ -1,6 +1,7 @@
 import 'package:dream_11_app/notification/notificationSetting.dart';
 import 'package:dream_11_app/src/drawerPage/myaccount_page.dart';
 import 'package:dream_11_app/src/user/aadhar_card/selectIdproof_screen.dart';
+import 'package:dream_11_app/src/user/homeScreen.dart';
 import 'package:dream_11_app/widget/buttonWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -66,16 +67,16 @@ class _AllowDennyScreenState extends State<AllowDennyScreen> {
                       ),
                       GestureDetector(
                           onTap: () {
-                            Get.to(SelectIdProofScreen());
+                            Get.to(HomeScreen());
                            //Navigator.push(context, MaterialPageRoute(builder: (context) {return SelectIdProofScreen();}));
                           },
                           child: innerShadowButtonWidget("Allow",context,width: 60.w)),
-                      const SizedBox(
-                        height: 20,
+                       SizedBox(
+                        height: 2.5.h,
                       ),
                       GestureDetector(
                           onTap: () {
-                            Get.to(SelectIdProofScreen());
+                            Get.to(HomeScreen());
                           }, child: innerShadowButtonWidget("Deny",context,width: 60.w)),
                     ],
                   ),
