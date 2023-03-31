@@ -1,7 +1,9 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'dart:ui';
+import 'package:dream_11_app/notification/notificationSetting.dart';
 import 'package:dream_11_app/src/drawerPage/drawer_More.dart';
+import 'package:dream_11_app/src/drawerPage/myaccount_page.dart';
 import 'package:dream_11_app/src/user/homeScreen/contextPage.dart';
 import 'package:dream_11_app/src/user/homeScreen/homepage.dart';
 import 'package:dream_11_app/src/user/homeScreen/rewardScreen.dart';
@@ -49,16 +51,20 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                 actions: [
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(NotificationSettingScreen());
+                      },
                       icon:  Icon(Icons.notification_add_sharp,size: 20.sp,)),
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(MyAccountScreen());
+                      },
                       icon:  Icon(Icons.account_balance_wallet_sharp,size: 20.sp,)),
                 ],
                 backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
                 title: Text(
-                  controller.selectedIndex.value == 2 ? 'Bonus Rewards ' : "Home",
-                  style:  TextStyle(fontSize: 16.sp),
+                  controller.selectedIndex.value == 2 ? 'Bonus Rewards':controller.selectedIndex.value==4 ?"More":controller.selectedIndex.value == 1?"My Contest":"Home",
+                  style: TextStyle(fontSize: 16.sp),
                 ),
               ),
         body: Obx((() => Column(

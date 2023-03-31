@@ -323,6 +323,9 @@ class MyMatches_view extends StatefulWidget {
 }
 
 class _MyMatches_viewState extends State<MyMatches_view> {
+  bool isSwitchActive1 = false;
+  bool isSwitchActive2 = false;
+  final HomePageController controller = Get.put(HomePageController());
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -353,7 +356,109 @@ class _MyMatches_viewState extends State<MyMatches_view> {
                 children: [
                   GestureDetector(
                     onTap: (){
-
+                      showModalBottomSheet(
+                        isDismissible: false,
+                        shape:  RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(15.0.sp),
+                          ),
+                        ),
+                        context: context,
+                        builder: (context){
+                          return StatefulBuilder(builder: (context, StateSetter setState) {
+                            return Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Container(
+                                  width: 100.w,
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey.shade400,
+                                    borderRadius:  BorderRadius.vertical(
+                                      top: Radius.circular(15.0.sp),
+                                    ),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          IconButton(
+                                              onPressed: () {
+                                                Get.back();
+                                                //Navigator.pop(context);
+                                              },
+                                              icon:  Icon(Icons.close,size: 20.sp,)),
+                                          Text(
+                                            'Set Reminders',
+                                            style: TextStyle(fontSize: 14.sp),
+                                          ),
+                                          SizedBox(width: 5.w,),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: 1.h,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 3.w, bottom: 1.h),
+                                        child: Text('Lineup Announcement (if available)',
+                                          style: TextStyle(
+                                              fontSize: 13.sp,
+                                              color: const Color.fromRGBO(04, 104, 104, 1)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding:  EdgeInsets.only(left: 4.w, top: 1.h, bottom: 0,right: 4.w),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        'Match - UAE-WU19 VS BA-WU19',
+                                        style: TextStyle(fontSize: 14.sp),
+                                      ),
+                                      const Spacer(),
+                                      Switch(inactiveThumbColor: const Color.fromRGBO(134, 128, 128, 1),
+                                        value: isSwitchActive1,
+                                        onChanged: ((value) {
+                                          isSwitchActive1 = value;
+                                          setState(() {});
+                                        }
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Divider(
+                                  color: Colors.grey,
+                                  thickness: 0.2.h,
+                                ),
+                                Padding(
+                                  padding:  EdgeInsets.only(left: 4.w, top: 0, bottom: 0,right: 4.w),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        'Tour - ICC Women’s U19 T20 World Cap',
+                                        style: TextStyle(fontSize: 14.sp),
+                                      ),
+                                      const Spacer(),
+                                      Switch(inactiveThumbColor: const Color.fromRGBO(
+                                          134, 128, 128, 1),
+                                          value: isSwitchActive2,
+                                          onChanged: ((value) {
+                                            isSwitchActive2 = value;
+                                            setState(() {});
+                                          })),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            );
+                          });
+                        },
+                      );
                     },
                     child: Image.asset(
                       AssetUtilities.noty,
@@ -514,6 +619,9 @@ class megacontest_view extends StatefulWidget {
 }
 
 class _megacontest_viewState extends State<megacontest_view> {
+  bool isSwitchActive1 = false;
+  bool isSwitchActive2 = false;
+  final HomePageController controller = Get.put(HomePageController());
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -544,7 +652,109 @@ class _megacontest_viewState extends State<megacontest_view> {
                 children: [
                   GestureDetector(
                     onTap: (){
-
+                      showModalBottomSheet(
+                        isDismissible: false,
+                        shape:  RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(15.0.sp),
+                          ),
+                        ),
+                        context: context,
+                        builder: (context){
+                          return StatefulBuilder(builder: (context, StateSetter setState) {
+                            return Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Container(
+                                  width: 100.w,
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey.shade400,
+                                    borderRadius:  BorderRadius.vertical(
+                                      top: Radius.circular(15.0.sp),
+                                    ),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          IconButton(
+                                              onPressed: () {
+                                                Get.back();
+                                                //Navigator.pop(context);
+                                              },
+                                              icon:  Icon(Icons.close,size: 20.sp,)),
+                                          Text(
+                                            'Set Reminders',
+                                            style: TextStyle(fontSize: 14.sp),
+                                          ),
+                                          SizedBox(width: 5.w,),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: 1.h,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 3.w, bottom: 1.h),
+                                        child: Text('Lineup Announcement (if available)',
+                                          style: TextStyle(
+                                              fontSize: 13.sp,
+                                              color: const Color.fromRGBO(04, 104, 104, 1)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding:  EdgeInsets.only(left: 4.w, top: 1.h, bottom: 0,right: 4.w),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        'Match - UAE-WU19 VS BA-WU19',
+                                        style: TextStyle(fontSize: 14.sp),
+                                      ),
+                                      const Spacer(),
+                                      Switch(inactiveThumbColor: const Color.fromRGBO(134, 128, 128, 1),
+                                        value: isSwitchActive1,
+                                        onChanged: ((value) {
+                                          isSwitchActive1 = value;
+                                          setState(() {});
+                                        }
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Divider(
+                                  color: Colors.grey,
+                                  thickness: 0.2.h,
+                                ),
+                                Padding(
+                                  padding:  EdgeInsets.only(left: 4.w, top: 0, bottom: 0,right: 4.w),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        'Tour - ICC Women’s U19 T20 World Cap',
+                                        style: TextStyle(fontSize: 14.sp),
+                                      ),
+                                      const Spacer(),
+                                      Switch(inactiveThumbColor: const Color.fromRGBO(
+                                          134, 128, 128, 1),
+                                          value: isSwitchActive2,
+                                          onChanged: ((value) {
+                                            isSwitchActive2 = value;
+                                            setState(() {});
+                                          })),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            );
+                          });
+                        },
+                      );
                     },
                     child: Image.asset(
                       AssetUtilities.noty,

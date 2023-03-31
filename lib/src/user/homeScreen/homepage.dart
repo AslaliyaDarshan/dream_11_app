@@ -100,20 +100,19 @@ class _HomePageState extends State<HomePage> {
                   Padding(padding: EdgeInsets.symmetric(horizontal: 3.w),child: megacontest_view(),),
                   SizedBox(height: 1.h,),
                   Padding(padding: EdgeInsets.symmetric(horizontal: 3.w),child: MatchView(
-                    isSelected: isSelected1,
-                  ),),
+                    isSelected: isSelected1,),),
                   SizedBox(height: 1.h,),
                   Padding(padding: EdgeInsets.symmetric(horizontal: 3.w),child: MatchView(
                     isSelected: isSelected1,
                   ),),
                   SizedBox(height: 1.h,),
                   Padding(padding: EdgeInsets.symmetric(horizontal: 3.w),child: MatchView(
-                    isSelected: isSelected1,
-                  ),),
+                    isSelected: isSelected1,),),
                   SizedBox(height: 1.h,),
                   Padding(padding: EdgeInsets.symmetric(horizontal: 3.w),child: MatchView(
                     isSelected: isSelected1,
                   ),),
+                  SizedBox(height: 1.h,),
                 ],
             ),
           ],

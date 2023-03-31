@@ -146,6 +146,8 @@ class AssetUtilities {
 
   static const String bottom2 = '${_baseUrl}bottom2.png';
 
+  static const String torpy = '${_baseUrl}tropy1.png';
+
   static const String bottom3 = '${_baseUrl}bottom3.png';
 
   static const String bottom4 = '${_baseUrl}bottom4.png';

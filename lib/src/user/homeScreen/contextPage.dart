@@ -76,9 +76,7 @@ class _ContextScreenState extends State<ContextScreen> {
                         child: Text(
                           'Completade',
                           style: TextStyle(
-                              color: widget.controller.selectedMatchStateIndex
-                                          .value ==
-                                      2
+                              color: widget.controller.selectedMatchStateIndex.value == 2
                                   ? const Color.fromRGBO(0, 100, 0, 1)
                                   : Colors.black,
                               fontSize: 10,
