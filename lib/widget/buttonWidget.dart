@@ -1,18 +1,15 @@
 import 'package:dream_11_app/src/onboarding_screen/loginScreen/loginScreen.dart';
-import 'package:dream_11_app/utility/assets/srings.dart';
+import 'package:dream_11_app/utility/assets/string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-
-
 Widget buttonWidget(Function() onTap, BuildContext context) {
-
   return Stack(
     children: [
       Positioned(
-          bottom:9.h,
+          bottom: 9.h,
           left: 4.w,
           child: GestureDetector(
             onTap: onTap,
@@ -26,62 +23,74 @@ Widget buttonWidget(Function() onTap, BuildContext context) {
                     color: Colors.grey.shade500,
                     blurRadius: 15.0, // soften the shadow
                     spreadRadius: 5.0, //extend the shadow
-                    offset: const Offset(10, 5.0
-                    ),
+                    offset: const Offset(10, 5.0),
                   ),
                 ],
               ),
-              child:  Center(child: Text(Strings.next,style: TextStyle(fontFamily:"Imprima",fontSize: 15.sp)),),
+              child: Center(
+                child: Text(Strings.next,
+                    style: TextStyle(fontFamily: "Imprima", fontSize: 15.sp)),
+              ),
             ),
           )),
       Positioned(
-          bottom: 4.h,
-          left: 4.w,
-          child: GestureDetector(
-            onTap: () {
-              Get.offAll(LoginPage());
-              //Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) {return LoginPage();}), (route) => false);
-            },
-            child: Container(
-              height: 3.h,
-              width: 20.w,
-              decoration: BoxDecoration(
-                color: const Color.fromRGBO(217, 217, 217, 1),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.shade500,
-                    blurRadius: 15.0, // soften the shadow
-                    spreadRadius: 5.0, //extend the shadow
-                    offset: const Offset(10,5.0, // Move to bottom 5 Vertically
-                    ),
+        bottom: 4.h,
+        left: 4.w,
+        child: GestureDetector(
+          onTap: () {
+            Get.offAll(LoginPage());
+            //Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) {return LoginPage();}), (route) => false);
+          },
+          child: Container(
+            height: 3.h,
+            width: 20.w,
+            decoration: BoxDecoration(
+              color: const Color.fromRGBO(217, 217, 217, 1),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.shade500,
+                  blurRadius: 15.0, // soften the shadow
+                  spreadRadius: 5.0, //extend the shadow
+                  offset: const Offset(
+                    10, 5.0, // Move to bottom 5 Vertically
                   ),
-                ],
-              ),
-              child:  Center(child: Text(Strings.skip,style: TextStyle(fontSize: 15.sp,fontFamily:"Imprima"),)),
+                ),
+              ],
             ),
-          ),),
+            child: Center(
+                child: Text(
+              Strings.skip,
+              style: TextStyle(fontSize: 15.sp, fontFamily: "Imprima"),
+            )),
+          ),
+        ),
+      ),
     ],
   );
 }
 
-Widget innerShadowButtonWidget(String text, BuildContext context,{ double ?height,double ?width,double radius = 0, TextStyle? textStyle ,Color? color}) {
-
+Widget innerShadowButtonWidget(String text, BuildContext context,
+    {double? height,
+    double? width,
+    double radius = 0,
+    TextStyle? textStyle,
+    Color? color}) {
   return Container(
     height: height,
     width: width,
     padding: const EdgeInsets.only(right: 4, left: 4, top: 6, bottom: 6),
-    decoration:  BoxDecoration(
+    decoration: BoxDecoration(
         color: Color.fromRGBO(54, 130, 54, 1),
         borderRadius: BorderRadius.all(Radius.circular(20.sp)),
         boxShadow: [
-          BoxShadow(
-              color: Color.fromRGBO(54, 130, 54, 1),
-              spreadRadius: 5),
+          BoxShadow(color: Color.fromRGBO(54, 130, 54, 1), spreadRadius: 5),
         ]),
     child: Center(
       child: Text(
         text,
-        style: textStyle ?? TextStyle(color: Colors.white, fontFamily: "Imprima",fontSize: 16.sp),
+        style: textStyle ??
+            TextStyle(
+                color: Colors.white, fontFamily: "Imprima", fontSize: 16.sp),
       ),
     ),
   );
@@ -105,25 +114,23 @@ Widget innerShadowButtonWidget(String text, BuildContext context,{ double ?heigh
 //       ));
 // }
 
-Widget customButton(String text, BuildContext context,{double?height,double?width,double radius = 0}) {
-
+Widget customButton(String text, BuildContext context,
+    {double? height, double? width, double radius = 0}) {
   return Container(
-       height: height,
-       width: width,
+    height: height,
+    width: width,
     padding: const EdgeInsets.only(right: 4, left: 4, top: 6, bottom: 6),
     decoration: const BoxDecoration(
         color: Color.fromRGBO(54, 130, 54, 1),
         borderRadius: BorderRadius.all(Radius.circular(20)),
         boxShadow: [
-          BoxShadow(
-              color: Color.fromRGBO(54, 130, 54, 1),
-              spreadRadius: 5)
+          BoxShadow(color: Color.fromRGBO(54, 130, 54, 1), spreadRadius: 5)
         ]),
     // width: double.infinity,
     child: Center(
       child: Text(
         text,
-        style: const TextStyle(color: Colors.white,fontFamily: "Imprima"),
+        style: const TextStyle(color: Colors.white, fontFamily: "Imprima"),
       ),
     ),
   );
@@ -157,13 +164,12 @@ Widget loginSignUpButton(
             children: [
               Image.asset(
                 image,
-                height:3.5.h ,
+                height: 3.5.h,
                 width: 3.5.h,
               ),
-
               Text(
                 text,
-                style:  TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
+                style: TextStyle(fontSize: 16.sp, fontFamily: "Imprima"),
               ),
             ],
           ),
@@ -171,8 +177,8 @@ Widget loginSignUpButton(
   );
 }
 
-Widget customTextFormField(TextEditingController controller,BuildContext context, String hintText) {
-
+Widget customTextFormField(
+    TextEditingController controller, BuildContext context, String hintText) {
   return Container(
     height: 5.5.h,
     decoration: BoxDecoration(
@@ -185,7 +191,7 @@ Widget customTextFormField(TextEditingController controller,BuildContext context
               spreadRadius: 7)
         ]),
     child: Padding(
-      padding:  EdgeInsets.only(top: 2.h),
+      padding: EdgeInsets.only(top: 2.h),
       child: TextFormField(
         controller: controller,
         inputFormatters: [
@@ -194,7 +200,10 @@ Widget customTextFormField(TextEditingController controller,BuildContext context
         decoration: InputDecoration(
           filled: true,
           hintText: hintText,
-          hintStyle:  TextStyle(color: Color.fromRGBO(0, 0, 0, 0.6),fontSize: 17.sp,fontFamily: "Imprima"),
+          hintStyle: TextStyle(
+              color: Color.fromRGBO(0, 0, 0, 0.6),
+              fontSize: 17.sp,
+              fontFamily: "Imprima"),
           fillColor: const Color.fromRGBO(217, 217, 217, 1),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(23.sp),

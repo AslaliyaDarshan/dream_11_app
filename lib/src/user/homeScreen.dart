@@ -1,9 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'dart:ui';
-import 'package:dream_11_app/notification/notificationSetting.dart';
 import 'package:dream_11_app/src/drawerPage/drawer_More.dart';
-import 'package:dream_11_app/src/drawerPage/myaccount_page.dart';
 import 'package:dream_11_app/src/user/homeScreen/contextPage.dart';
 import 'package:dream_11_app/src/user/homeScreen/homepage.dart';
 import 'package:dream_11_app/src/user/homeScreen/rewardScreen.dart';
@@ -37,111 +35,127 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() => Scaffold(
-      key: _scaffoldKey,
-      drawer: const DrawerWidger(),
-      appBar: controller.selectedIndex.value == 3 ? null : AppBar(
+    return Obx(
+      () => Scaffold(
+        key: _scaffoldKey,
+        drawer: const DrawerWidger(),
+        appBar: controller.selectedIndex.value == 3
+            ? null
+            : AppBar(
                 leading: controller.selectedIndex.value == 2
                     ? null
                     : IconButton(
-                        icon: Icon(Icons.menu_sharp,size: 20.sp,),
+                        icon: Icon(
+                          Icons.menu_sharp,
+                          size: 20.sp,
+                        ),
                         onPressed: () {
                           _scaffoldKey.currentState!.openDrawer();
                         },
                       ),
                 actions: [
                   IconButton(
-                      onPressed: () {
-                        Get.to(NotificationSettingScreen());
-                      },
-                      icon:  Icon(Icons.notification_add_sharp,size: 20.sp,)),
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.notification_add_sharp,
+                        size: 20.sp,
+                      )),
                   IconButton(
-                      onPressed: () {
-                        Get.to(MyAccountScreen());
-                      },
-                      icon:  Icon(Icons.account_balance_wallet_sharp,size: 20.sp,)),
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.account_balance_wallet_sharp,
+                        size: 20.sp,
+                      )),
                 ],
                 backgroundColor: const Color.fromRGBO(54, 130, 54, 1),
                 title: Text(
-                  controller.selectedIndex.value == 2 ? 'Bonus Rewards':controller.selectedIndex.value==4 ?"More":controller.selectedIndex.value == 1?"My Contest":"Home",
+                  controller.selectedIndex.value == 2
+                      ? 'Bonus Rewards '
+                      : "Home",
                   style: TextStyle(fontSize: 16.sp),
                 ),
               ),
-        body: Obx((() => Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                if (controller.selectedIndex.value == 0)
-                  HomePage(controller: controller),
-                if (controller.selectedIndex.value == 1) ...[
-                  ContextScreen(controller: controller),
-                  const Spacer(),
-                ],
-                if (controller.selectedIndex.value == 2) ...[
-                  const RewardScreen(),
-                ],
-                if (controller.selectedIndex.value == 3) ...[
-                  const WinnerScreen(),
-                ],
-                if (controller.selectedIndex.value == 4) ...[
-                  const MoreScreen(),
-                ],
-                SizedBox(
-                  height: 7.h,
-                  width: 100.w,
-                  child: Row(
-                    children: List.generate(iconList.length, (index) {
-                      return Row(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              controller.selectBottomBar(index);
-                            },
-                            child: Container(
-                              height: 7.h,
-                              width: 19.6.w,
-                              color: controller.selectedIndex.value == index
-                                  ? const Color.fromRGBO(54, 130, 54, 1)
-                                  : const Color.fromRGBO(255, 255, 255, 1),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    iconList[index],
-                                    height: 2.5.h,
-                                    width: 2.5.h,
-                                    color: controller.selectedIndex.value == index
+        body: Obx(
+          (() => Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  if (controller.selectedIndex.value == 0)
+                    HomePage(controller: controller),
+                  if (controller.selectedIndex.value == 1) ...[
+                    ContextScreen(controller: controller),
+                    const Spacer(),
+                  ],
+                  if (controller.selectedIndex.value == 2) ...[
+                    const RewardScreen(),
+                  ],
+                  if (controller.selectedIndex.value == 3) ...[
+                    const WinnerScreen(),
+                  ],
+                  if (controller.selectedIndex.value == 4) ...[
+                    const MoreScreen(),
+                  ],
+                  SizedBox(
+                    height: 7.h,
+                    width: 100.w,
+                    child: Row(
+                      children: List.generate(
+                        iconList.length,
+                        (index) {
+                          return Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  controller.selectBottomBar(index);
+                                },
+                                child: Container(
+                                  height: 7.h,
+                                  width: 19.6.w,
+                                  color: controller.selectedIndex.value == index
+                                      ? const Color.fromRGBO(54, 130, 54, 1)
+                                      : const Color.fromRGBO(255, 255, 255, 1),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Image.asset(
+                                        iconList[index],
+                                        height: 2.5.h,
+                                        width: 2.5.h,
+                                        color: controller.selectedIndex.value ==
+                                                index
                                             ? Colors.white
                                             : Colors.black,
+                                      ),
+                                      SizedBox(
+                                        height: 0.5.h,
+                                      ),
+                                      Text(
+                                        textList[index],
+                                        style: TextStyle(
+                                            color: controller
+                                                        .selectedIndex.value ==
+                                                    index
+                                                ? Colors.white
+                                                : Colors.black,
+                                            fontSize: 13.sp),
+                                      ),
+                                    ],
                                   ),
-                                   SizedBox(
-                                    height: 0.5.h,
-                                  ),
-                                  Text(
-                                    textList[index],
-                                    style: TextStyle(
-                                        color: controller.selectedIndex.value == index
-                                            ? Colors.white
-                                            : Colors.black,
-                                        fontSize: 13.sp),
-                                  ),
-                                ],
+                                ),
                               ),
-                            ),
-                          ),
-                           VerticalDivider(
-                            width: 0.3.w,
-                            color: Colors.grey,
-                            ),
-                          ],
-                        );
-                      },
+                              VerticalDivider(
+                                width: 0.3.w,
+                                color: Colors.grey,
+                              ),
+                            ],
+                          );
+                        },
+                      ),
                     ),
                   ),
-                ),
-              ],
-            )
-          ),
+                ],
+              )),
         ),
       ),
     );

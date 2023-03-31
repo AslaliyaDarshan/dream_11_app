@@ -279,4 +279,5 @@ class AssetUtilities {
   static const String arrow = '${_baseUrl}arrow.png';
 
   static const String coin1 = '${_baseUrl}coin1.png';
+  static String contestCompleted = "${_baseUrl}contestCompleted.png";
 }

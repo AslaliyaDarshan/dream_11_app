@@ -3,7 +3,7 @@
 import 'package:dream_11_app/controller/onBoardingController.dart';
 import 'package:dream_11_app/src/onboarding_screen/loginScreen/loginScreen.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
-import 'package:dream_11_app/utility/assets/srings.dart';
+import 'package:dream_11_app/utility/assets/string.dart';
 import 'package:dream_11_app/widget/buttonWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

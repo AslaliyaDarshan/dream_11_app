@@ -1,19 +1,17 @@
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
-
-import '../../../widget/buttonWidget.dart';
 import 'winningBreakPointScreen.dart';
 
-class CreateContextScreen extends StatefulWidget {
-  CreateContextScreen({Key? key}) : super(key: key);
+class CreateContestScreen extends StatefulWidget {
+  const CreateContestScreen({Key? key}) : super(key: key);
 
   @override
-  State<CreateContextScreen> createState() => _CreateContextScreenState();
+  State<CreateContestScreen> createState() => _CreateContestScreenState();
 }
 
 enum SingingCharacter { lafayette, jefferson }
 
-class _CreateContextScreenState extends State<CreateContextScreen> {
+class _CreateContestScreenState extends State<CreateContestScreen> {
   TextEditingController contextNameController = TextEditingController();
   TextEditingController totalAmountController = TextEditingController();
   TextEditingController contextSizeController = TextEditingController();

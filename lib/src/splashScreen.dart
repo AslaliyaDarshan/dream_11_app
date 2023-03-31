@@ -1,10 +1,10 @@
+// ignore_for_file: file_names
+
 import 'package:dream_11_app/src/onboarding_screen/onboarding_screen.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
-
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   gotoOnBoardingScreen() {
     Future.delayed(const Duration(seconds: 3), () {
-      Get.to(OnBoardingScreen());
+      Get.to(const OnBoardingScreen());
     });
   }
 
@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Stack(
         children: [
           SizedBox(
-            height:100.h,
+            height: 100.h,
             width: 100.w,
             child: Image.asset(
               AssetUtilities.onBoardingBackGroundImage,
@@ -42,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Center(
             child: Image.asset(
               AssetUtilities.cricketSwitchLogo,
-              height:50.h,
+              height: 50.h,
               width: 90.w,
             ),
           ),

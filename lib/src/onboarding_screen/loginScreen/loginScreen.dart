@@ -4,7 +4,7 @@ import 'package:dream_11_app/src/onboarding_screen/loginScreen/term&conditionScr
 import 'package:dream_11_app/src/user/aadhar_card/aadhar_card.dart';
 import 'package:dream_11_app/src/user/homeScreen.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
-import 'package:dream_11_app/utility/assets/srings.dart';
+import 'package:dream_11_app/utility/assets/string.dart';
 import 'package:dream_11_app/widget/buttonWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

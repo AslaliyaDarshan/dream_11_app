@@ -48,7 +48,9 @@ class _ContextScreenState extends State<ContextScreen> {
                         child: Text(
                           'Upcoming',
                           style: TextStyle(
-                              color: widget.controller.selectedMatchStateIndex.value == 0
+                              color: widget.controller.selectedMatchStateIndex
+                                          .value ==
+                                      0
                                   ? const Color.fromRGBO(0, 100, 0, 1)
                                   : Colors.black,
                               fontSize: 10,
@@ -62,7 +64,9 @@ class _ContextScreenState extends State<ContextScreen> {
                         child: Text(
                           'Live',
                           style: TextStyle(
-                              color: widget.controller.selectedMatchStateIndex.value == 1
+                              color: widget.controller.selectedMatchStateIndex
+                                          .value ==
+                                      1
                                   ? const Color.fromRGBO(0, 100, 0, 1)
                                   : Colors.black,
                               fontSize: 10,
@@ -76,7 +80,9 @@ class _ContextScreenState extends State<ContextScreen> {
                         child: Text(
                           'Completade',
                           style: TextStyle(
-                              color: widget.controller.selectedMatchStateIndex.value == 2
+                              color: widget.controller.selectedMatchStateIndex
+                                          .value ==
+                                      2
                                   ? const Color.fromRGBO(0, 100, 0, 1)
                                   : Colors.black,
                               fontSize: 10,
@@ -92,7 +98,7 @@ class _ContextScreenState extends State<ContextScreen> {
             padding: const EdgeInsets.only(left: 12.0, right: 12, top: 15),
             child:
                 Obx((() => widget.controller.selectedMatchStateIndex.value == 0
-                    ?  MatchView()
+                    ? MatchView()
                     : widget.controller.selectedMatchStateIndex.value == 1
                         ? Center(
                             child: Column(
@@ -127,8 +133,7 @@ class _ContextScreenState extends State<ContextScreen> {
                                 GestureDetector(
                                   onTap: (() {}),
                                   child: innerShadowButtonWidget(
-                                      'VIEW UPCOMING MATCHES',
-                                      context,
+                                      'VIEW UPCOMING MATCHES', context,
                                       textStyle: const TextStyle(
                                           fontSize: 12, color: Colors.white),
                                       radius: 10,
@@ -137,7 +142,7 @@ class _ContextScreenState extends State<ContextScreen> {
                               ],
                             ),
                           )
-                        :  MatchView()))),
+                        : MatchView()))),
       ],
     );
   }
