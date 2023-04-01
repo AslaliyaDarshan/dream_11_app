@@ -1,8 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages
-
 import 'dart:ui';
 import 'package:dream_11_app/src/drawerPage/drawer_More.dart';
-import 'package:dream_11_app/src/user/homeScreen/contextPage.dart';
+import 'package:dream_11_app/src/user/homeScreen/contestPage.dart';
 import 'package:dream_11_app/src/user/homeScreen/homepage.dart';
 import 'package:dream_11_app/src/user/homeScreen/rewardScreen.dart';
 import 'package:dream_11_app/src/user/homeScreen/winnerScreen.dart';
@@ -82,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   if (controller.selectedIndex.value == 0)
                     HomePage(controller: controller),
                   if (controller.selectedIndex.value == 1) ...[
-                    ContextScreen(controller: controller),
+                    ContestScreen(controller: controller),
                     const Spacer(),
                   ],
                   if (controller.selectedIndex.value == 2) ...[
@@ -138,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     index
                                                 ? Colors.white
                                                 : Colors.black,
-                                            fontSize: 13.sp),
+                                            fontSize: 13.sp,),
                                       ),
                                     ],
                                   ),

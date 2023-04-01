@@ -123,8 +123,7 @@ class _ContestCompletedScreenState extends State<ContestCompletedScreen> {
                           cnt.index.value == 1
                               ? Column(
                                   children: [
-                                    text(
-                                        "You Haven’t joined any challenge for this match.",
+                                    text("You Haven’t joined any challenge for this match.",
                                         16.sp,
                                         Colors.black),
                                   ],

@@ -5,7 +5,6 @@ import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:dream_11_app/widget/matchView.dart';
 import 'package:dream_11_app/widget/topwidget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -46,7 +45,7 @@ class _HomePageState extends State<HomePage> {
                       height: 5,
                     ),
                     Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 3.w),
+                      padding: EdgeInsets.symmetric(horizontal: 3.w),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children:  [
@@ -63,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                             Icons.arrow_forward_ios,
                             color: Colors.white,
                             size: 16.sp,
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -91,7 +90,7 @@ class _HomePageState extends State<HomePage> {
             ),
              Padding(
               padding: EdgeInsets.only(left: 3.w,bottom: 0.5.h,top: 0.5.h),
-              child: Text('Upcoming Matches',style: TextStyle(fontSize: 15.sp),),
+              child: Text('Upcoming Matches',style: TextStyle(fontSize: 15.sp,fontFamily: "Imprima"),),
             ),
             ListView(
                 shrinkWrap: true,

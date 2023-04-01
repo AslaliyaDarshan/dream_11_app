@@ -1,6 +1,6 @@
 import 'package:dream_11_app/utility/assets/images.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 
 class JoinContextWidget extends StatefulWidget {
@@ -16,78 +16,73 @@ class _JoinContextWidgetState extends State<JoinContextWidget> {
     return Column(
       children: [
         Padding(
-          padding:
-              const EdgeInsets.only(left: 13, right: 13, top: 10, bottom: 10),
+          padding:  EdgeInsets.only(left: 3.w, right: 3.w, top: 1.h, bottom: 1.h),
           child: Container(
-            height: 105,
+            height: 14.h,
+            width: 100.w,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5), color: Colors.white),
+              boxShadow: [
+                BoxShadow(color: Color(0xFF272C56).withOpacity(0.2),spreadRadius: 2,blurRadius: 3),
+              ],
+                borderRadius: BorderRadius.circular(10.sp),color: Colors.white),
             child: Padding(
-              padding: const EdgeInsets.only(left: 0.0, top: 6, right: 0),
+              padding:  EdgeInsets.only(top: 0.5.h),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 10.0, right: 15),
+                    padding:  EdgeInsets.symmetric(horizontal: 3.w),
                     child: Row(
-                      children: const [
-                        Text(
-                          'Pool prize',
+                      children: [
+                        Text('Pool prize',
                           style: TextStyle(
                               color: Color.fromRGBO(128, 128, 128, 1),
-                              fontSize: 12),
+                              fontSize: 15.sp,fontFamily: "Imprima"),
                         ),
                         Spacer(),
                         Text(
                           'Entry',
                           style: TextStyle(
                               color: Color.fromRGBO(128, 128, 128, 1),
-                              fontSize: 12),
+                              fontSize: 15.sp,fontFamily: "Imprima"),
                         ),
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 4.45,
-                  ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 10.0, right: 15),
+                    padding:  EdgeInsets.symmetric(horizontal: 3.w),
                     child: Row(
                       children: [
-                        const Text(
+                         Text(
                           '₹15 Crores',
-                          style: TextStyle(fontSize: 20),
+                          style: TextStyle(fontSize: 18.sp,fontFamily: "Imprima"),
                         ),
                         const Spacer(),
                         Container(
-                          padding: const EdgeInsets.only(
-                              left: 12, right: 12, top: 2, bottom: 2),
+                          padding:  EdgeInsets.only(left: 3.w, right: 3.w, top: 0.5.h, bottom: 0.5.h),
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
+                              borderRadius: BorderRadius.circular(8.sp),
                               color: const Color.fromRGBO(54, 130, 54, 1)),
-                          child: const Text(
+                          child:  Text(
                             '₹599',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.white,fontSize: 15.sp,fontFamily: "Imprima"),
                           ),
                         ),
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 5,
-                  ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 10.0, right: 15),
+                    padding:  EdgeInsets.symmetric(horizontal: 3.w),
                     child: Container(
-                      height: 3,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: const BoxDecoration(
-                          color: Color.fromRGBO(156, 215, 93, 1)),
+                      height: 0.4.h,
+                      width: 100.w,
+                      decoration: const BoxDecoration(color: Color.fromRGBO(156, 215, 93, 1)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            height: 3,
-                            width: 51,
+                            height: 0.4.h,
+                            width: 20.w,
                             decoration: const BoxDecoration(
                                 color: Color.fromRGBO(27, 104, 0, 1)),
                           ),
@@ -95,89 +90,84 @@ class _JoinContextWidgetState extends State<JoinContextWidget> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 6,
-                  ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 10.0, right: 15),
+                    padding:  EdgeInsets.symmetric(horizontal: 3.w),
                     child: Row(
-                      children: const [
+                      children:  [
                         Text(
                           '3 spots left',
                           style: TextStyle(
-                              fontSize: 9,
-                              color: Color.fromRGBO(54, 130, 54, 1)),
+                              fontSize: 12.sp,
+                              color: Color.fromRGBO(54, 130, 54, 1),fontFamily: "Imprima"),
                         ),
                         Spacer(),
                         Text(
                           '7 spots',
                           style: TextStyle(
-                              fontSize: 9,
-                              color: Color.fromRGBO(128, 128, 128, 1)),
-                        )
+                              fontSize: 12.sp,
+                              color: Color.fromRGBO(128, 128, 128, 1),fontFamily: "Imprima"),
+                        ),
                       ],
                     ),
                   ),
-                  const Spacer(),
                   Container(
-                    height: 23,
-                    width: double.infinity,
+                    height: 3.h,
+                    width: 100.w,
                     decoration: const BoxDecoration(
-                      borderRadius:
-                          BorderRadius.vertical(bottom: Radius.circular(5)),
+                      borderRadius: BorderRadius.vertical(bottom: Radius.circular(5)),
                       color: Color.fromRGBO(182, 182, 182, 1),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 12.0, right: 15),
+                      padding:  EdgeInsets.symmetric(horizontal: 3.w),
                       child: Row(
                         children: [
                           Image.asset(
                             AssetUtilities.award,
-                            height: 13,
-                            width: 10,
+                            height: 2.h,
+                            width:  2.h,
                           ),
-                          const SizedBox(
-                            width: 5,
+                           SizedBox(
+                            width: 1.5.w,
                           ),
-                          const Text(
+                           Text(
                             '₹1crore',
-                            style: TextStyle(fontSize: 12),
+                            style: TextStyle(fontSize: 15.sp,fontFamily: "Imprima"),
                           ),
-                          const SizedBox(
-                            width: 6,
+                           SizedBox(
+                            width: 2.w,
                           ),
                           Image.asset(
                             AssetUtilities.trophy,
-                            height: 15,
-                            width: 15,
+                            height: 2.h,
+                            width: 2.h,
                           ),
-                          const SizedBox(
-                            width: 5,
+                           SizedBox(
+                            width: 1.5.w,
                           ),
-                          const Text(
-                            '71%  ',
-                            style: TextStyle(fontSize: 12),
+                           Text(
+                            '71%',
+                            style: TextStyle(fontSize: 15.sp,fontFamily: "Imprima"),
                           ),
-                          const SizedBox(
-                            width: 5,
+                           SizedBox(
+                            width: 2.w,
                           ),
-                          const Text(
+                           Text(
                             'Upto 6',
-                            style: TextStyle(fontSize: 12),
+                            style: TextStyle(fontSize: 15.sp,fontFamily: "Imprima"),
                           ),
                           const Spacer(),
                           Image.asset(
                             AssetUtilities.yes,
-                            height: 14,
-                            width: 14,
+                            height: 2.h,
+                            width: 2.h,
                           ),
-                          const SizedBox(
-                            width: 8,
+                           SizedBox(
+                            width: 2.w,
                           ),
-                          const Text(
+                           Text(
                             'Guranteed',
-                            style: TextStyle(fontSize: 12),
-                          )
+                            style: TextStyle(fontSize: 15.sp,fontFamily: "Imprima"),
+                          ),
                         ],
                       ),
                     ),

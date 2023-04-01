@@ -51,9 +51,7 @@ class _ContestScreenState extends State<ContestScreen> {
                           child: Text(
                             'Upcoming',
                             style: TextStyle(
-                                color: widget.controller.selectedMatchStateIndex
-                                            .value ==
-                                        0
+                                color: widget.controller.selectedMatchStateIndex.value == 0
                                     ? const Color.fromRGBO(0, 100, 0, 1)
                                     : Colors.black,
                                 fontSize: 10,
@@ -67,9 +65,7 @@ class _ContestScreenState extends State<ContestScreen> {
                           child: Text(
                             'Live',
                             style: TextStyle(
-                                color: widget.controller.selectedMatchStateIndex
-                                            .value ==
-                                        1
+                                color: widget.controller.selectedMatchStateIndex.value == 1
                                     ? const Color.fromRGBO(0, 100, 0, 1)
                                     : Colors.black,
                                 fontSize: 10,
@@ -83,9 +79,7 @@ class _ContestScreenState extends State<ContestScreen> {
                           child: Text(
                             'Completed',
                             style: TextStyle(
-                                color: widget.controller.selectedMatchStateIndex
-                                            .value ==
-                                        2
+                                color: widget.controller.selectedMatchStateIndex.value == 2
                                     ? const Color.fromRGBO(0, 100, 0, 1)
                                     : Colors.black,
                                 fontSize: 10,

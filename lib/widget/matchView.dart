@@ -1,5 +1,6 @@
 import 'package:dream_11_app/controller/homePageController.dart';
-import 'package:dream_11_app/src/user/homeScreen/joinContextScreen.dart';
+import 'package:dream_11_app/src/user/homeScreen/contestCompletedScreen.dart';
+import 'package:dream_11_app/src/user/homeScreen/joinContestScreen.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -24,7 +25,7 @@ class _MatchViewState extends State<MatchView> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(const JoinContextScreen());
+        Get.to(const ContestCompletedScreen());
         //Navigator.push(context, MaterialPageRoute(builder: (context) {return const JoinContextScreen();}));
       },
       child: Container(
@@ -183,7 +184,7 @@ class _MatchViewState extends State<MatchView> {
                   ),
                   Text(
                     'SA T20 League 2023',
-                    style: TextStyle(fontSize: 14.sp),
+                    style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                   ),
                   GestureDetector(
                     onTap: () {
@@ -228,7 +229,7 @@ class _MatchViewState extends State<MatchView> {
                           ),
                           Text(
                             'India',
-                            style: TextStyle(fontSize: 14.sp),
+                            style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                           ),
                         ],
                       ),
@@ -247,7 +248,7 @@ class _MatchViewState extends State<MatchView> {
                     style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w400,
-                        color: Colors.red),
+                        color: Colors.red,fontFamily: "Imprima"),
                   ),
                   Row(
                     children: [
@@ -271,7 +272,7 @@ class _MatchViewState extends State<MatchView> {
                           ),
                           Text(
                             'England',
-                            style: TextStyle(fontSize: 14.sp),
+                            style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                           ),
                         ],
                       ),
@@ -296,7 +297,7 @@ class _MatchViewState extends State<MatchView> {
                       style: TextStyle(
                           color: const Color.fromRGBO(44, 255, 90, 1),
                           fontWeight: FontWeight.w700,
-                          fontSize: 13.sp),
+                          fontSize: 13.sp,fontFamily: "Imprima"),
                     ),
                     SizedBox(
                       width: 2.w,
@@ -306,7 +307,7 @@ class _MatchViewState extends State<MatchView> {
                       style: TextStyle(
                           color: const Color.fromRGBO(255, 0, 0, 1),
                           fontWeight: FontWeight.w400,
-                          fontSize: 13.sp),
+                          fontSize: 13.sp,fontFamily: "Imprima"),
                     ),
                     const Spacer(),
                     Image.asset(
@@ -322,7 +323,7 @@ class _MatchViewState extends State<MatchView> {
                       style: TextStyle(
                           color: const Color(0xFFD3D3D3),
                           fontWeight: FontWeight.w400,
-                          fontSize: 13.sp),
+                          fontSize: 13.sp,fontFamily: "Imprima"),
                     ),
                   ],
                 ),
@@ -384,7 +385,7 @@ class _MyMatches_viewState extends State<MyMatches_view> {
                   ),
                   Text(
                     'SA T20 League 2023',
-                    style: TextStyle(fontSize: 14.sp),
+                    style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                   ),
                   GestureDetector(
                     onTap: () {
@@ -429,7 +430,7 @@ class _MyMatches_viewState extends State<MyMatches_view> {
                           ),
                           Text(
                             'India',
-                            style: TextStyle(fontSize: 14.sp),
+                            style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                           ),
                         ],
                       ),
@@ -448,7 +449,7 @@ class _MyMatches_viewState extends State<MyMatches_view> {
                     style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w400,
-                        color: Colors.red),
+                        color: Colors.red,fontFamily: "Imprima"),
                   ),
                   Row(
                     children: [
@@ -472,7 +473,7 @@ class _MyMatches_viewState extends State<MyMatches_view> {
                           ),
                           Text(
                             'England',
-                            style: TextStyle(fontSize: 14.sp),
+                            style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                           ),
                         ],
                       ),
@@ -486,8 +487,7 @@ class _MyMatches_viewState extends State<MyMatches_view> {
               height: 3.h,
               decoration: BoxDecoration(
                   color: const Color.fromRGBO(54, 130, 54, 1),
-                  borderRadius:
-                      BorderRadius.vertical(bottom: Radius.circular(15.sp))),
+                  borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.sp))),
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 3.w),
                 child: Row(
@@ -497,7 +497,7 @@ class _MyMatches_viewState extends State<MyMatches_view> {
                       style: TextStyle(
                           color: const Color.fromRGBO(44, 255, 90, 1),
                           fontWeight: FontWeight.w700,
-                          fontSize: 13.sp),
+                          fontSize: 13.sp,fontFamily: "Imprima"),
                     ),
                     SizedBox(
                       width: 2.w,
@@ -507,7 +507,7 @@ class _MyMatches_viewState extends State<MyMatches_view> {
                       style: TextStyle(
                           color: const Color.fromRGBO(255, 0, 0, 1),
                           fontWeight: FontWeight.w400,
-                          fontSize: 13.sp),
+                          fontSize: 13.sp,fontFamily: "Imprima"),
                     ),
                     const Spacer(),
                     Text(
@@ -515,7 +515,7 @@ class _MyMatches_viewState extends State<MyMatches_view> {
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w400,
-                          fontSize: 13.sp),
+                          fontSize: 13.sp,fontFamily: "Imprima"),
                     ),
                   ],
                 ),
@@ -577,7 +577,7 @@ class _megacontest_viewState extends State<megacontest_view> {
                   ),
                   Text(
                     'SA T20 League 2023',
-                    style: TextStyle(fontSize: 14.sp),
+                    style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                   ),
                   GestureDetector(
                     onTap: () {
@@ -623,7 +623,7 @@ class _megacontest_viewState extends State<megacontest_view> {
                           ),
                           Text(
                             'India',
-                            style: TextStyle(fontSize: 14.sp),
+                            style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                           ),
                         ],
                       ),
@@ -638,23 +638,23 @@ class _megacontest_viewState extends State<megacontest_view> {
                     ],
                   ),
                   Column(
-                    children: [
+                    children:[
                       Text(
                         '1d 21th left',
                         style: TextStyle(
                             fontSize: 14.sp,
                             fontWeight: FontWeight.w400,
-                            color: Colors.red),
+                            color: Colors.red,
+                            fontFamily: "Imprima"),
                       ),
                       SizedBox(
                         height: 0.5.h,
                       ),
                       Container(
-                        height: 3.h,
+                        height: 3.5.h,
                         width: 32.w,
                         decoration: BoxDecoration(
-                            border:
-                                Border.all(color: Colors.black, width: 5.sp),
+                            border: Border.all(color: Colors.black, width: 5.sp),
                             borderRadius: BorderRadius.circular(20.sp)),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -666,18 +666,18 @@ class _megacontest_viewState extends State<megacontest_view> {
                               fit: BoxFit.fill,
                             ),
                             Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Text(
                                   "Leaderboard",
                                   style: TextStyle(
                                       color: Color(0xFF299641),
-                                      fontSize: 12.sp),
+                                      fontSize: 12.sp,fontFamily: "Imprima"),
                                 ),
-                                Text(
-                                  "For Mega Contest",
+                                Text("For Mega Contest",
                                   style: TextStyle(
                                       color: Color(0xFF000000),
-                                      fontSize: 12.sp),
+                                      fontSize: 12.sp,fontFamily: "Imprima"),
                                 ),
                               ],
                             ),
@@ -708,7 +708,7 @@ class _megacontest_viewState extends State<megacontest_view> {
                           ),
                           Text(
                             'England',
-                            style: TextStyle(fontSize: 14.sp),
+                            style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
                           ),
                         ],
                       ),
@@ -722,8 +722,7 @@ class _megacontest_viewState extends State<megacontest_view> {
               height: 3.h,
               decoration: BoxDecoration(
                   color: const Color.fromRGBO(54, 130, 54, 1),
-                  borderRadius:
-                      BorderRadius.vertical(bottom: Radius.circular(15.sp))),
+                  borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.sp))),
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 3.w),
                 child: Row(
@@ -733,7 +732,7 @@ class _megacontest_viewState extends State<megacontest_view> {
                       style: TextStyle(
                           color: const Color.fromRGBO(44, 255, 90, 1),
                           fontWeight: FontWeight.w700,
-                          fontSize: 13.sp),
+                          fontSize: 13.sp,fontFamily: "Imprima"),
                     ),
                     SizedBox(
                       width: 2.w,
@@ -743,7 +742,7 @@ class _megacontest_viewState extends State<megacontest_view> {
                       style: TextStyle(
                           color: const Color.fromRGBO(255, 0, 0, 1),
                           fontWeight: FontWeight.w400,
-                          fontSize: 13.sp),
+                          fontSize: 13.sp,fontFamily: "Imprima"),
                     ),
                     const Spacer(),
                     Text(
@@ -758,7 +757,7 @@ class _megacontest_viewState extends State<megacontest_view> {
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w400,
-                          fontSize: 13.sp),
+                          fontSize: 13.sp,fontFamily: "Imprima"),
                     ),
                     SizedBox(
                       width: 4.w,
@@ -776,7 +775,7 @@ class _megacontest_viewState extends State<megacontest_view> {
                       style: TextStyle(
                           color: Color(0xFF2CFF5A),
                           fontWeight: FontWeight.w400,
-                          fontSize: 13.sp),
+                          fontSize: 13.sp,fontFamily: "Imprima"),
                     ),
                   ],
                 ),
