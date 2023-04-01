@@ -2,7 +2,6 @@
 
 import 'dart:ui';
 import 'package:dream_11_app/src/drawerPage/drawer_More.dart';
-import 'package:dream_11_app/src/user/homeScreen/contextPage.dart';
 import 'package:dream_11_app/src/user/homeScreen/homepage.dart';
 import 'package:dream_11_app/src/user/homeScreen/rewardScreen.dart';
 import 'package:dream_11_app/src/user/homeScreen/winnerScreen.dart';
@@ -12,6 +11,8 @@ import 'package:dream_11_app/controller/homePageController.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
+import 'homeScreen/contestPage.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -82,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   if (controller.selectedIndex.value == 0)
                     HomePage(controller: controller),
                   if (controller.selectedIndex.value == 1) ...[
-                    ContextScreen(controller: controller),
+                    ContestScreen(controller: controller),
                     const Spacer(),
                   ],
                   if (controller.selectedIndex.value == 2) ...[

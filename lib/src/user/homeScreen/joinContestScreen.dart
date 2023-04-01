@@ -1,10 +1,11 @@
-import 'package:dream_11_app/src/user/homeScreen/createContextScreen.dart';
-import 'package:dream_11_app/src/user/homeScreen/myContextScreen.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:dream_11_app/widget/buttonWidget.dart';
 import 'package:dream_11_app/widget/joinContextWidget.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
+import 'createContestScreen.dart';
+import 'myContestScreen.dart';
 
 class JoinContextScreen extends StatefulWidget {
   const JoinContextScreen({super.key});
@@ -27,6 +28,7 @@ class _JoinContextScreenState extends State<JoinContextScreen>
   }
 
   int selectedBottomBarIndex = 0;
+
   selectBottomBar(int index) {
     selectedBottomBarIndex = index;
     setState(() {});
@@ -749,10 +751,14 @@ class _JoinContextScreenState extends State<JoinContextScreen>
                                     const EdgeInsets.only(left: 10, right: 10),
                                 child: GestureDetector(
                                   onTap: () {
-                                    Navigator.push(context,
-                                        MaterialPageRoute(builder: (context) {
-                                      return CreateContextScreen();
-                                    }));
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) {
+                                          return const CreateContestScreen();
+                                        },
+                                      ),
+                                    );
                                   },
                                   child: Container(
                                     height: 41,

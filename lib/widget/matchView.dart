@@ -1,16 +1,17 @@
 import 'package:dream_11_app/controller/homePageController.dart';
-import 'package:dream_11_app/src/user/homeScreen/joinContextScreen.dart';
+import 'package:dream_11_app/src/user/homeScreen/contestCompletedScreen.dart';
+import 'package:dream_11_app/src/user/homeScreen/joinContestScreen.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MatchView extends StatefulWidget {
   bool? isSelected;
   StateSetter? setState;
+
   MatchView({super.key, this.isSelected = false, this.setState});
+
   @override
   State<MatchView> createState() => _MatchViewState();
 }
@@ -24,8 +25,7 @@ class _MatchViewState extends State<MatchView> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(const JoinContextScreen());
-        //Navigator.push(context, MaterialPageRoute(builder: (context) {return const JoinContextScreen();}));
+        Get.to(const ContestCompletedScreen());
       },
       child: Container(
         height: 16.h,
@@ -158,14 +158,15 @@ class _MatchViewState extends State<MatchView> {
                                       ),
                                       const Spacer(),
                                       Switch(
-                                          inactiveThumbColor:
-                                              const Color.fromRGBO(
-                                                  134, 128, 128, 1),
-                                          value: isSwitchActive2,
-                                          onChanged: ((value) {
-                                            isSwitchActive2 = value;
-                                            setState(() {});
-                                          })),
+                                        inactiveThumbColor:
+                                            const Color.fromRGBO(
+                                                134, 128, 128, 1),
+                                        value: isSwitchActive2,
+                                        onChanged: ((value) {
+                                          isSwitchActive2 = value;
+                                          setState(() {});
+                                        }),
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -338,6 +339,7 @@ class _MatchViewState extends State<MatchView> {
 class MyMatches_view extends StatefulWidget {
   bool? isSelected;
   StateSetter? setState;
+
   MyMatches_view({super.key, this.isSelected = false, this.setState});
 
   @override
@@ -531,6 +533,7 @@ class _MyMatches_viewState extends State<MyMatches_view> {
 class megacontest_view extends StatefulWidget {
   bool? isSelected;
   StateSetter? setState;
+
   megacontest_view({super.key, this.isSelected = false, this.setState});
 
   @override
