@@ -1,7 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages
+
 import 'dart:ui';
 import 'package:dream_11_app/src/drawerPage/drawer_More.dart';
-import 'package:dream_11_app/src/user/homeScreen/contestPage.dart';
 import 'package:dream_11_app/src/user/homeScreen/homepage.dart';
 import 'package:dream_11_app/src/user/homeScreen/rewardScreen.dart';
 import 'package:dream_11_app/src/user/homeScreen/winnerScreen.dart';
@@ -11,6 +11,8 @@ import 'package:dream_11_app/controller/homePageController.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
+import 'homeScreen/contestPage.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -137,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     index
                                                 ? Colors.white
                                                 : Colors.black,
-                                            fontSize: 13.sp,),
+                                            fontSize: 13.sp),
                                       ),
                                     ],
                                   ),

@@ -1,14 +1,11 @@
-import 'package:dream_11_app/notification/notificationSetting.dart';
-import 'package:dream_11_app/src/drawerPage/myaccount_page.dart';
-import 'package:dream_11_app/src/user/homeScreen/createContestScreen.dart';
-import 'package:dream_11_app/src/user/homeScreen/myContestScreen.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
 import 'package:dream_11_app/widget/buttonWidget.dart';
 import 'package:dream_11_app/widget/joinContextWidget.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
+
+import 'createContestScreen.dart';
+import 'myContestScreen.dart';
 
 class JoinContextScreen extends StatefulWidget {
   const JoinContextScreen({super.key});
@@ -27,10 +24,11 @@ class _JoinContextScreenState extends State<JoinContextScreen>
   void initState() {
     super.initState();
     _tabController = TabController(length: 4, vsync: this);
-    _tabController.animateTo(0);
+    _tabController.animateTo(2);
   }
 
   int selectedBottomBarIndex = 0;
+
   selectBottomBar(int index) {
     selectedBottomBarIndex = index;
     setState(() {});
@@ -41,16 +39,18 @@ class _JoinContextScreenState extends State<JoinContextScreen>
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
       floatingActionButton: Padding(
-        padding:  EdgeInsets.only(bottom: 6.h, right: 2.w),
+        padding: const EdgeInsets.only(bottom: 48.0, right: 10),
         child: FloatingActionButton(
           backgroundColor: const Color.fromRGBO(34, 80, 34, 1),
           onPressed: () {
-            //Navigator.push(context, MaterialPageRoute(builder: (context) {return MyContextScreen();}));
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return MyContextScreen();
+            }));
           },
           child: Image.asset(
             AssetUtilities.person1,
-            height:3.5.h,
-            width: 3.5.h,
+            height: 24,
+            width: 36,
           ),
         ),
       ),
@@ -63,57 +63,161 @@ class _JoinContextScreenState extends State<JoinContextScreen>
           children: const [
             Text(
               'Pk Vs Ind',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400,fontFamily: "Imprima"),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
             ),
             SizedBox(
               height: 4,
             ),
             Text(
               '2h:56m left',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400,fontFamily: "Imprima"),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
             ),
           ],
         ),
         actions: [
           IconButton(
               onPressed: () {
-                Get.to(NotificationSettingScreen());
+                showModalBottomSheet(
+                  isDismissible: false,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(15.0),
+                    ),
+                  ),
+                  context: context,
+                  builder: (context) {
+                    return StatefulBuilder(
+                        builder: (context, StateSetter setState) {
+                      return Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Container(
+                            width: double.maxFinite,
+                            decoration: BoxDecoration(
+                              color: Colors.grey.shade400,
+                              borderRadius: const BorderRadius.vertical(
+                                top: Radius.circular(15.0),
+                              ),
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    IconButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        icon: const Icon(Icons.close)),
+                                    const Spacer(),
+                                    const Text(
+                                      'Set Reminders',
+                                      style: TextStyle(fontSize: 12),
+                                    ),
+                                    const Spacer()
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                const Padding(
+                                  padding:
+                                      EdgeInsets.only(left: 15.0, bottom: 10),
+                                  child: Text(
+                                    'Lineup Announcement (if available)',
+                                    style: TextStyle(
+                                        fontSize: 10,
+                                        color:
+                                            Color.fromRGBO(104, 104, 104, 1)),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                left: 16.0, top: 10, bottom: 0),
+                            child: Row(
+                              children: [
+                                const Text(
+                                  'Match - UAE-WU19 VS BA-WU19',
+                                  style: TextStyle(fontSize: 12),
+                                ),
+                                const Spacer(),
+                                Switch(
+                                    inactiveThumbColor:
+                                        const Color.fromRGBO(134, 128, 128, 1),
+                                    value: isSwitchActive1,
+                                    onChanged: ((value) {
+                                      isSwitchActive1 = value;
+                                      setState(() {});
+                                    }))
+                              ],
+                            ),
+                          ),
+                          const Divider(
+                            color: Colors.grey,
+                            thickness: 2,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                left: 16.0, top: 0, bottom: 0),
+                            child: Row(
+                              children: [
+                                const Text(
+                                  'Tour - ICC Women’s U19 T20 World Cap',
+                                  style: TextStyle(fontSize: 12),
+                                ),
+                                const Spacer(),
+                                Switch(
+                                    inactiveThumbColor:
+                                        const Color.fromRGBO(134, 128, 128, 1),
+                                    value: isSwitchActive2,
+                                    onChanged: ((value) {
+                                      isSwitchActive2 = value;
+                                      setState(() {});
+                                    }))
+                              ],
+                            ),
+                          ),
+                        ],
+                      );
+                    });
+                  },
+                );
               },
-              icon:  Icon(Icons.notification_add_sharp,size: 20.sp)),
+              icon: const Icon(Icons.notification_add_sharp)),
           IconButton(
-              onPressed: () {
-                Get.to(MyAccountScreen());
-              },
-              icon:  Icon(Icons.account_balance_wallet_sharp,size: 20.sp)),
+              onPressed: () {},
+              icon: const Icon(Icons.account_balance_wallet_sharp)),
         ],
         bottom: TabBar(
-          indicatorSize: TabBarIndicatorSize.tab,
-          isScrollable: true,
           controller: _tabController,
           indicatorColor: Colors.white,
-          tabs:  [
+          tabs: const [
             Tab(
               child: Text(
                 'Full Match',
-                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15.sp,fontFamily: "Imprima"),
+                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
               ),
             ),
             Tab(
               child: Text(
                 'Batting',
-                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15.sp,fontFamily: "Imprima"),
+                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
               ),
             ),
             Tab(
               child: Text(
                 'Bowling',
-                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15.sp ,fontFamily: "Imprima"),
+                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
               ),
             ),
             Tab(
               child: Text(
                 'Reverse',
-                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15.sp,fontFamily: "Imprima"),
+                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
               ),
             ),
           ],
@@ -122,1135 +226,593 @@ class _JoinContextScreenState extends State<JoinContextScreen>
       body: Column(
         children: [
           SizedBox(
-            height: 76.h,
+            height: MediaQuery.of(context).size.height / 1.329,
             child: TabBarView(
               controller: _tabController,
               physics: const BouncingScrollPhysics(),
               dragStartBehavior: DragStartBehavior.down,
-              children: selectedBottomBarIndex == 1 ? [
-                Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'You haven’s joined any upcoming contests',
-                        style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      Image.asset(
-                        AssetUtilities.stump,
-                        height:15.h ,
-                        width: 15.h,
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      Text(
-                        'Join Contests for any of the upcoming matches',
-                        style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      GestureDetector(
-                        onTap:() {
-
-                        },
-                        child: innerShadowButtonWidget('Join A Contest', context, textStyle:  TextStyle(fontSize: 15.sp, color: Colors.white), radius: 10.sp, width: 50.w),
-                      ),
-                    ],
-                  ),
-                ),
-                Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'You haven’s joined any upcoming contests',
-                        style: TextStyle(fontSize: 16.sp),
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      Image.asset(
-                        AssetUtilities.stump,
-                        height:15.h ,
-                        width: 15.h,
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      Text(
-                        'Join Contests for any of the upcoming matches',
-                        style: TextStyle(fontSize: 14.sp),
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      GestureDetector(
-                        onTap:() {
-
-                        },
-                        child: innerShadowButtonWidget('Join A Contest', context, textStyle:  TextStyle(fontSize: 15.sp, color: Colors.white), radius: 10.sp, width: 50.w),
-                      ),
-                    ],
-                  ),
-                ),
-                Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'You haven’s joined any upcoming contests',
-                        style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      Image.asset(
-                        AssetUtilities.stump,
-                        height:15.h ,
-                        width: 15.h,
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      Text(
-                        'Join Contests for any of the upcoming matches',
-                        style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      GestureDetector(
-                        onTap:() {
-
-                        },
-                        child: innerShadowButtonWidget('Join A Contest', context, textStyle:  TextStyle(fontSize: 15.sp, color: Colors.white), radius: 10.sp, width: 50.w),
-                      ),
-                    ],
-                  ),
-                ),
-                Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'You haven’s joined any upcoming contests',
-                        style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      Image.asset(
-                        AssetUtilities.stump,
-                        height:15.h ,
-                        width: 15.h,
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      Text(
-                        'Join Contests for any of the upcoming matches',
-                        style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      GestureDetector(
-                        onTap:() {
-
-                        },
-                        child: innerShadowButtonWidget('Join A Contest', context, textStyle:  TextStyle(fontSize: 15.sp, color: Colors.white), radius: 10.sp, width: 50.w),
-                      ),
-                    ],
-                  ),
-                ),
-              ]
-                  : selectedBottomBarIndex == 2 ? [
-                Padding(
-                  padding:  EdgeInsets.symmetric(horizontal: 2.w),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 1.h,
-                      ),
-                      Container(
-                        height: 2.5.h,
-                        width: 100.w,
-                        color: const Color.fromRGBO(161, 217, 161, 1),
-                        child: Row(
-                          children:  [
-                            SizedBox(
-                              width: 4.w,
+              children: selectedBottomBarIndex == 1
+                  ? [
+                      Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const SizedBox(
+                              height: 15,
                             ),
-                            CircleAvatar(
-                              backgroundColor: Color.fromRGBO(144, 78, 0, 1),
-                              radius: 10.sp,
+                            const Text(
+                              'You haven’s joined any upcoming contests',
+                              style: TextStyle(fontSize: 15),
                             ),
-                            SizedBox(
-                              width: 2.w,
+                            const SizedBox(
+                              height: 37,
                             ),
-                            Text(
-                              '2 Players not announced im lineup',
-                              style: TextStyle(
-                                  color: Color.fromRGBO(144, 78, 0, 1),
-                                  fontSize: 13.sp,fontFamily: "Imprima"),
+                            Image.asset(
+                              AssetUtilities.stump,
+                              height: 128,
+                              width: 128,
+                            ),
+                            const SizedBox(
+                              height: 37,
+                            ),
+                            const Text(
+                              'Join Contests for any of the upcoming matches',
+                              style: TextStyle(fontSize: 12),
+                            ),
+                            const SizedBox(
+                              height: 37,
+                            ),
+                            GestureDetector(
+                              onTap: (() {}),
+                              child: innerShadowButtonWidget(
+                                  'Join A Contest', context,
+                                  textStyle: const TextStyle(
+                                      fontSize: 12, color: Colors.white),
+                                  radius: 10,
+                                  width: 200),
                             )
                           ],
                         ),
                       ),
-                      SizedBox(
-                        height: 1.h,
-                      ),
-                      Container(
-                        height: 20.h,
-                        width: 100.w,
-                        decoration: BoxDecoration(
-                          // color: Colors.white,
-                            borderRadius: BorderRadius.circular(15.sp)),
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 19.5.h,
-                              width: 100.w,
-                              decoration: BoxDecoration(
-                                  borderRadius:BorderRadius.circular(15.sp),
-                                  image: const DecorationImage(
-                                      image: AssetImage(
-                                        AssetUtilities.teambg,
+                      Text('Context'),
+                      Text('Context'),
+                      Text('Context'),
+                    ]
+                  : selectedBottomBarIndex == 2
+                      ? [
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(left: 12.0, right: 12),
+                            child: Column(
+                              children: [
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                Container(
+                                  height: 25,
+                                  width: double.infinity,
+                                  color: const Color.fromRGBO(161, 217, 161, 1),
+                                  child: Row(
+                                    children: const [
+                                      SizedBox(
+                                        width: 16,
                                       ),
-                                      fit: BoxFit.cover)),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    height: 3.6.h,
-                                    width: 100.w,
-                                    decoration:  BoxDecoration(
-                                        color: Color.fromRGBO(0, 0, 0, 0.46),
-                                        borderRadius: BorderRadius.vertical(
-                                            top: Radius.circular(15.sp))),
-                                    child: Padding(
-                                      padding:  EdgeInsets.symmetric(horizontal: 4.w),
-                                      child: Row(
-                                        children: [
-                                          Text(
-                                            'Team 1',
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 14.sp,fontFamily: "Imprima"),
-                                          ),
-                                          const Spacer(),
-                                          GestureDetector(
-                                            onTap: () {},
-                                            child:  Icon(
-                                              Icons.edit,
-                                              color: Colors.white,
-                                              size: 18.sp,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            width: 4.w,
-                                          ),
-                                          GestureDetector(
-                                            onTap: () {},
-                                            child:  Icon(
-                                              Icons.copy,
-                                              color: Colors.white,
-                                              size: 18.sp,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            width: 4.w,
-                                          ),
-                                          GestureDetector(
-                                            onTap: () {},
-                                            child:  Icon(
-                                              Icons.remove_red_eye_outlined,
-                                              color: Colors.white,
-                                              size: 18.sp,
-                                            ),
-                                          ),
-                                        ],
+                                      CircleAvatar(
+                                        backgroundColor:
+                                            Color.fromRGBO(144, 78, 0, 1),
+                                        radius: 8,
                                       ),
-                                    ),
+                                      SizedBox(
+                                        width: 9,
+                                      ),
+                                      Text(
+                                        '2 Players not announced im lineup',
+                                        style: TextStyle(
+                                            color:
+                                                Color.fromRGBO(144, 78, 0, 1),
+                                            fontSize: 11),
+                                      )
+                                    ],
                                   ),
-                                  Row(
+                                ),
+                                const SizedBox(
+                                  height: 7,
+                                ),
+                                Container(
+                                  height: 180,
+                                  width: MediaQuery.of(context).size.width,
+                                  decoration: BoxDecoration(
+                                      // color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: Column(
                                     children: [
-                                      SizedBox(
-                                        width: 4.w,
-                                      ),
-                                      Column(
-                                        children:  [
-                                          Text(
-                                            'IND',
-                                            style: TextStyle(
-                                                fontWeight:
-                                                FontWeight.w700,
-                                                color: Colors.white,
-                                                fontSize: 16.sp),
-                                          ),
-                                          Text(
-                                            '7',
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w700,
-                                                color: Colors.white,
-                                                fontSize: 16.sp),
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        width: 4.w,
-                                      ),
-                                      Column(
-                                        children:  [
-                                          Text(
-                                            'NZ',
-                                            style: TextStyle(
-                                                fontWeight:
-                                                FontWeight.w700,
-                                                color: Colors.white,
-                                                fontSize: 16.sp),
-                                          ),
-                                          Text(
-                                            '4',
-                                            style: TextStyle(
-                                                fontWeight:
-                                                FontWeight.w700,
-                                                color: Colors.white,
-                                                fontSize: 16.sp),
-                                          ),
-                                        ],
-                                      ),
-                                      const Spacer(),
-                                      Image.asset(
-                                        AssetUtilities.captain,
-                                        height: 2.8.h,
-                                        width: 2.8.h,
-                                      ),
-                                      Column(
-                                        children: [
-                                          Image.asset(
-                                            AssetUtilities.viratkohli,
-                                            height: 7.h,
-                                            width: 7.h ,
-                                            //fit: BoxFit.cover,
-                                          ),
-                                          Container(
-                                            height: 2.5.h,
-                                            child: ElevatedButton(onPressed: (){}, child: Text("V kohli",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600,fontSize: 13.sp),),
-                                              style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.black) ,),
+                                      Container(
+                                        height: 160,
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            image: const DecorationImage(
+                                                image: AssetImage(
+                                                  AssetUtilities.teambg,
+                                                ),
+                                                fit: BoxFit.cover)),
+                                        child: Column(
+                                          children: [
+                                            Container(
+                                              height: 30,
+                                              width: MediaQuery.of(context)
+                                                  .size
+                                                  .width,
+                                              decoration: const BoxDecoration(
+                                                  color: Color.fromRGBO(
+                                                      0, 0, 0, 0.46),
+                                                  borderRadius:
+                                                      BorderRadius.vertical(
+                                                          top: Radius.circular(
+                                                              10))),
+                                              child: Row(
+                                                children: [
+                                                  const SizedBox(width: 16),
+                                                  const Text(
+                                                    'Team 1',
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 12),
+                                                  ),
+                                                  const Spacer(),
+                                                  GestureDetector(
+                                                    onTap: () {},
+                                                    child: const Icon(
+                                                      Icons.edit,
+                                                      color: Colors.white,
+                                                      size: 20,
+                                                    ),
+                                                  ),
+                                                  const SizedBox(
+                                                    width: 7,
+                                                  ),
+                                                  GestureDetector(
+                                                    onTap: () {},
+                                                    child: const Icon(
+                                                      Icons.copy,
+                                                      color: Colors.white,
+                                                      size: 20,
+                                                    ),
+                                                  ),
+                                                  const SizedBox(
+                                                    width: 7,
+                                                  ),
+                                                  GestureDetector(
+                                                    onTap: () {},
+                                                    child: const Icon(
+                                                      Icons
+                                                          .remove_red_eye_outlined,
+                                                      color: Colors.white,
+                                                      size: 20,
+                                                    ),
+                                                  ),
+                                                  const SizedBox(
+                                                    width: 7,
+                                                  ),
+                                                ],
+                                              ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                      Image.asset(
-                                        AssetUtilities.vc,
-                                        height: 2.8.h,
-                                        width: 2.8.h,
-                                      ),
-                                      Column(
-                                        mainAxisAlignment: MainAxisAlignment.end,
-                                        children: [
-                                          Image.asset(
-                                            AssetUtilities.suryo,
-                                            height: 7.h,
-                                            width: 7.h,
-                                            //fit: BoxFit.cover,
-                                          ),
-                                          Container(
-                                            height: 2.5.h,
-                                            child: ElevatedButton(onPressed: (){}, child: Text("S Yadav",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600,fontSize: 13.sp),),
-                                              style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.red),),
+                                            Row(
+                                              children: [
+                                                const SizedBox(
+                                                  width: 16,
+                                                ),
+                                                Column(
+                                                  children: const [
+                                                    SizedBox(
+                                                      height: 17,
+                                                    ),
+                                                    Text(
+                                                      'IND',
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          color: Colors.white,
+                                                          fontSize: 16),
+                                                    ),
+                                                    Text(
+                                                      '7',
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          color: Colors.white,
+                                                          fontSize: 16),
+                                                    ),
+                                                  ],
+                                                ),
+                                                const SizedBox(
+                                                  width: 16,
+                                                ),
+                                                Column(
+                                                  children: const [
+                                                    SizedBox(
+                                                      height: 17,
+                                                    ),
+                                                    Text(
+                                                      'NZ',
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          color: Colors.white,
+                                                          fontSize: 16),
+                                                    ),
+                                                    Text(
+                                                      '4',
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          color: Colors.white,
+                                                          fontSize: 16),
+                                                    ),
+                                                  ],
+                                                ),
+                                                const Spacer(),
+                                                Image.asset(
+                                                  AssetUtilities.captain,
+                                                  height: 24,
+                                                  width: 24,
+                                                ),
+                                                Column(
+                                                  children: [
+                                                    Image.asset(
+                                                      AssetUtilities.viratkohli,
+                                                      height: 59,
+                                                      width: 52,
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                    Container(
+                                                      height: 19,
+                                                      width: 62,
+                                                      decoration: BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(3),
+                                                          color: Colors.black),
+                                                      child: const Center(
+                                                        child: Text(
+                                                          'V kohli',
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              fontSize: 11),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Image.asset(
+                                                  AssetUtilities.vc,
+                                                  height: 24,
+                                                  width: 24,
+                                                ),
+                                                Column(
+                                                  children: [
+                                                    const SizedBox(
+                                                      height: 10,
+                                                    ),
+                                                    Image.asset(
+                                                      AssetUtilities.suryo,
+                                                      height: 59,
+                                                      width: 52,
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                    Container(
+                                                      height: 19,
+                                                      width: 62,
+                                                      decoration: BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(3),
+                                                          color: const Color
+                                                                  .fromRGBO(
+                                                              255, 0, 0, 1)),
+                                                      child: const Center(
+                                                        child: Text(
+                                                          'S Yadav',
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              fontSize: 11),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 15,
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
                                             ),
-                                          ),
-                                        ],
+                                            Container(
+                                              decoration: const BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.vertical(
+                                                          bottom:
+                                                              Radius.circular(
+                                                                  10))),
+                                              // height: 26,
+                                              padding: const EdgeInsets.only(
+                                                  top: 5,
+                                                  bottom: 6,
+                                                  left: 7,
+                                                  right: 7),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: const [
+                                                  Text(
+                                                    'WK(1)',
+                                                    style: TextStyle(
+                                                        color: Color.fromRGBO(
+                                                            147, 144, 144, 1),
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w500),
+                                                  ),
+                                                  Text(
+                                                    'BAT(4)',
+                                                    style: TextStyle(
+                                                        color: Color.fromRGBO(
+                                                            147, 144, 144, 1),
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w500),
+                                                  ),
+                                                  Text(
+                                                    'AR(2)',
+                                                    style: TextStyle(
+                                                        color: Color.fromRGBO(
+                                                            147, 144, 144, 1),
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w500),
+                                                  ),
+                                                  Text(
+                                                    'BOWL(4)',
+                                                    style: TextStyle(
+                                                        color: Color.fromRGBO(
+                                                            147, 144, 144, 1),
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.w500),
+                                                  ),
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ],
                                   ),
-                                  Container(
-                                    decoration:  BoxDecoration(
+                                ),
+                                const Spacer(),
+                                Container(
+                                  height: 41,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color:
+                                          const Color.fromRGBO(54, 130, 54, 1)),
+                                  child: const Center(
+                                    child: Text(
+                                      'Create Team 2',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const Text('Context'),
+                          const Text('Context'),
+                          const Text('Context'),
+                        ]
+                      : [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 10.0, top: 10, right: 10),
+                                child: Row(
+                                  children: [
+                                    const Text(
+                                      'Sort by',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color:
+                                              Color.fromRGBO(131, 129, 129, 1)),
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Container(
+                                      height: 22,
+                                      padding: const EdgeInsets.only(
+                                          top: 4,
+                                          bottom: 4,
+                                          right: 17,
+                                          left: 17),
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(4)),
+                                      child: const Center(
+                                        child: Text(
+                                          'Entry',
+                                          style: TextStyle(
+                                              color: Color.fromRGBO(
+                                                  166, 160, 160, 1),
+                                              fontSize: 12),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Container(
+                                      height: 22,
+                                      padding: const EdgeInsets.only(
+                                          top: 4,
+                                          bottom: 4,
+                                          right: 17,
+                                          left: 17),
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(4)),
+                                      child: const Center(
+                                        child: Text(
+                                          'Contest Size',
+                                          style: TextStyle(
+                                              color: Color.fromRGBO(
+                                                  166, 160, 160, 1),
+                                              fontSize: 12),
+                                        ),
+                                      ),
+                                    ),
+                                    const Spacer(),
+                                    const Icon(
+                                      Icons.filter_alt,
+                                      size: 18,
+                                      color: Color.fromRGBO(110, 105, 105, 1),
+                                    ),
+                                    const Text(
+                                      'All Filters',
+                                      style: TextStyle(
+                                          color:
+                                              Color.fromRGBO(166, 160, 160, 1),
+                                          fontSize: 12),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              const Divider(
+                                thickness: 2,
+                                color: Colors.black,
+                              ),
+                              Expanded(
+                                child: ListView.builder(
+                                  itemCount: 8,
+                                  shrinkWrap: true,
+                                  itemBuilder: ((context, index) {
+                                    return Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: const [
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                              left: 13.0, top: 2),
+                                          child: Text(
+                                            'Mega Contest',
+                                            style: TextStyle(fontSize: 15),
+                                          ),
+                                        ),
+                                        JoinContextWidget()
+                                      ],
+                                    );
+                                  }),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              const Center(
+                                child: Text(
+                                  'Or',
+                                  style: TextStyle(
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 10, right: 10),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) {
+                                          return const CreateContestScreen();
+                                        },
+                                      ),
+                                    );
+                                  },
+                                  child: Container(
+                                    height: 41,
+                                    width: MediaQuery.of(context).size.width,
+                                    decoration: BoxDecoration(
                                         color: Colors.white,
-                                        borderRadius: BorderRadius.vertical(bottom: Radius.circular(13.sp))),
-                                    // height: 26,
-                                    padding:  EdgeInsets.only(top: 0.7.h, bottom: 0.7.h, left: 2.w, right: 2.w),
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text(
-                                          'WK(1)',
-                                          style: TextStyle(
-                                              color: Color.fromRGBO(147, 144, 144, 1),
-                                              fontSize: 15.sp,
-                                              fontWeight: FontWeight.w500),
+                                        const SizedBox(
+                                          width: 16,
                                         ),
-                                        Text(
-                                          'BAT(4)',
-                                          style: TextStyle(
-                                              color: Color.fromRGBO(147, 144, 144, 1),
-                                              fontSize: 15.sp,
-                                              fontWeight: FontWeight.w500),
+                                        Image.asset(
+                                          AssetUtilities.plusround,
+                                          height: 24,
+                                          width: 24,
                                         ),
-                                        Text(
-                                          'AR(2)',
-                                          style: TextStyle(
-                                              color: Color.fromRGBO(147, 144, 144, 1),
-                                              fontSize: 15.sp,
-                                              fontWeight: FontWeight.w500),
+                                        const SizedBox(
+                                          width: 28,
                                         ),
-                                        Text(
-                                          'BOWL(4)',
+                                        const Text(
+                                          'Create & Join Contest',
                                           style: TextStyle(
-                                              color: Color.fromRGBO(147, 144, 144, 1),
-                                              fontSize: 15.sp,
+                                              fontSize: 20,
                                               fontWeight: FontWeight.w500),
-                                        ),
+                                        )
                                       ],
                                     ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const Spacer(),
-                      Container(
-                        height: 4.h,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: const Color.fromRGBO(54, 130, 54, 1)),
-                        child:  Center(
-                          child: Text(
-                            'Create Team 2',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15.sp,
-                                fontWeight: FontWeight.w500,fontFamily: "Imprima"),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'You haven’s created a team yet!',
-                        style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      Image.asset(
-                        AssetUtilities.stump,
-                        height:15.h,
-                        width: 15.h,
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      Text(
-                        'Join Contests for any of the upcoming matches',
-                        style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      GestureDetector(
-                        onTap:() {
-
-                        },
-                        child: innerShadowButtonWidget('Create A Team', context, textStyle:  TextStyle(fontSize: 15.sp, color: Colors.white), radius: 10.sp, width: 50.w),
-                      ),
-                    ],
-                  ),
-                ),
-                Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'You haven’s created a team yet!',
-                        style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      Image.asset(
-                        AssetUtilities.stump,
-                        height:15.h ,
-                        width: 15.h,
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      Text(
-                        'Join Contests for any of the upcoming matches',
-                        style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      GestureDetector(
-                        onTap:() {
-
-                        },
-                        child: innerShadowButtonWidget('Create A Team', context, textStyle:  TextStyle(fontSize: 15.sp, color: Colors.white), radius: 10.sp, width: 50.w),
-                      ),
-                    ],
-                  ),
-                ),
-                Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'You haven’s created a team yet!',
-                        style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      Image.asset(
-                        AssetUtilities.stump,
-                        height:15.h ,
-                        width: 15.h,
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      Text(
-                        'Join Contests for any of the upcoming matches',
-                        style: TextStyle(fontSize: 14.sp,fontFamily: "Imprima"),
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      GestureDetector(
-                        onTap:() {
-
-                        },
-                        child: innerShadowButtonWidget('Create A Team', context, textStyle:  TextStyle(fontSize: 15.sp, color: Colors.white), radius: 10.sp, width: 50.w),
-                      ),
-                    ],
-                  ),
-                ),]
-                  : [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 1.h),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 4.w),
-                      child: Row(
-                        children: [
-                          Text(
-                            'Sort by',
-                            style: TextStyle(
-                                fontSize: 14.sp,
-                                color: Color.fromRGBO(131, 129, 129, 1),fontFamily: "Imprima"),
-                          ),
-                          SizedBox(
-                            width: 2.w,
-                          ),
-                          GestureDetector(
-                            onTap: (){
-                              Get.to(MyContextScreen());
-                            },
-                            child: Container(
-                              height: 2.8.h,
-                              padding:  EdgeInsets.only(top: 0.5.h, bottom: 0.5.h, right: 4.w, left: 4.w),
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(8.sp)),
-                              child:  Center(
-                                child: Text(
-                                  'Entry',
-                                  style: TextStyle(
-                                      color: Color.fromRGBO(166, 160, 160, 1),
-                                      fontSize: 14.sp,fontFamily: "Imprima"),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 3.w,
-                          ),
-                          GestureDetector(
-                            onTap: (){
-                              Get.to(MyContextScreen());
-                            },
-                            child: Container(
-                              height: 2.8.h,
-                              padding:  EdgeInsets.only(top: 0.5.h, bottom: 0.5.h, right: 4.w, left: 4.w),
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(8.sp)),
-                              child:  Center(
-                                child: Text(
-                                  'Contest Size',
-                                  style: TextStyle(
-                                      color: Color.fromRGBO(166, 160, 160, 1),
-                                      fontSize: 14.sp,fontFamily: "Imprima"),
-                                ),
+                              const SizedBox(
+                                height: 10,
                               ),
-                            ),
+                            ],
                           ),
-                          const Spacer(),
-                          Icon(
-                            Icons.filter_alt,
-                            size: 18.sp,
-                            color: Color.fromRGBO(110, 105, 105, 1),
-                          ),
-                          Text(
-                            'All Filters',
-                            style: TextStyle(
-                                color: Color.fromRGBO(166, 160, 160, 1),
-                                fontSize: 15.sp,fontFamily: "Imprima"),
-                          ),
+                          const Text('Hello2'),
+                          const Text('Hello3'),
+                          const Text('Hello4'),
                         ],
-                      ),
-                    ),
-                    Divider(
-                      thickness: 0.2.h,
-                      color: Colors.black,
-                    ),
-                    Expanded(
-                      child: ListView.builder(
-                        itemCount: 8,
-                        shrinkWrap: true,
-                        itemBuilder: ((context, index) {
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children:  [
-                              Padding(
-                                padding: EdgeInsets.only(left: 4.w, top: 0.5.h),
-                                child: Text(
-                                  'Mega Contest',
-                                  style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
-                                ),
-                              ),
-                              JoinContextWidget()
-                              ],
-                            );
-                          }
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 1.h,
-                    ),
-                     Center(
-                      child: Text(
-                        'OR',
-                        style: TextStyle(
-                            fontSize: 20.sp,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                     SizedBox(
-                      height: 3.h,
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 3.w),
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.to(CreateContestScreen());
-                          //Navigator.push(context, MaterialPageRoute(builder: (context) {return CreateContestScreen();}));
-                        },
-                        child: Container(
-                          height: 4.5.h,
-                          width: 100.w,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(13.sp)),
-                          child: Row(
-                            children: [
-                               SizedBox(
-                                width: 4.w,
-                              ),
-                              Image.asset(
-                                AssetUtilities.plusround,
-                                height: 3.h,
-                                width: 3.h,
-                              ),
-                               SizedBox(width: 5.w),
-                               Text(
-                                'Create & Join Contest',
-                                style: TextStyle(
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.w500),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                     SizedBox(
-                      height: 1.h,
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 1.h),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 4.w),
-                      child: Row(
-                        children: [
-                          Text(
-                            'Sort by',
-                            style: TextStyle(
-                                fontSize: 14.sp,
-                                color: Color.fromRGBO(131, 129, 129, 1),fontFamily: "Imprima"),
-                          ),
-                          SizedBox(
-                            width: 2.w,
-                          ),
-                          Container(
-                            height: 2.8.h,
-                            padding:  EdgeInsets.only(top: 0.5.h, bottom: 0.5.h, right: 4.w, left: 4.w),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(8.sp)),
-                            child:  Center(
-                              child: Text(
-                                'Entry',
-                                style: TextStyle(
-                                    color: Color.fromRGBO(166, 160, 160, 1),
-                                    fontSize: 14.sp,fontFamily: "Imprima"),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 3.w,
-                          ),
-                          Container(
-                            height: 2.8.h,
-                            padding:  EdgeInsets.only(top: 0.5.h, bottom: 0.5.h, right: 4.w, left: 4.w),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(8.sp)),
-                            child:  Center(
-                              child: Text(
-                                'Contest Size',
-                                style: TextStyle(
-                                    color: Color.fromRGBO(166, 160, 160, 1),
-                                    fontSize: 14.sp,fontFamily: "Imprima"),
-                              ),
-                            ),
-                          ),
-                          const Spacer(),
-                          Icon(
-                            Icons.filter_alt,
-                            size: 18.sp,
-                            color: Color.fromRGBO(110, 105, 105, 1),
-                          ),
-                          Text(
-                            'All Filters',
-                            style: TextStyle(
-                                color: Color.fromRGBO(166, 160, 160, 1),
-                                fontSize: 15.sp,fontFamily: "Imprima"),
-                          )
-                        ],
-                      ),
-                    ),
-                    Divider(
-                      thickness: 0.2.h,
-                      color: Colors.black,
-                    ),
-                    Expanded(
-                      child: ListView.builder(
-                        itemCount: 8,
-                        shrinkWrap: true,
-                        itemBuilder: ((context, index) {
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children:  [
-                              Padding(
-                                padding: EdgeInsets.only(left: 4.w, top: 0.5.h),
-                                child: Text(
-                                  'Mega Contest',
-                                  style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
-                                ),
-                              ),
-                              JoinContextWidget()
-                            ],
-                          );
-                         }
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 1.h,
-                    ),
-                     Center(
-                      child: Text(
-                        'OR',
-                        style: TextStyle(
-                            fontSize: 20.sp,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                     SizedBox(
-                      height: 3.h,
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 3.w),
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.to(CreateContestScreen());
-                          //Navigator.push(context, MaterialPageRoute(builder: (context) {return CreateContestScreen();}));
-                        },
-                        child: Container(
-                          height: 4.5.h,
-                          width: 100.w,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(13.sp)),
-                          child: Row(
-                            children: [
-                               SizedBox(
-                                width: 4.w,
-                              ),
-                              Image.asset(
-                                AssetUtilities.plusround,
-                                height: 3.h,
-                                width: 3.h,
-                              ),
-                               SizedBox(width: 5.w),
-                               Text(
-                                'Create & Join Contest',
-                                style: TextStyle(
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.w500),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                     SizedBox(
-                      height: 1.h,
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 1.h),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 4.w),
-                      child: Row(
-                        children: [
-                          Text(
-                            'Sort by',
-                            style: TextStyle(
-                                fontSize: 14.sp,
-                                color: Color.fromRGBO(131, 129, 129, 1),fontFamily: "Imprima"),
-                          ),
-                          SizedBox(
-                            width: 2.w,
-                          ),
-                          Container(
-                            height: 2.8.h,
-                            padding:  EdgeInsets.only(top: 0.5.h, bottom: 0.5.h, right: 4.w, left: 4.w),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(8.sp)),
-                            child:  Center(
-                              child: Text(
-                                'Entry',
-                                style: TextStyle(
-                                    color: Color.fromRGBO(166, 160, 160, 1),
-                                    fontSize: 14.sp,fontFamily: "Imprima"),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 3.w,
-                          ),
-                          Container(
-                            height: 2.8.h,
-                            padding:  EdgeInsets.only(top: 0.5.h, bottom: 0.5.h, right: 4.w, left: 4.w),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(8.sp)),
-                            child:  Center(
-                              child: Text(
-                                'Contest Size',
-                                style: TextStyle(
-                                    color: Color.fromRGBO(166, 160, 160, 1),
-                                    fontSize: 14.sp,fontFamily: "Imprima"),
-                              ),
-                            ),
-                          ),
-                          const Spacer(),
-                          Icon(
-                            Icons.filter_alt,
-                            size: 18.sp,
-                            color: Color.fromRGBO(110, 105, 105, 1),
-                          ),
-                          Text(
-                            'All Filters',
-                            style: TextStyle(
-                                color: Color.fromRGBO(166, 160, 160, 1),
-                                fontSize: 15.sp,fontFamily: "Imprima"),
-                          )
-                        ],
-                      ),
-                    ),
-                    Divider(
-                      thickness: 0.2.h,
-                      color: Colors.black,
-                    ),
-                    Expanded(
-                      child: ListView.builder(
-                        itemCount: 8,
-                        shrinkWrap: true,
-                        itemBuilder: ((context, index) {
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children:  [
-                              Padding(
-                                padding: EdgeInsets.only(left: 4.w, top: 0.5.h),
-                                child: Text(
-                                  'Mega Contest',
-                                  style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
-                                ),
-                              ),
-                              JoinContextWidget()
-                            ],
-                          );
-                         }
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 1.h,
-                    ),
-                     Center(
-                      child: Text(
-                        'OR',
-                        style: TextStyle(
-                            fontSize: 20.sp,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                     SizedBox(
-                      height: 3.h,
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 3.w),
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.to(CreateContestScreen());
-                          //Navigator.push(context, MaterialPageRoute(builder: (context) {return CreateContestScreen();}));
-                        },
-                        child: Container(
-                          height: 4.5.h,
-                          width: 100.w,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(13.sp)),
-                          child: Row(
-                            children: [
-                               SizedBox(
-                                width: 4.w,
-                              ),
-                              Image.asset(
-                                AssetUtilities.plusround,
-                                height: 3.h,
-                                width: 3.h,
-                              ),
-                               SizedBox(width: 5.w),
-                               Text(
-                                'Create & Join Contest',
-                                style: TextStyle(
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.w500),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                     SizedBox(
-                      height: 1.h,
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 1.h),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 4.w),
-                      child: Row(
-                        children: [
-                          Text(
-                            'Sort by',
-                            style: TextStyle(
-                                fontSize: 14.sp,
-                                color: Color.fromRGBO(131, 129, 129, 1),fontFamily: "Imprima"),
-                          ),
-                          SizedBox(
-                            width: 2.w,
-                          ),
-                          Container(
-                            height: 2.8.h,
-                            padding:  EdgeInsets.only(top: 0.5.h, bottom: 0.5.h, right: 4.w, left: 4.w),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(8.sp)),
-                            child:  Center(
-                              child: Text(
-                                'Entry',
-                                style: TextStyle(
-                                    color: Color.fromRGBO(166, 160, 160, 1),
-                                    fontSize: 14.sp,fontFamily: "Imprima"),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 3.w,
-                          ),
-                          Container(
-                            height: 2.8.h,
-                            padding:  EdgeInsets.only(top: 0.5.h, bottom: 0.5.h, right: 4.w, left: 4.w),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(8.sp)),
-                            child:  Center(
-                              child: Text(
-                                'Contest Size',
-                                style: TextStyle(
-                                    color: Color.fromRGBO(166, 160, 160, 1),
-                                    fontSize: 14.sp,fontFamily: "Imprima"),
-                              ),
-                            ),
-                          ),
-                          const Spacer(),
-                          Icon(
-                            Icons.filter_alt,
-                            size: 18.sp,
-                            color: Color.fromRGBO(110, 105, 105, 1),
-                          ),
-                          Text(
-                            'All Filters',
-                            style: TextStyle(
-                                color: Color.fromRGBO(166, 160, 160, 1),
-                                fontSize: 15.sp,fontFamily: "Imprima"),
-                          )
-                        ],
-                      ),
-                    ),
-                    Divider(
-                      thickness: 0.2.h,
-                      color: Colors.black,
-                    ),
-                    Expanded(
-                      child: ListView.builder(
-                        itemCount: 8,
-                        shrinkWrap: true,
-                        itemBuilder: ((context, index) {
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children:  [
-                              Padding(
-                                padding: EdgeInsets.only(left: 4.w, top: 0.5.h),
-                                child: Text(
-                                  'Mega Contest',
-                                  style: TextStyle(fontSize: 16.sp,fontFamily: "Imprima"),
-                                ),
-                              ),
-                              JoinContextWidget()
-                            ],
-                          );
-                         }
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 1.h,
-                    ),
-                     Center(
-                      child: Text(
-                        'OR',
-                        style: TextStyle(
-                            fontSize: 20.sp,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                     SizedBox(
-                      height: 3.h,
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 3.w),
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.to(CreateContestScreen());
-                          //Navigator.push(context, MaterialPageRoute(builder: (context) {return CreateContestScreen();}));
-                        },
-                        child: Container(
-                          height: 4.5.h,
-                          width: 100.w,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(13.sp)),
-                          child: Row(
-                            children: [
-                               SizedBox(
-                                width: 4.w,
-                              ),
-                              Image.asset(
-                                AssetUtilities.plusround,
-                                height: 3.h,
-                                width: 3.h,
-                              ),
-                               SizedBox(width: 5.w),
-                               Text(
-                                'Create & Join Contest',
-                                style: TextStyle(
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.w500),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                     SizedBox(
-                      height: 1.h,
-                    ),
-                  ],
-                ),
-              ],
             ),
           ),
           const Spacer(),
           Container(
-            height: 7.h,
-            width: 100.w,
+            height: 57,
+            width: double.infinity,
             color: Colors.white,
             child: Center(
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
+                  const SizedBox(
+                    width: 20,
+                  ),
                   GestureDetector(
                     onTap: () {
                       selectBottomBar(0);
@@ -1259,9 +821,9 @@ class _JoinContextScreenState extends State<JoinContextScreen>
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          AssetUtilities.torpy,
-                          height: 3.h,
-                          width:  3.h,
+                          AssetUtilities.trophy,
+                          height: 24,
+                          width: 21.5,
                           color: selectedBottomBarIndex == 0
                               ? const Color.fromRGBO(0, 100, 0, 1)
                               : null,
@@ -1269,40 +831,44 @@ class _JoinContextScreenState extends State<JoinContextScreen>
                         Text(
                           'Context',
                           style: TextStyle(
-                            fontSize: 14.sp,
+                            fontSize: 12,
                             color: selectedBottomBarIndex == 0
                                 ? const Color.fromRGBO(0, 100, 0, 1)
-                                : Colors.black,fontFamily: "Imprima"
+                                : Colors.grey,
                           ),
                         ),
                       ],
                     ),
                   ),
+                  const Spacer(),
                   GestureDetector(
                     onTap: () {
                       selectBottomBar(1);
+
+                      ///todo
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          AssetUtilities.torpy,
-                          height: 3.h,
-                          width: 3.h,
+                          AssetUtilities.trophy,
+                          height: 24,
+                          width: 21.5,
                           color: selectedBottomBarIndex == 1
                               ? const Color.fromRGBO(0, 100, 0, 1)
                               : null,
                         ),
                         Text('My Context(0)',
                             style: TextStyle(
-                              fontSize: 14.sp,
+                              fontSize: 12,
                               color: selectedBottomBarIndex == 1
                                   ? const Color.fromRGBO(0, 100, 0, 1)
-                                  : Colors.black,fontFamily: "Imprima"
+                                  : Colors.black,
                             )),
                       ],
                     ),
                   ),
+                  const Spacer(),
                   GestureDetector(
                     onTap: () {
                       selectBottomBar(2);
@@ -1312,22 +878,24 @@ class _JoinContextScreenState extends State<JoinContextScreen>
                       children: [
                         Image.asset(
                           AssetUtilities.person1,
-                          height: 3.h,
-                          width: 3.h,
+                          height: 24,
+                          width: 21.5,
                           color: selectedBottomBarIndex == 2
                               ? const Color.fromRGBO(0, 100, 0, 1)
                               : Colors.black,
                         ),
                         Text('My Team(1)',
                             style: TextStyle(
-                              fontSize: 14.sp,
+                              fontSize: 12,
                               color: selectedBottomBarIndex == 2
                                   ? const Color.fromRGBO(0, 100, 0, 1)
-                                  : Colors.black,fontFamily: "Imprima"
-                            ),
-                        ),
+                                  : Colors.black,
+                            )),
                       ],
                     ),
+                  ),
+                  const SizedBox(
+                    width: 20,
                   ),
                 ],
               ),

@@ -258,7 +258,7 @@ class AssetUtilities {
 
   static const String rewar2 = '${_baseUrl}reward2.png';
 
-  static const String bgg = '${_baseUrl}bgg.png';
+  static const String bgg = '${_baseUrl}appLogo.png';
 
   static const String celebration = '${_baseUrl}celebration.png';
 
