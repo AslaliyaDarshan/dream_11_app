@@ -1,6 +1,9 @@
 import 'package:dream_11_app/src/user/homeScreen/learnHowToEarnCoin.dart';
 import 'package:dream_11_app/utility/assets/images.dart';
+import 'package:dream_11_app/utility/constant/Constants.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:get/get.dart';
 
 class RewardScreen extends StatefulWidget {
   const RewardScreen({super.key});
@@ -13,100 +16,100 @@ class _RewardScreenState extends State<RewardScreen> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              height: 29,
-              color: const Color.fromRGBO(7, 37, 7, 1),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(AssetUtilities.coin),
-                  const Text(
-                    '1 Bonus Cash =₹1 *',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
+      child: Column(
+        children: [
+          Container(
+            height: 3.5.h,
+            color: const Color.fromRGBO(7, 37, 7, 1),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(AssetUtilities.coin),
+                 Text(
+                  '1 Bonus Cash =₹1 *',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15.sp,
+                  ),
+                ),
+                 CircleAvatar(
+                  radius: 12.sp,
+                  backgroundColor: Colors.white,
+                  child: Center(
+                    child: Text(
+                      '?', style: TextStyle(color: Colors.black,fontSize: 15.sp),
                     ),
                   ),
-                  const CircleAvatar(
-                    radius: 10,
-                    backgroundColor: Colors.white,
-                    child: Center(
-                      child: Text(
-                        '?',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    ),
-                  )
-                ],
-              ),
+                ),
+              ],
             ),
-            Container(
-              height: 227,
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(AssetUtilities.rewardBg),
-                      fit: BoxFit.cover)),
-              child: Column(
-                children: [
-                  Image.asset(
-                    AssetUtilities.coin,
-                    height: 59,
-                    width: 53,
+          ),
+          Container(
+            height:28.h,
+            width: 100.w,
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(AssetUtilities.rewardBg),
+                    fit: BoxFit.cover)),
+            child: Column(
+              children: [
+                Image.asset(
+                  AssetUtilities.coin,
+                  height: 8.h,
+                  width:  8.h,
+                ),
+                 Text(
+                  'Crick Coins Balance',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18.sp,
                   ),
-                  const Text(
-                    'Crick Coins Balance',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
+                ),
+                 Text(
+                  '00',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 26.sp,
                   ),
-                  const Text(
-                    '00',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 40,
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text(
-                        'My History ',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                        ),
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children:  [
+                    Text(
+                      'My History ',
+                      style: TextStyle(
                         color: Colors.white,
-                      )
-                    ],
-                  ),
-                  const Spacer(),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const LearnHowToEarnCoinScreen();
-                      }));
-                    },
+                        fontSize: 18.sp,
+                      ),
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.white,
+                      size: 15.sp,
+                    ),
+                  ],
+                ),
+                const Spacer(),
+                GestureDetector(
+                  onTap: () {
+                    Get.to(LearnHowToEarnCoinScreen());
+                    //Navigator.push(context, MaterialPageRoute(builder: (context) {return const LearnHowToEarnCoinScreen();}));
+                  },
+                  child: Align(
+                    alignment: Alignment.center,
                     child: Container(
-                      height: 37,
-                      margin: const EdgeInsets.only(
-                          left: 35, right: 35, bottom: 20),
+                      height: 4.h,
+                      width: 80.w,
+                      margin: EdgeInsets.only(bottom: 3.h),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: const Color.fromRGBO(10, 72, 7, 1)),
+                          borderRadius: BorderRadius.circular(12.sp),
+                          color: const Color.fromRGBO(10, 72, 7, 1),
+                      ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children:  [
                           CircleAvatar(
-                            radius: 10,
+                            radius: 13.sp,
                             backgroundColor: Colors.white,
                             child: Center(
                               child: Text(
@@ -116,590 +119,314 @@ class _RewardScreenState extends State<RewardScreen> {
                             ),
                           ),
                           SizedBox(
-                            width: 7,
+                            width: 2.w,
                           ),
                           Text(
                             'Learn how to earn CrickCoins',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 16,
+                              fontSize: 16.sp,
                             ),
                           ),
                         ],
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 0, right: 0, top: 7),
-              child: Row(
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Padding(
-                        padding: EdgeInsets.only(left: 14, right: 14, top: 0),
+          ),
+          Container(
+            height: 50.h,
+            child: Padding(
+              padding: EdgeInsets.only(top: 1.5.h),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                     Padding(
+                      padding: EdgeInsets.only(left: 14, right: 14, top: 0),
+                      child: Text(
+                        'Crick Coins',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 4.w),
+                      child: Container(
+                        width: 90.w,
                         child: Text(
-                          'Crick Coins',
+                          'redeem these boosters while joining any eligible contest',
                           style: TextStyle(
                               color: Colors.black,
-                              fontSize: 19,
-                              fontWeight: FontWeight.bold),
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.normal),
                         ),
                       ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width / 1.1,
-                        child: const Padding(
-                          padding: EdgeInsets.only(left: 14, right: 14, top: 0),
-                          child: Text(
-                            'redeem these boosters while joining any eligible contest',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                                fontWeight: FontWeight.normal),
-                          ),
-                        ),
+                    ),
+                     SizedBox(
+                      height: 1.5.h,
+                    ),
+                    Padding(
+                      padding:  EdgeInsets.symmetric(horizontal: 2.w),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Coin('2x',"2x CrickCoins", '40.00'),
+                          Coin('3x',"3x CrickCoins", '60.00'),
+                        ],
                       ),
-                      const SizedBox(
-                        height: 13,
+                    ),
+                    const SizedBox(
+                      height: 13,
+                    ),
+                    Padding(
+                      padding:  EdgeInsets.symmetric(horizontal: 2.w),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Coin('4x',"4x CrickCoins", '75.00'),
+                          Coin('5x',"5x CrickCoins", '100.00'),
+                        ],
                       ),
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(left: 14, right: 14, top: 0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                              height: 55,
-                              width: 150,
-                              margin: const EdgeInsets.only(right: 17),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                  border: Border.all(color: Colors.grey)),
-                              child: Stack(
-                                children: [
-                                  Container(
-                                    height: 55,
-                                    width: 30,
-                                    decoration: const BoxDecoration(
-                                        color: Color.fromRGBO(193, 255, 193, 1),
-                                        borderRadius: BorderRadius.horizontal(
-                                            left: Radius.circular(8))),
-                                  ),
-                                  Row(
-                                    // mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      const SizedBox(
-                                        width: 5,
-                                      ),
-                                      Container(
-                                        height: 34,
-                                        width: 34,
-                                        decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            border: Border.all(
-                                                color: const Color.fromRGBO(
-                                                    0, 100, 0, 1),
-                                                width: 1.5),
-                                            color: const Color.fromRGBO(
-                                                107, 190, 107, 1)),
-                                        child: const Center(
-                                          child: Text(
-                                            '2x',
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.end,
-                                        children: [
-                                          const SizedBox(
-                                            height: 8,
-                                          ),
-                                          const Text(
-                                            '3x CrickCoins',
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Image.asset(
-                                                AssetUtilities.coin,
-                                                height: 21,
-                                                width: 19,
-                                              ),
-                                              const Text(
-                                                '40.00',
-                                                style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: Colors.black,
-                                                ),
-                                              ),
-                                            ],
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                            Container(
-                              height: 55,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                  border: Border.all(color: Colors.grey)),
-                              child: Stack(
-                                children: [
-                                  Container(
-                                    height: 55,
-                                    width: 30,
-                                    decoration: const BoxDecoration(
-                                        color: Color.fromRGBO(193, 255, 193, 1),
-                                        borderRadius: BorderRadius.horizontal(
-                                            left: Radius.circular(8))),
-                                  ),
-                                  Row(
-                                    // mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      const SizedBox(
-                                        width: 5,
-                                      ),
-                                      Container(
-                                        height: 34,
-                                        width: 34,
-                                        decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            border: Border.all(
-                                                color: const Color.fromRGBO(
-                                                    0, 100, 0, 1),
-                                                width: 1.5),
-                                            color: const Color.fromRGBO(
-                                                107, 190, 107, 1)),
-                                        child: const Center(
-                                          child: Text(
-                                            '3x',
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.end,
-                                        children: [
-                                          const SizedBox(
-                                            height: 8,
-                                          ),
-                                          const Text(
-                                            '3x CrickCoins',
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Image.asset(
-                                                AssetUtilities.coin,
-                                                height: 21,
-                                                width: 19,
-                                              ),
-                                              const Text(
-                                                '60.00',
-                                                style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: Colors.black,
-                                                ),
-                                              ),
-                                            ],
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 13,
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(left: 14, right: 14, top: 0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                              height: 55,
-                              width: 150,
-                              margin: const EdgeInsets.only(right: 17),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                  border: Border.all(color: Colors.grey)),
-                              child: Stack(
-                                children: [
-                                  Container(
-                                    height: 55,
-                                    width: 30,
-                                    decoration: const BoxDecoration(
-                                        color: Color.fromRGBO(193, 255, 193, 1),
-                                        borderRadius: BorderRadius.horizontal(
-                                            left: Radius.circular(8))),
-                                  ),
-                                  Row(
-                                    // mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      const SizedBox(
-                                        width: 5,
-                                      ),
-                                      Container(
-                                        height: 34,
-                                        width: 34,
-                                        decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            border: Border.all(
-                                                color: const Color.fromRGBO(
-                                                    0, 100, 0, 1),
-                                                width: 1.5),
-                                            color: const Color.fromRGBO(
-                                                107, 190, 107, 1)),
-                                        child: const Center(
-                                          child: Text(
-                                            '2x',
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.end,
-                                        children: [
-                                          const SizedBox(
-                                            height: 8,
-                                          ),
-                                          const Text(
-                                            '3x CrickCoins',
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Image.asset(
-                                                AssetUtilities.coin,
-                                                height: 21,
-                                                width: 19,
-                                              ),
-                                              const Text(
-                                                '40.00',
-                                                style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: Colors.black,
-                                                ),
-                                              ),
-                                            ],
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                            Container(
-                              height: 55,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                  border: Border.all(color: Colors.grey)),
-                              child: Stack(
-                                children: [
-                                  Container(
-                                    height: 55,
-                                    width: 30,
-                                    decoration: const BoxDecoration(
-                                        color: Color.fromRGBO(193, 255, 193, 1),
-                                        borderRadius: BorderRadius.horizontal(
-                                            left: Radius.circular(8))),
-                                  ),
-                                  Row(
-                                    // mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      const SizedBox(
-                                        width: 5,
-                                      ),
-                                      Container(
-                                        height: 34,
-                                        width: 34,
-                                        decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            border: Border.all(
-                                                color: const Color.fromRGBO(
-                                                    0, 100, 0, 1),
-                                                width: 1.5),
-                                            color: const Color.fromRGBO(
-                                                107, 190, 107, 1)),
-                                        child: const Center(
-                                          child: Text(
-                                            '5x',
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.end,
-                                        children: [
-                                          const SizedBox(
-                                            height: 8,
-                                          ),
-                                          const Text(
-                                            '5x CrickCoins',
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Image.asset(
-                                                AssetUtilities.coin,
-                                                height: 21,
-                                                width: 19,
-                                              ),
-                                              const Text(
-                                                '100.00',
-                                                style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: Colors.black,
-                                                ),
-                                              ),
-                                            ],
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        margin: EdgeInsets.zero,
-                        decoration: const BoxDecoration(
-                            color: Color.fromRGBO(241, 238, 238, 1),
-                            borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(30))),
+                    ),
+                     SizedBox(
+                      height: 3.h,
+                    ),
+                    Container(
+
+                      width: 100.w,
+                      decoration:  BoxDecoration(
+                          color: Color.fromRGBO(241, 238, 238, 1),
+                          borderRadius: BorderRadius.vertical(top: Radius.circular(25.sp))),
+                      child: SingleChildScrollView(
+                        physics: BouncingScrollPhysics(),
                         child: Column(
                           children: [
-                            const SizedBox(
-                              height: 20,
+                             SizedBox(
+                              height: 3.h,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                // const SizedBox(
-                                //   width: 25,
-                                // ),
                                 Container(
-                                  height: 29,
-                                  width: 150,
+                                  height: 3.6.h,
+                                  width: 40.w,
                                   decoration: BoxDecoration(
                                       color: Colors.white,
-                                      borderRadius: BorderRadius.circular(8),
-                                      border: Border.all(
-                                          color: const Color.fromRGBO(
-                                              54, 130, 54, 1))),
-                                  child: const Center(
+                                      borderRadius: BorderRadius.circular(10.sp),
+                                      border: Border.all(color: const Color.fromRGBO(54, 130, 54, 1))),
+                                  child:  Center(
                                     child: Text(
                                       'Reward Shop',
                                       style: TextStyle(
-                                          color:
-                                              Color.fromRGBO(54, 130, 54, 1)),
+                                          color: Color.fromRGBO(54, 130, 54, 1),fontSize: 15.sp),
                                     ),
                                   ),
                                 ),
                                 Container(
-                                  height: 29,
-                                  width: 150,
+                                  height: 3.6.h,
+                                  width: 40.w,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(10.sp),
                                   ),
-                                  child: const Center(
+                                  child:  Center(
                                     child: Text(
                                       'My Rewards',
-                                      style: TextStyle(color: Colors.black),
+                                      style: TextStyle(color: Colors.black,fontSize: 15.sp),
                                     ),
                                   ),
                                 ),
                               ],
                             ),
-                            const SizedBox(
-                              height: 21,
-                            ),
+                            height(2.h),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Container(
-                                  height: 125,
-                                  width: 125,
+                                  height:15.h,
+                                  width: 15.h,
                                   decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      image: const DecorationImage(
-                                          image: AssetImage(
-                                              AssetUtilities.rewar1))),
+                                      borderRadius: BorderRadius.circular(11.sp),
+                                      image: const DecorationImage(image: AssetImage(AssetUtilities.rewar1))),
                                   child: Column(
                                     children: [
-                                      const SizedBox(
-                                        height: 3,
-                                      ),
-                                      Row(
-                                        children: [
-                                          const SizedBox(
-                                            width: 7,
-                                          ),
-                                          Image.asset(
-                                            AssetUtilities.coin,
-                                            height: 13,
-                                            width: 11,
-                                          ),
-                                          const Text(
-                                            '180',
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 9),
-                                          ),
-                                          const Spacer(),
-                                          CircleAvatar(
-                                            backgroundColor: Colors.white,
-                                            radius: 8,
-                                            child: Center(
-                                              child: Image.asset(
-                                                AssetUtilities.bgg,
-                                                height: 15,
-                                                width: 15,
+                                       SizedBox(height: 0.5.h,),
+                                       Padding(
+                                         padding: EdgeInsets.symmetric(horizontal: 1.5.w),
+                                         child: Row(
+                                          children: [
+                                            Image.asset(
+                                              AssetUtilities.coin,
+                                              height: 1.h,
+                                              width: 1.h,
+                                            ),
+                                             Text(
+                                              '180',
+                                              style: TextStyle(color: Colors.white, fontSize: 12.sp),
+                                            ),
+                                            const Spacer(),
+                                            CircleAvatar(
+                                              backgroundColor: Colors.white,
+                                              radius: 10.sp,
+                                              child: Center(
+                                                child: Image.asset(
+                                                  AssetUtilities.bgg,
+                                                  height: 2.h,
+                                                  width: 2.h,
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                          const SizedBox(
-                                            width: 4,
-                                          ),
-                                        ],
-                                      )
+                                          ],
+                                         ),
+                                       ),
                                     ],
                                   ),
                                 ),
                                 Container(
-                                  height: 125,
-                                  width: 125,
+                                  height:15.h,
+                                  width: 15.h,
                                   decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      image: const DecorationImage(
-                                          image: AssetImage(
-                                              AssetUtilities.rewar2))),
+                                      borderRadius: BorderRadius.circular(11.sp),
+                                      image: const DecorationImage(image: AssetImage(AssetUtilities.rewar2))),
                                   child: Column(
                                     children: [
-                                      const SizedBox(
-                                        height: 3,
+                                       SizedBox(
+                                        height: 0.5.h,
                                       ),
-                                      Row(
-                                        children: [
-                                          const SizedBox(
-                                            width: 7,
-                                          ),
-                                          Image.asset(
-                                            AssetUtilities.coin,
-                                            height: 13,
-                                            width: 11,
-                                          ),
-                                          const Text(
-                                            '180',
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 9),
-                                          ),
-                                          const Spacer(),
-                                          CircleAvatar(
-                                            backgroundColor: Colors.white,
-                                            radius: 8,
-                                            child: Center(
-                                              child: Image.asset(
-                                                AssetUtilities.bgg,
-                                                height: 15,
-                                                width: 15,
+                                      Padding(
+                                        padding:  EdgeInsets.symmetric(horizontal: 1.5.w),
+                                        child: Row(
+                                          children: [
+                                            Image.asset(
+                                              AssetUtilities.coin,
+                                              height: 1.h,
+                                              width: 1.h,
+                                            ),
+                                             Text(
+                                              '180',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 12.sp),
+                                            ),
+                                            const Spacer(),
+                                            CircleAvatar(
+                                              backgroundColor: Colors.white,
+                                              radius: 10.sp,
+                                              child: Center(
+                                                child: Image.asset(
+                                                  AssetUtilities.bgg,
+                                                  height: 2.h,
+                                                  width: 2.h,
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                          const SizedBox(
-                                            width: 4,
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       )
                                     ],
                                   ),
                                 )
                               ],
-                            )
+                            ),
+                            height(2.h),
+
                           ],
                         ),
                       ),
-                    ],
-                  ),
-                ],
+                    ),
+                  ],
+                ),
               ),
-            )
-          ],
-        ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget Coin(String txt,String name,String coin) {
+    return Container(
+      height: 7.h,
+      width: 43.w,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.sp),
+          border: Border.all(color: Colors.grey)),
+      child: Stack(
+        children: [
+          Container(
+            height:7.h,
+            width: 7.w,
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(193, 255, 193, 1),
+              borderRadius: BorderRadius.horizontal(
+                  left: Radius.circular(10.sp)
+              ),
+            ),
+          ),
+          Row(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 2.w,
+              ),
+              Container(
+                height:4.h,
+                width: 4.h,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: const Color.fromRGBO(0, 100, 0, 1), width: 5.sp),
+                    color: const Color.fromRGBO(107, 190, 107, 1)),
+                child:  Center(
+                  child: Text(
+                    txt,
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 2.w,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(name,
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      color: Colors.black,
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Image.asset(
+                        AssetUtilities.coin,
+                        height: 2.h,
+                        width: 2.h,
+                      ),
+                      Text(
+                        coin,
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              )
+            ],
+          )
+        ],
       ),
     );
   }

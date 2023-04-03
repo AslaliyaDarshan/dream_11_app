@@ -124,8 +124,8 @@ class _SingUpScreenState extends State<SingUpScreen> {
                             onChanged: ((value) {
                               isSelected = value!;
                               setState(() {});
-                            })),
-
+                            })
+                        ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
