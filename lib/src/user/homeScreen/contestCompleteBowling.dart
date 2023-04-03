@@ -148,10 +148,8 @@ class _ContestCompleteBowlingState extends State<ContestCompleteBowling> {
                                     children: [
                                       Column(
                                         children: [
-                                          text(
-                                              "Prize Pool", 17.sp, Colors.grey),
-                                          text("${rupee}5.51 Corers", 17.sp,
-                                              Colors.black),
+                                          text("Prize Pool", 17.sp, Colors.grey),
+                                          text("${rupee}5.51 Corers", 17.sp, Colors.black),
                                         ],
                                       ),
                                       Column(
@@ -182,8 +180,7 @@ class _ContestCompleteBowlingState extends State<ContestCompleteBowling> {
                                         width: 2.h,
                                       ),
                                       width(1.w),
-                                      text("${rupee}50 Lakhs", 16.sp,
-                                          Colors.black54),
+                                      text("${rupee}50 Lakhs", 16.sp, Colors.black54),
                                       const Spacer(
                                         flex: 2,
                                       ),
