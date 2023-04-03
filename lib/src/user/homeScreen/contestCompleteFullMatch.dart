@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import 'contestCompleteFullMatchPlayerStatus.dart';
+
 class ContestCompleteFullMatch extends StatefulWidget {
   const ContestCompleteFullMatch({Key? key}) : super(key: key);
 
@@ -548,7 +550,10 @@ class _ContestCompleteFullMatchState extends State<ContestCompleteFullMatch> {
                                 children: List.generate(
                                     15,
                                     (index) => InkWell(
-                                          onTap: () {},
+                                          onTap: () {
+                                            Get.to(
+                                                const ContestCompleteFullMatchPlayerStatus());
+                                          },
                                           child: Container(
                                             height: 7.h,
                                             padding: EdgeInsets.symmetric(
@@ -579,9 +584,9 @@ class _ContestCompleteFullMatchState extends State<ContestCompleteFullMatch> {
                                                       MainAxisAlignment.center,
                                                   children: [
                                                     text("Kieron Pollard",
-                                                        17.sp, Colors.black),
-                                                    text("ind - allRounder",
                                                         16.sp, Colors.black),
+                                                    text("ind - allRounder",
+                                                        15.sp, Colors.black),
                                                   ],
                                                 ),
                                                 const Spacer(),

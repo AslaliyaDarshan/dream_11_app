@@ -279,5 +279,18 @@ class AssetUtilities {
   static const String arrow = '${_baseUrl}arrow.png';
 
   static const String coin1 = '${_baseUrl}coin1.png';
+
   static String contestCompleted = "${_baseUrl}contestCompleted.png";
+
+  static String modelSheetBating = "${_baseUrl}bating.gif";
+
+  static String modelSheetBatingImg = "${_baseUrl}bating.png";
+
+  static String modelSheetBowling = "${_baseUrl}bowling.gif";
+
+  static String modelSheetBowlingImg = "${_baseUrl}bowling.png";
+
+  static String modelSheetReverse = "${_baseUrl}reverse.gif";
+
+  static String modelSheetReverseImg = "${_baseUrl}reverse.png";
 }

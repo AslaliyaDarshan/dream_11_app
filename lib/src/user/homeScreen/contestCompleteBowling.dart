@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import 'contestCompleteFullMatchPlayerStatus.dart';
+
 class ContestCompleteBowling extends StatefulWidget {
   const ContestCompleteBowling({Key? key}) : super(key: key);
 
@@ -528,46 +530,53 @@ class _ContestCompleteBowlingState extends State<ContestCompleteBowling> {
                           child: SingleChildScrollView(
                             child: Column(
                               children: List.generate(
-                                15,
-                                (index) => Container(
-                                  height: 7.h,
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 2.w),
-                                  alignment: Alignment.center,
-                                  decoration: const BoxDecoration(
-                                    border: Border(
-                                      bottom: BorderSide(
-                                          width: 2, color: Colors.black),
-                                    ),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      SizedBox(
-                                        height: 5.5.h,
-                                        width: 5.5.h,
-                                        child: Image.asset(index.isEven
-                                            ? AssetUtilities.viratkohli
-                                            : AssetUtilities.suryo),
-                                      ),
-                                      width(4.w),
-                                      Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          text("Kieron Pollard", 17.sp,
-                                              Colors.black),
-                                          text("ind - allRounder", 16.sp,
-                                              Colors.black),
-                                        ],
-                                      ),
-                                      const Spacer(),
-                                      text("100", 17.sp, Colors.black),
-                                      width(12.w),
-                                      text("150.5", 17.sp, Colors.black),
-                                    ],
-                                  ),
-                                ),
-                              ),
+                                  15,
+                                  (index) => InkWell(
+                                        onTap: () {
+                                          Get.to(
+                                              const ContestCompleteFullMatchPlayerStatus());
+                                        },
+                                        child: Container(
+                                          height: 7.h,
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 2.w),
+                                          alignment: Alignment.center,
+                                          decoration: const BoxDecoration(
+                                            border: Border(
+                                              bottom: BorderSide(
+                                                  width: 2,
+                                                  color: Colors.black),
+                                            ),
+                                          ),
+                                          child: Row(
+                                            children: [
+                                              SizedBox(
+                                                height: 5.5.h,
+                                                width: 5.5.h,
+                                                child: Image.asset(index.isEven
+                                                    ? AssetUtilities.viratkohli
+                                                    : AssetUtilities.suryo),
+                                              ),
+                                              width(4.w),
+                                              Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  text("Kieron Pollard", 16.sp,
+                                                      Colors.black),
+                                                  text("ind - allRounder",
+                                                      15.sp, Colors.black),
+                                                ],
+                                              ),
+                                              const Spacer(),
+                                              text("100", 17.sp, Colors.black),
+                                              width(12.w),
+                                              text(
+                                                  "150.5", 17.sp, Colors.black),
+                                            ],
+                                          ),
+                                        ),
+                                      )),
                             ),
                           ),
                         ),

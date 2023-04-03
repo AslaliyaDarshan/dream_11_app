@@ -48,7 +48,7 @@ class _ContestCompletedScreenState extends State<ContestCompletedScreen> {
                           },
                           child: Icon(
                             Icons.arrow_back,
-                            size: 24.sp,
+                            size: 21.sp,
                             color: Colors.white,
                           ),
                         ),
